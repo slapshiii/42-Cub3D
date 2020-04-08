@@ -6,7 +6,7 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
-#    Updated: 2020/04/08 16:21:54 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/04/08 19:46:18 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,12 @@ MLXDIR = minilibx/
 
 HEADER = include/
 
-SRCS = srcs/main.c srcs/game.c srcs/error_handler.c srcs/parser_param.c srcs/window.c
+SRCS = 	srcs/main.c\
+		srcs/game.c\
+		srcs/error_handler.c\
+		srcs/parser_param.c\
+		srcs/checker_param.c\
+		srcs/window.c\
 
 OBJS = $(SRC:.c=.o)
 
@@ -42,7 +47,7 @@ LIBS = 	$(LIBFTDIR)libft.a\
 
 all: $(NAME)
 
-$(NAME): $(SRCS) $(LIBS)
+$(NAME): $(SRCS) $(LIBS) $(HEADER)
 	$(CC) $(FLAGS) -I$(HEADER) $(SRCS) $(LIBS) -o $(NAME)
 
 $(LIBS):

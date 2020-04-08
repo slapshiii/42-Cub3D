@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 17:21:32 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/04/08 17:23:28 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/04/08 19:33:01 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 
 # define SUCCESS 0
 # define ERROR -1
+
+# define CHARSET_MAP " 012NSEW"
+# define CHARSET_INMAP "012NSEW"
+# define CHARSET_NOTWALL "02NSEW"
+# define CHARSET_NOTVALID " \n\0"
+# define CHARSET_SPAWN "NSEW"
 
 typedef struct  param_s
 {
