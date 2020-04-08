@@ -6,20 +6,21 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:37:59 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/04/08 15:51:59 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/04/08 16:21:12 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cub3d.h>
+#include "cub3d.h"
+#include "libft.h"
 
-int     main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	game_t	*g;
 	int		screen;
 
 	screen = 0;
 	g = NULL;
-	if(ac == 3 && (ft_strcmp(av[1], "--save") == 0))
+	if(ac == 3 && (ft_strncmp(av[2], "--save", 7) == 0))
 		screen = 1;
 	if(ac == (2 + screen))
     {

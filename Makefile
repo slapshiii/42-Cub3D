@@ -6,7 +6,7 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
-#    Updated: 2020/04/08 15:47:07 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/04/08 16:21:54 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ MLXDIR = minilibx/
 
 HEADER = include/
 
-SRCS = srcs/main.c srcs/game.c srcs/error_handler.c srcs/parser_param.c srcs/window.c 
+SRCS = srcs/main.c srcs/game.c srcs/error_handler.c srcs/parser_param.c srcs/window.c
 
 OBJS = $(SRC:.c=.o)
 
@@ -33,26 +33,28 @@ MLXFLAG = -lmlx -lXext -lX11
 
 MINILIBX = -L minilibx $(MLXFLAG)
 
-HEADER = include
+HEADER = include/
 
-LIBS = $(LIBFTDIR)libft.a $(GNLDIR)get_next_line.a $(MLXDIR)libmlx.a
+LIBS = 	$(LIBFTDIR)libft.a\
+		$(GNLDIR)get_next_line.a\
+#		$(MLXDIR)libmlx.a
 
 
 all: $(NAME)
 
+$(NAME): $(SRCS) $(LIBS)
+	$(CC) $(FLAGS) -I$(HEADER) $(SRCS) $(LIBS) -o $(NAME)
+
 $(LIBS):
 	make -C $(LIBFTDIR)
 	make -C $(GNLDIR)
-	make -C $(MLXDIR)
-
-$(NAME): $(SRC) $(LIBS)
-	$(CC) $(FLAGS) $(MINILIBX) -L $(LIBS) -I$(HEADER) $(SRCS) -o $(NAME)
+#	make -C $(MLXDIR)
 
 clean:
 	rm -rf $(OBJS)
 	make clean -C $(LIBFTDIR)
 	make clean -C $(GNLDIR)
-	make clean -C $(MLXDIR)
+#	make clean -C $(MLXDIR)
 
 fclean: clean
 	rm -f $(NAME)
