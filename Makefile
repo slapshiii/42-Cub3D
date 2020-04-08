@@ -6,19 +6,21 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
-#    Updated: 2020/04/08 14:20:06 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/04/08 15:47:07 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Cub3D
 
-LIBS = libft/libft.a
-
 LIBFTDIR = libft/
+
+GNLDIR = get_next_line/
+
+MLXDIR = minilibx/
 
 HEADER = include/
 
-SRCS = srcs/main.c srcs/parser_param.c srcs/window.c
+SRCS = srcs/main.c srcs/game.c srcs/error_handler.c srcs/parser_param.c srcs/window.c 
 
 OBJS = $(SRC:.c=.o)
 
@@ -26,27 +28,39 @@ CC = gcc
 
 FLAGS = -Wall -Wextra -Werror
 
-MINILIBX = -L minilibx -lmlx -framework OpenGL -framework AppKit
+MLXFLAG = -lmlx -lXext -lX11
+#MLXFLAG = -lmlx -framework OpenGL -framework AppKit
 
-HEADER = srcs/cub3d.h
+MINILIBX = -L minilibx $(MLXFLAG)
+
+HEADER = include
+
+LIBS = $(LIBFTDIR)libft.a $(GNLDIR)get_next_line.a $(MLXDIR)libmlx.a
+
 
 all: $(NAME)
 
 $(LIBS):
 	make -C $(LIBFTDIR)
+	make -C $(GNLDIR)
+	make -C $(MLXDIR)
 
-$(NAME): $(SRC)
-	$(CC) $(FLAGS) $(MINILIBX) -L. -lft $(SRCS) -o $(NAME)
+$(NAME): $(SRC) $(LIBS)
+	$(CC) $(FLAGS) $(MINILIBX) -L $(LIBS) -I$(HEADER) $(SRCS) -o $(NAME)
 
 clean:
 	rm -rf $(OBJS)
 	make clean -C $(LIBFTDIR)
+	make clean -C $(GNLDIR)
+	make clean -C $(MLXDIR)
 
 fclean: clean
 	rm -f $(NAME)
 	make fclean -C $(LIBFTDIR)
+	make fclean -C $(GNLDIR)
 
 re: fclean all
 	make re -C $(LIBFTDIR)
+	make re -C $(GNLDIR)
 
 .PHONY : all clean fclean re
