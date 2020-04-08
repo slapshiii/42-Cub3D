@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:50:41 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/04/08 14:55:10 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/04/08 17:49:03 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,13 @@
 # define PARSER_PARAM_H
 
 # include <libft.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
+# include "cub3d.h"
+# include "struct.h"
 
-typedef struct  param_s
-{
-    int     res_w;
-    int     res_h;
-    char    *path_no;
-    char    *path_so;
-    char    *path_we;
-    char    *path_ea;
-    char    *path_sprite;
-    int     color_floor;
-    int     color_ceiling;
-    char    **map;
-}               param_t;
-
-
+int check_file(char **tab, int index, game_t *g);
+int parser_param(game_t *g, char *path);
 
 #endif

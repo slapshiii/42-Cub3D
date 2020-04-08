@@ -6,18 +6,17 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 15:32:39 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/04/08 16:07:21 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/04/08 17:18:22 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3d.h>
+#include "parser_param.h"
 
 void    ft_game(game_t *g, int screen, char *path)
 {
-    free(g);
-    screen++;
-    ft_putstr_fd("GAME\n", 1);
-    if(path)
-        exit(0);
-    exit(0);
+    if (parser_param(g, path) != 0)
+        error_exit("Parsing Error", g);
+    if (screen)
+        return;
 }

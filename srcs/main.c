@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:37:59 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/04/08 16:21:12 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/04/08 17:38:01 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ int	main(int ac, char **av)
     }
     else
         error_exit("Error: Too much/Too few argument.\n", g);
-    return (0);
+    exit(0);
 }

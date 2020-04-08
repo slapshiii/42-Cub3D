@@ -6,21 +6,11 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:57:55 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/04/08 14:57:57 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/04/08 17:25:21 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-size_t	ft_strlen(const char *str)
-{
-	size_t i;
-
-	i = 0;
-	while (str && str[i] != '\0')
-		i++;
-	return (i);
-}
 
 size_t	ft_strclen(const char *str, int c)
 {

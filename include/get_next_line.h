@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:57:39 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/04/08 14:57:42 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/04/08 17:25:06 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@
 # include <stdio.h>
 # include <unistd.h>
 # include "fcntl.h"
+# include "libft.h"
 
 int		get_next_line(int fd, char **line);
-size_t	ft_strlen(const char *str);
 size_t	ft_strclen(const char *str, int c);
 char	*ft_strcpy(char *dest, char *src);
 char	*ft_strchr(const char *s, int c);
