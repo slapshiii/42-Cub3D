@@ -6,17 +6,32 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 15:26:04 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/04/08 21:43:17 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/04/09 15:02:59 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "parser_param.h"
 
+void    clear_path(param_t *p)
+{
+    if(p->path_no)
+        free(p->path_no);
+    if(p->path_so)
+        free(p->path_so);
+    if(p->path_we)
+        free(p->path_we);
+    if(p->path_ea)
+        free(p->path_ea);
+    if(p->path_sprite)
+        free(p->path_sprite);
+    if(p->map)
+        clear_tab(p->map, 0);
+}
+
 void    clear_game(game_t *g)
 {
-    if(g->p->map)
-        clear_tab(g->p->map, 0);
+    clear_path(g->p);
     if(g->p)
         free(g->p);
     if(g)
@@ -48,7 +63,6 @@ void    clear_tab(char **tab, int max)
 void    error_exit(char *msg, game_t *g)
 {
     ft_putstr_fd(msg, 2);
-    if(g)
-        exit(1);
+    clear_game(g);
     exit(1);
 }

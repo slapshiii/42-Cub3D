@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:39:15 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/04/08 19:04:35 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/04/09 14:54:54 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "libft.h"
 # include "struct.h"
 
+void    clear_path(param_t *p);
 void    clear_game(game_t *g);
 void    clear_tab(char **tab, int max);
 void    error_exit(char *msg, game_t *g);

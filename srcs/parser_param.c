@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:37:57 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/04/08 21:49:16 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/04/09 15:06:53 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int check_file(char **tab, int index, game_t *g)
 {
     int     i;
     char    **split;
+    int     res;
 
     i = 0;
     while (i <= index)
@@ -26,19 +27,15 @@ int check_file(char **tab, int index, game_t *g)
         split = ft_split(tab[i], ' ');
         if (split[0])
         {
-            // if(check_param(split, g->p) == 0)
-            //     {};
-            // else if(check_map(tab, g->p, i) == 0)
-            //     return (check_config(g->p));
-            // else
-            // {
-            //     clear_tab(split, 0);
-            //     return (1);
-            // }
-            clear_tab(split, 0);
+            res = 0;
+            if((res = check_param(split, g->p)))
+                res = 1;
+            // else if(res == 0 && (res = check_map(tab, g->p, i)))
+            //     res = 1;
         }
-        if (split)
-            free(split);
+        clear_tab(split, 0);
+        if (res == 0)
+            return (1);
         i++;
     }
     return (0);
