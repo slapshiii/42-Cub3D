@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 15:26:04 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/04/09 20:42:12 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/04/09 21:54:31 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,15 @@ void    clear_path(param_t *p)
 
 void    clear_game(game_t *g)
 {
-    if(g->p)
-    {
-        clear_path(g->p);
-        free(g->p);
-    }
     if(g)
+    {
+        if(g->p)
+        {
+            clear_path(g->p);
+            free(g->p);
+        }
         free(g);
+    }
 }
 
 void    clear_tab(char **tab, int max)
