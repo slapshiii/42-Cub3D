@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:37:57 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/04/09 20:26:23 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/04/09 21:33:46 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ int parser_param(game_t *g, char *path)
             if (check_file(temp, i, g) == 0)
             {
                 clear_tab(temp, i);
+                if(check_config(g->p))
+                    return(1);
                 return(0);
             }
             clear_tab(temp, i);
