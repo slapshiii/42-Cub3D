@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 19:45:35 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/04/09 21:51:24 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/04/10 21:59:49 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,14 @@ int handle_color(char *rgb)
 {
     int res;
 
+    if(ft_atoi(rgb) < 0 || ft_atoi(rgb) > 255)
+        return (0);
     res = ft_atoi(rgb)<<16;
+    if(ft_atoi(ft_strchr(rgb, ',') + 1) < 0 || ft_atoi(ft_strchr(rgb, ',') + 1) > 255)
+        return (0);
     res += ft_atoi(ft_strchr(rgb, ',') + 1)<<8;
+    if(ft_atoi(ft_strrchr(rgb, ',') + 1) < 0 || ft_atoi(ft_strrchr(rgb, ',') + 1) > 255)
+        return (0);
     res += ft_atoi(ft_strrchr(rgb, ',') + 1);
     return (res);
 }
@@ -44,6 +50,17 @@ int check_map_valid(param_t *p)
                 || !ft_strchr("012NSWE", p->map[y + 1][x - 1])
                 || !ft_strchr("012NSWE", p->map[y - 1][x - 1])))
                 return(1);
+            if(ft_strchr("NSWE", p->map[y][x]))
+            {
+                if(p->spawn_x != 0)
+                    return(1);
+                else
+                {
+                    p->spawn_dir = p->map[y][x];
+                    p->spawn_x = x;
+                    p->spawn_y = y;
+                }
+            }
             x++;
         }
         y++;
@@ -55,8 +72,8 @@ int check_param(char **split, param_t *p)
 {
     if(ft_strncmp(split[0], "R", 1) == 0 && !p->res_h)
     {
-        p->res_w = ft_atoi(split[1]);
-        p->res_h = ft_atoi(split[2]);
+        if((p->res_w = ft_atoi(split[1])) < 0 || (p->res_h = ft_atoi(split[2])) < 0)
+            return (0);
     }
     else if(ft_strncmp(split[0], "NO", 2) == 0 && !p->path_no)
         p->path_no = ft_strdup(split[1]);
@@ -99,10 +116,23 @@ int check_map(char **tab, param_t *p, int offset, int max)
 
 int check_config(param_t *p)
 {
+    int i = 0;
     if (!p->res_h || !p->res_w
     || !p->path_no || !p->path_so || !p->path_we || !p->path_ea
     || !p->path_sprite || !p->color_floor || !p->color_ceiling
-    || !p->map)
+    || !p->map || !p->spawn_dir)
         return(1);
+    printf("%d %d\n%s %s %s %s\n%s\n%d %d %d\n%d %d %d\n%c\n", 
+        p->res_h, p->res_w,
+        p->path_no, p->path_so, p->path_ea, p->path_we,
+        p->path_sprite,
+        p->color_floor>>16, p->color_floor>>8&0x00FF, p->color_floor&0x00FF,
+        p->color_ceiling>>16, p->color_ceiling>>8&0x00FF, p->color_ceiling&0x00FF,
+        p->spawn_dir);
+    while(p->map[i])
+    {
+        printf("%s\n", p->map[i]);
+        i++;
+    }
     return (0);
 }

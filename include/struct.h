@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 17:21:32 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/04/09 20:40:56 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/04/10 17:12:45 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ typedef struct  param_s
     char    *path_sprite;
     int     color_floor;
     int     color_ceiling;
+    int     spawn_x;
+    int     spawn_y;
+    char    spawn_dir;
     char    **map;
 }               param_t;
 
