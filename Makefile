@@ -6,7 +6,7 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
-#    Updated: 2020/04/08 19:46:18 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/06/18 14:23:22 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,8 @@ CC = gcc
 
 FLAGS = -Wall -Wextra -Werror
 
-MLXFLAG = -lmlx -lXext -lX11
-#MLXFLAG = -lmlx -framework OpenGL -framework AppKit
+#MLXFLAG = -lmlx -lXext -lX11
+MLXFLAG = -lmlx -framework OpenGL -framework AppKit
 
 MINILIBX = -L minilibx $(MLXFLAG)
 
@@ -42,7 +42,7 @@ HEADER = include/
 
 LIBS = 	$(LIBFTDIR)libft.a\
 		$(GNLDIR)get_next_line.a\
-#		$(MLXDIR)libmlx.a
+		$(MLXDIR)libmlx.dylib
 
 
 all: $(NAME)
@@ -53,13 +53,15 @@ $(NAME): $(SRCS) $(LIBS) $(HEADER)
 $(LIBS):
 	make -C $(LIBFTDIR)
 	make -C $(GNLDIR)
-#	make -C $(MLXDIR)
+	make -C $(MLXDIR)
+	cp $(MLXDIR)libmlx.dylib .
 
 clean:
 	rm -rf $(OBJS)
 	make clean -C $(LIBFTDIR)
 	make clean -C $(GNLDIR)
-#	make clean -C $(MLXDIR)
+	make clean -C $(MLXDIR)
+	rm -rf libmlx.dylib
 
 fclean: clean
 	rm -f $(NAME)
