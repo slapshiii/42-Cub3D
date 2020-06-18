@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game.c                                             :+:      :+:    :+:   */
+/*   parser_file.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/08 15:32:39 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/06/18 14:33:55 by phnguyen         ###   ########.fr       */
+/*   Created: 2020/06/18 14:34:56 by phnguyen          #+#    #+#             */
+/*   Updated: 2020/06/18 14:49:20 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cub3d.h>
 #include "parser_param.h"
+#include "get_next_line.h"
+#include "cub3d.h"
 
-void    ft_game(game_t *g, int screen, char *path)
+int parser_file(game_t *g)
 {
-    if (parser_param(g, path) != 0)
-        error_exit("Parsing Error\n", g);
-    if (parser_file(g) != 0)
-        error_exit("Not a valid file\n", g);
-    if (screen)
-        screen--;
-    clear_game(g);
+    if (g)
+        ;
+    return (0);
 }

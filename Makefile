@@ -6,7 +6,7 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
-#    Updated: 2020/06/18 14:23:22 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/06/18 14:34:37 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRCS = 	srcs/main.c\
 		srcs/game.c\
 		srcs/error_handler.c\
 		srcs/parser_param.c\
+		srcs/parser_file.c\
 		srcs/checker_param.c\
 		srcs/window.c\
 
