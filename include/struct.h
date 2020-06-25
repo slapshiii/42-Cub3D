@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 17:21:32 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/04/10 17:12:45 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/06/25 16:36:29 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,22 @@ typedef struct  param_s
     char    **map;
 }               param_t;
 
+typedef struct  image_s
+{
+	void			*img;
+	int             *data;
+	int				bpp;
+	int				sizeline;
+	int				endian;
+    int             height;
+    int             width;
+}               image_t;
+
 typedef struct  game_s
 {
     param_t *p;
+    void    *mlx_ptr;
+    image_t texture[5];
 }               game_t;
 
 #endif
