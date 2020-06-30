@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:39:15 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/06/25 16:53:38 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/06/30 15:14:10 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "parser_param.h"
 # include "libft.h"
 # include "struct.h"
-# include "mlx.h"
+# include <mlx.h>
 
 void    clear_path(param_t *p);
 void    clear_game(game_t *g);

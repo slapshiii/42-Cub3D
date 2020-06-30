@@ -1,11 +1,11 @@
   
-R 214748368 1441   
-NO ./path_to_the_north_texture  
-SO      ./path_to_the_south_texture 
-WE          ./path_to_the_west_texture
-EA                 ./path_to_the_east_texture
+R 25433563 1356   
+NO texture/north.xpm  
+SO      texture/north.xpm  
+WE          texture/north.xpm  
+EA                 texture/north.xpm  
 
-S     ./path_to_the_sprite_texture
+S     texture/north.xpm  
 
 F 220,100,0
 C 255,30,00
