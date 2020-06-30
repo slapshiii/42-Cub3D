@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 17:21:32 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/06/25 16:36:29 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/06/30 18:53:09 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,18 @@ typedef struct  game_s
 {
     param_t *p;
     void    *mlx_ptr;
+    void    *win_ptr;
     image_t texture[5];
+
+    uint16_t key_w:1;
+    uint16_t key_s:1;
+    uint16_t key_a:1;
+    uint16_t key_d:1;
+    uint16_t key_q:1;
+    uint16_t key_e:1;
+
+    uint16_t remain:10;
+
 }               game_t;
 
 #endif

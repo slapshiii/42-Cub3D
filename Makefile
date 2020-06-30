@@ -6,7 +6,7 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
-#    Updated: 2020/06/23 12:10:37 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/06/30 17:48:16 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRCS = 	srcs/main.c\
 		srcs/parser_file.c\
 		srcs/checker_param.c\
 		srcs/window.c\
+		srcs/hook.c\
 
 OBJS = $(SRC:.c=.o)
 
@@ -37,8 +38,9 @@ FLAGS = -Wall -Wextra -Werror
 
 #MLXFLAG = -lmlx -lXext -lX11
 MLXFLAG = -lmlx -framework OpenGL -framework AppKit
+#MLXFLAG = -I/usr/X11/include -lmlx -framework OpenGL -framework AppKit
 
-MINILIBX = -L minilibx $(MLXFLAG)
+#MINILIBX = -L minilibx $(MLXFLAG)
 
 HEADER = include/
 
