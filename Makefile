@@ -6,7 +6,11 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
+<<<<<<< HEAD
 #    Updated: 2020/04/16 15:59:04 by phnguyen         ###   ########.fr        #
+=======
+#    Updated: 2020/06/30 17:48:16 by phnguyen         ###   ########.fr        #
+>>>>>>> b4851f8586385410ca7e80ce993c541d26defdaf
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,9 +28,11 @@ SRCS = 	srcs/main.c\
 		srcs/game.c\
 		srcs/error_handler.c\
 		srcs/parser_param.c\
+		srcs/init_mlx.c\
+		srcs/parser_file.c\
 		srcs/checker_param.c\
 		srcs/window.c\
-		srcs/parser_data.c\
+		srcs/hook.c\
 
 OBJS = $(SRC:.c=.o)
 
@@ -34,16 +40,17 @@ CC = gcc
 
 FLAGS = -Wall -Wextra -Werror
 
-MLXFLAG = -lmlx -lXext -lX11
-#MLXFLAG = -lmlx -framework OpenGL -framework AppKit
+#MLXFLAG = -lmlx -lXext -lX11
+MLXFLAG = -lmlx -framework OpenGL -framework AppKit
+#MLXFLAG = -I/usr/X11/include -lmlx -framework OpenGL -framework AppKit
 
-MINILIBX = -L minilibx $(MLXFLAG)
+#MINILIBX = -L minilibx $(MLXFLAG)
 
 HEADER = include/
 
 LIBS = 	$(LIBFTDIR)libft.a\
 		$(GNLDIR)get_next_line.a\
-		$(MLXDIR)libmlx.a
+		$(MLXDIR)libmlx.dylib
 
 
 all: $(NAME)
@@ -54,13 +61,15 @@ $(NAME): $(SRCS) $(LIBS) $(HEADER)
 $(LIBS):
 	make -C $(LIBFTDIR)
 	make -C $(GNLDIR)
-#	make -C $(MLXDIR)
+	make -C $(MLXDIR)
+	cp $(MLXDIR)libmlx.dylib .
 
 clean:
 	rm -rf $(OBJS)
 	make clean -C $(LIBFTDIR)
 	make clean -C $(GNLDIR)
-#	make clean -C $(MLXDIR)
+	make clean -C $(MLXDIR)
+	rm -rf libmlx.dylib
 
 fclean: clean
 	rm -f $(NAME)

@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 19:45:35 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/04/10 21:59:49 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/06/25 16:07:42 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ int check_map_valid(param_t *p)
             if(ft_strchr("02NSWE", p->map[y][x])
                 && (y == 0 || x == 0
                 || x == (ft_strlen(p->map[y]) - 1) || p->map[y + 1] == 0
-                || !ft_strchr("012NSWE", p->map[y + 1][x + 1])
-                || !ft_strchr("012NSWE", p->map[y - 1][x + 1])
-                || !ft_strchr("012NSWE", p->map[y + 1][x - 1])
-                || !ft_strchr("012NSWE", p->map[y - 1][x - 1])))
+                || ft_strchr(" \0", p->map[y + 1][x])
+                || ft_strchr(" \0", p->map[y - 1][x])
+                || ft_strchr(" \0", p->map[y][x - 1])
+                || ft_strchr(" \0", p->map[y][x - 1])))
                 return(1);
             if(ft_strchr("NSWE", p->map[y][x]))
             {
