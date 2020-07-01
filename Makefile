@@ -6,7 +6,7 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
-#    Updated: 2020/04/08 19:46:18 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/04/16 15:59:04 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRCS = 	srcs/main.c\
 		srcs/parser_param.c\
 		srcs/checker_param.c\
 		srcs/window.c\
+		srcs/parser_data.c\
 
 OBJS = $(SRC:.c=.o)
 
@@ -42,13 +43,13 @@ HEADER = include/
 
 LIBS = 	$(LIBFTDIR)libft.a\
 		$(GNLDIR)get_next_line.a\
-#		$(MLXDIR)libmlx.a
+		$(MLXDIR)libmlx.a
 
 
 all: $(NAME)
 
 $(NAME): $(SRCS) $(LIBS) $(HEADER)
-	$(CC) $(FLAGS) -I$(HEADER) $(SRCS) $(LIBS) -o $(NAME)
+	$(CC) $(FLAGS) -I$(HEADER) $(SRCS) -o $(NAME) $(LIBS)
 
 $(LIBS):
 	make -C $(LIBFTDIR)

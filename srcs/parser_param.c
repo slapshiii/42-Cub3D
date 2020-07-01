@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:37:57 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/04/09 21:33:46 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/04/11 14:21:16 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int check_file(char **tab, int index, game_t *g)
                 index = 0;
         }
         clear_tab(split, 0);
-        if (res == 0 && printf("test"))
+        if (res == 0)
             return (1);
         i++;
     }
