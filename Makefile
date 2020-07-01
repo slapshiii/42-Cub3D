@@ -6,7 +6,11 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
+<<<<<<< HEAD
+#    Updated: 2020/04/16 15:59:04 by phnguyen         ###   ########.fr        #
+=======
 #    Updated: 2020/06/30 17:48:16 by phnguyen         ###   ########.fr        #
+>>>>>>> b4851f8586385410ca7e80ce993c541d26defdaf
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +56,7 @@ LIBS = 	$(LIBFTDIR)libft.a\
 all: $(NAME)
 
 $(NAME): $(SRCS) $(LIBS) $(HEADER)
-	$(CC) $(FLAGS) -I$(HEADER) $(SRCS) $(LIBS) -o $(NAME)
+	$(CC) $(FLAGS) -I$(HEADER) $(SRCS) -o $(NAME) $(LIBS)
 
 $(LIBS):
 	make -C $(LIBFTDIR)

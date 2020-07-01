@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   parser_data.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/08 14:39:15 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/01 11:49:20 by phnguyen         ###   ########.fr       */
+/*   Created: 2020/04/16 13:53:32 by phnguyen          #+#    #+#             */
+/*   Updated: 2020/04/16 15:21:56 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "cub3d.h"
+#include "parser_param.h"
 
-# include "parser_param.h"
-# include "libft.h"
-# include "struct.h"
-# include <mlx.h>
-//# include <X11/X.h>
-
-void    clear_path(param_t *p);
-void    clear_game(game_t *g);
-void    clear_tab(char **tab, int max);
-void    error_exit(char *msg, game_t *g);
-void    ft_game(game_t *g, int screen, char *path);
-
-int     make_window(game_t *g);
-
-#endif
+int get_data(game_t *g)
+{
+    if (!(g->d = (data_t*)malloc(sizeof(data_t))))
+        return (0);
+    bzero(g->d, sizeof(data_t));
+    g->d->mlx_ptr = mlx_init();
+    if(!(g->d->img_ptr[0] = mlx_xpm_file_to_image(g->d->mlx_ptr, g->p->path_no, 0, 0)))
+        return (0);
+    return (1);
+}
