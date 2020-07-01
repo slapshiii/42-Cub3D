@@ -6,11 +6,7 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
-<<<<<<< HEAD
-#    Updated: 2020/04/16 15:59:04 by phnguyen         ###   ########.fr        #
-=======
-#    Updated: 2020/06/30 17:48:16 by phnguyen         ###   ########.fr        #
->>>>>>> b4851f8586385410ca7e80ce993c541d26defdaf
+#    Updated: 2020/07/01 18:06:55 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +29,7 @@ SRCS = 	srcs/main.c\
 		srcs/checker_param.c\
 		srcs/window.c\
 		srcs/hook.c\
+		srcs/move.c\
 
 OBJS = $(SRC:.c=.o)
 

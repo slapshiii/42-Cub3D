@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 19:45:35 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/06/25 16:07:42 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/01 17:14:55 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int check_map_valid(param_t *p)
     unsigned int y;
 
     y = 0;
+    p->max_x = 0;
     while(p->map[y])
     {
         x = 0;
@@ -63,8 +64,10 @@ int check_map_valid(param_t *p)
             }
             x++;
         }
+        p->max_x = ((int)x > p->max_x) ? x : p->max_x;
         y++;
     }
+    p->max_y = y;
     return(0);
 }
 

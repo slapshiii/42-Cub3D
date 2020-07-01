@@ -6,11 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 17:21:32 by phnguyen          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2020/04/16 15:17:46 by phnguyen         ###   ########.fr       */
-=======
-/*   Updated: 2020/06/30 18:53:09 by phnguyen         ###   ########.fr       */
->>>>>>> b4851f8586385410ca7e80ce993c541d26defdaf
+/*   Updated: 2020/07/01 17:30:33 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +37,8 @@ typedef struct  param_s
     int     spawn_y;
     char    spawn_dir;
     char    **map;
+    int     max_x;
+    int     max_y;
 }               param_t;
 
 typedef struct  image_s
@@ -54,12 +52,28 @@ typedef struct  image_s
     int             width;
 }               image_t;
 
+typedef struct  vect_s
+{
+    double  x;
+    double  y;
+}               vect_t;
+
+typedef struct  coord_s
+{
+    double  x;
+    double  y;
+}               coord_t;
+
 typedef struct  game_s
 {
     param_t *p;
     void    *mlx_ptr;
     void    *win_ptr;
     image_t texture[5];
+    image_t screen;
+
+    coord_t player;
+    vect_t  player_dir;
 
     uint16_t key_w:1;
     uint16_t key_s:1;
@@ -67,7 +81,6 @@ typedef struct  game_s
     uint16_t key_d:1;
     uint16_t key_q:1;
     uint16_t key_e:1;
-
     uint16_t remain:10;
 
 }               game_t;

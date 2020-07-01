@@ -54,17 +54,16 @@ int exit_hook(game_t *g)
 int loop(game_t *g)
 {
     if (g->key_w == 1)
-        printf("W\n");
+        move_up(g);
     if (g->key_s == 1)
-        printf("S\n");
+        move_down(g);
     if (g->key_a == 1)
-        printf("A\n");
+        move_left(g);
     if (g->key_d == 1)
-        printf("D\n");
+        move_right(g);
     if (g->key_q == 1)
         printf("Q\n");
     if (g->key_e == 1)
         printf("E\n");
-    
     return (0);
 }
