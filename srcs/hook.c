@@ -62,8 +62,8 @@ int loop(game_t *g)
     if (g->key_d == 1)
         move_right(g);
     if (g->key_q == 1)
-        printf("Q\n");
+        turn_left(g);
     if (g->key_e == 1)
-        printf("E\n");
+        turn_right(g);
     return (0);
 }

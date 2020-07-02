@@ -32,4 +32,7 @@ void    move_down(game_t *g);
 void    move_left(game_t *g);
 void    move_right(game_t *g);
 
+void turn_left(game_t *g);
+void turn_right(game_t *g);
+
 #endif

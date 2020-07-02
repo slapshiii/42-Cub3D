@@ -6,7 +6,7 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
-#    Updated: 2020/07/01 18:06:55 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/07/03 00:14:37 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRCS = 	srcs/main.c\
 		srcs/window.c\
 		srcs/hook.c\
 		srcs/move.c\
+		srcs/raycasting.c\
 
 OBJS = $(SRC:.c=.o)
 

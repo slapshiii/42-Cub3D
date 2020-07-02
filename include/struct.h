@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 17:21:32 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/01 19:05:28 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/03 00:22:44 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,22 +66,35 @@ typedef struct  coord_s
 
 typedef struct  game_s
 {
-    param_t *p;
-    void    *mlx_ptr;
-    void    *win_ptr;
-    image_t texture[5];
-    image_t screen;
+    param_t     *p;
+    void        *mlx_ptr;
+    void        *win_ptr;
+    image_t     texture[5];
+    image_t     screen;
 
-    coord_t player;
-    vect_t  player_dir;
+    coord_t     player;
+    vect_t      player_dir;
+    double      player_rad;
 
-    uint16_t key_w:1;
-    uint16_t key_s:1;
-    uint16_t key_a:1;
-    uint16_t key_d:1;
-    uint16_t key_q:1;
-    uint16_t key_e:1;
-    uint16_t remain:10;
+    int         map_x;
+    int         map_y;
+    vect_t      sidedist;
+    vect_t      deltadist;
+    double      perpwalldist;
+    int         step_x;
+    int         step_y;
+    int         hit;
+    int         side;
+
+    coord_t     coord_to_res;
+
+    uint16_t    key_w:1;
+    uint16_t    key_s:1;
+    uint16_t    key_a:1;
+    uint16_t    key_d:1;
+    uint16_t    key_q:1;
+    uint16_t    key_e:1;
+    uint16_t    remain:10;
 
 }               game_t;
 

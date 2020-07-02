@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:39:15 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/01 11:49:20 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/03 00:39:39 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,11 @@
 # include "libft.h"
 # include "struct.h"
 # include <mlx.h>
+# include <stdio.h>
 //# include <X11/X.h>
+
+# define SPEED_WALK 0.1
+# define SPEED_TURN 4
 
 void    clear_path(param_t *p);
 void    clear_game(game_t *g);
@@ -26,5 +30,9 @@ void    error_exit(char *msg, game_t *g);
 void    ft_game(game_t *g, int screen, char *path);
 
 int     make_window(game_t *g);
+void    draw_player(game_t *g);
+void    player_set_dir(game_t *g);
+
+void    init_raycast(game_t *g);
 
 #endif
