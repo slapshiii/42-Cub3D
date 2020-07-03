@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:39:15 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/03 00:39:39 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/03 08:09:01 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 //# include <X11/X.h>
 
 # define SPEED_WALK 0.1
-# define SPEED_TURN 4
+# define SPEED_TURN 0.2
 
 void    clear_path(param_t *p);
 void    clear_game(game_t *g);

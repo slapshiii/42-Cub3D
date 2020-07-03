@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 17:21:32 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/03 00:22:44 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/03 07:43:11 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,15 @@ typedef struct  game_s
     param_t     *p;
     void        *mlx_ptr;
     void        *win_ptr;
+    void        *win_temp;
     image_t     texture[5];
     image_t     screen;
 
     coord_t     player;
     vect_t      player_dir;
     double      player_rad;
+    vect_t      ray_dir;
+    vect_t      plane;
 
     int         map_x;
     int         map_y;
@@ -85,6 +88,7 @@ typedef struct  game_s
     int         step_y;
     int         hit;
     int         side;
+    int         col;
 
     coord_t     coord_to_res;
 

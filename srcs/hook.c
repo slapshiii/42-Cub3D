@@ -20,7 +20,7 @@ int key_press_hook(int key, game_t *g)
         g->key_e = 1;
     if (key == KEY_ESC)
     {
-        mlx_destroy_window(g->mlx_ptr, g->win_ptr);
+        mlx_destroy_window(g->mlx_ptr, g->win_temp);
         error_exit("KEY_ESC pressed\n", g);
     }
     loop(g);
@@ -46,7 +46,7 @@ int key_release_hook(int key, game_t *g)
 
 int exit_hook(game_t *g)
 {
-    mlx_destroy_window(g->mlx_ptr, g->win_ptr);
+    mlx_destroy_window(g->mlx_ptr, g->win_temp);
     error_exit("Exit button pressed\n", g);
     return (0);
 }
