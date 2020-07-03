@@ -93,10 +93,21 @@ coord_t   calc_dda(game_t *g)
         }
     }
     if (g->side == 0)
+    {
         g->perpwalldist = (g->map_x - g->player.x + (1 - g->step_x) / 2) / g->ray_dir.x;
+        g->wallx = g->player.y + g->perpwalldist * g->ray_dir.y;
+    }
     else
+    {
         g->perpwalldist = (g->map_y - g->player.y + (1 - g->step_y) / 2) / g->ray_dir.y;
-
+        g->wallx = g->player.x + g->perpwalldist * g->ray_dir.x;
+    }
+    g->wallx -= floor(g->wallx);
+    g->tex_x = (int)(g->wallx * (double)(g->texture[0].width));
+    if (g->side == 0 && g->ray_dir.x > 0)
+        g->tex_x = (g->texture[0].width - g->tex_x - 1);
+    if (g->side == 1 && g->ray_dir.y < 0)
+        g->tex_x = (g->texture[0].width - g->tex_x - 1);
     g->col = (int)(g->p->res_h / (g->perpwalldist));
     res.x = -(g->col) / 2 + g->p->res_h / 2;
     if(res.x < 0)

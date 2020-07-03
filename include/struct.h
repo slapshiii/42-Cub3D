@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 17:21:32 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/03 07:43:11 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/03 08:37:08 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,11 @@ typedef struct  game_s
     int         hit;
     int         side;
     int         col;
+
+    double      step;
+    double      tex_pos;
+    int         tex_x;
+    double      wallx;
 
     coord_t     coord_to_res;
 
