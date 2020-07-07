@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:39:15 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/07 05:17:14 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/07 09:08:12 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,21 @@ int     make_window(game_t *g);
 void    player_set_dir(game_t *g);
 
 void    init_raycast(game_t *g);
-coord_t    init_sidedist(game_t *g);
-void    init_sidedist_bis(game_t *g);
+coord_t init_castwall(game_t *g);
+void    init_castwall_bis(game_t *g);
 coord_t hit_texture(game_t *g);
+
+void    init_castsprite(game_t *g);
+void    sort_sprites(game_t *g);
+int     sprite_cmp(coord_t pos1, coord_t pos2, game_t *g);
+void    swap_sprite(sprite_t *s1, sprite_t *s2);
+
+void    cast_sprite(game_t *g);
+void    calc_hw_sprite(game_t *g, coord_t trans, int sprite_screen);
+void    draw_sprite(game_t *g, coord_t draw_y, coord_t draw_x, int sprite_screen);
+
+coord_t calc_dda(game_t *g);
+coord_t calc_texture(game_t *g, coord_t res);
+image_t get_texture(game_t *g);
 
 #endif

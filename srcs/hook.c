@@ -53,15 +53,15 @@ int     mouse_focus_hook(game_t *g)
 
 int mouse_motion_hook(int x, int y, game_t *g)
 {
-    if (g->mouse_x != 0)
+    if (x != g->p->res_w / 2)
     {
-        if (g->mouse_x < x)
+        if (x > g->p->res_w / 2)
             turn_right(g);
-        else if (g->mouse_x > x)
+        else if (x < g->p->res_w / 2)
             turn_left(g);
     }
     (void)y;
-    g->mouse_x = x;
+    mlx_mouse_move(g->win_temp, g->p->res_w / 2, g->p->res_h / 2);
     return (0);
 }
 

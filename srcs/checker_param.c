@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 19:45:35 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/06 23:51:40 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/07 07:24:33 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ int check_map_valid(param_t *p)
         x = 0;
         while(p->map[y][x])
         {
+            if (p->map[y][x] == '2')
+                p->num_sprite++;
             if(!(ft_strchr("012 NSWE", p->map[y][x])))
                 return(1);
             if(ft_strchr("02NSWE", p->map[y][x])
@@ -120,11 +122,17 @@ int check_map(char **tab, param_t *p, int offset, int max)
 int check_config(param_t *p)
 {
     int i = 0;
+    int j;
+    int k = 0;
+    
     if (!p->res_h || !p->res_w
     || !p->path_no || !p->path_so || !p->path_we || !p->path_ea
     || !p->path_sprite || !p->color_floor || !p->color_ceiling
     || !p->map || !p->spawn_dir)
-        return(1);
+        return (1);
+    if (!(p->sprite = (sprite_t*)malloc(sizeof(sprite_t) * p->num_sprite)))
+        return (1);
+    bzero(p->sprite, sizeof(sprite_t) * p->num_sprite);
     printf("%d %d\n%s %s %s %s\n%s\n%d %d %d\n%d %d %d\n%c\n", 
         p->res_h, p->res_w,
         p->path_no, p->path_so, p->path_ea, p->path_we,
@@ -134,7 +142,18 @@ int check_config(param_t *p)
         p->spawn_dir);
     while(p->map[i])
     {
+        j = 0;
         printf("%s\n", p->map[i]);
+        while (p->map[i][j])
+        {
+            if (p->map[i][j] == '2')
+            {
+                p->sprite[k].pos = (coord_t){j, i};
+                p->sprite[k].id = k;
+                k++;
+            }
+            j++;
+        }
         i++;
     }
     return (0);

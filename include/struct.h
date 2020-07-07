@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 17:21:32 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/07 05:14:19 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/07 08:53:24 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,18 @@
 # define CHARSET_NOTWALL "02NSEW"
 # define CHARSET_NOTVALID " \n\0"
 # define CHARSET_SPAWN "NSEW"
+
+typedef struct  coord_s
+{
+    double  x;
+    double  y;
+}               coord_t;
+
+typedef struct  sprite_s
+{
+    coord_t     pos;
+    int         id;
+}               sprite_t;
 
 typedef struct  param_s
 {
@@ -39,6 +51,8 @@ typedef struct  param_s
     char    **map;
     int     max_x;
     int     max_y;
+    int     num_sprite;
+    sprite_t    *sprite;
 }               param_t;
 
 typedef struct  image_s
@@ -57,12 +71,6 @@ typedef struct  vect_s
     double  x;
     double  y;
 }               vect_t;
-
-typedef struct  coord_s
-{
-    double  x;
-    double  y;
-}               coord_t;
 
 typedef struct  game_s
 {
@@ -96,6 +104,12 @@ typedef struct  game_s
     int         tex_y;
     double      wallx;
     image_t     texture_side;
+
+    double      *zbuffer;
+    int         sprite_h;
+    int         sprite_w;
+    coord_t     s;
+    coord_t     trans;
 
     int         y;
     int         x;
