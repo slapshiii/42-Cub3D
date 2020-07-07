@@ -1,14 +1,14 @@
   
-R 575 250
+R 575 500
 NO texture/north.xpm  
-SO      texture/test.xpm  
-WE          texture/test.xpm  
-EA                 texture/test.xpm  
+SO      texture/south.xpm  
+WE          texture/west.xpm  
+EA                 texture/east.xpm  
 
-S     texture/test.xpm  
+S     texture/sprite.xpm  
 
-F 220,100,0
-C 255,30,00
+F 87,58,24
+C 111,74,29
 
 
 
@@ -17,7 +17,7 @@ C 255,30,00
         1011000001110000002000001
         1001000000000000000000001
 111111111011000001110000000000001
-100000000110000011101111111111111
+100000000110000011101110111111111
 11110111111111011100000010001
 11110111111111011101010010001
 11000000110101011100N00010001

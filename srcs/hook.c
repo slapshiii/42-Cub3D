@@ -44,6 +44,34 @@ int key_release_hook(int key, game_t *g)
     return (0);
 }
 
+int     mouse_focus_hook(game_t *g)
+{
+    (void)g;
+    mlx_mouse_hide();
+    return (0);
+}
+
+int mouse_motion_hook(int x, int y, game_t *g)
+{
+    if (g->mouse_x != 0)
+    {
+        if (g->mouse_x < x)
+            turn_right(g);
+        else if (g->mouse_x > x)
+            turn_left(g);
+    }
+    (void)y;
+    g->mouse_x = x;
+    return (0);
+}
+
+int resized_hook(int x, int y, game_t *g)
+{
+    printf("Resized %d %d\n", x, y);
+    (void)g;
+    return (0);
+}
+
 int exit_hook(game_t *g)
 {
     mlx_destroy_window(g->mlx_ptr, g->win_temp);

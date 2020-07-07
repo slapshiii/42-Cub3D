@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 19:45:35 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/01 17:14:55 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/06 23:51:40 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ int check_config(param_t *p)
         p->res_h, p->res_w,
         p->path_no, p->path_so, p->path_ea, p->path_we,
         p->path_sprite,
-        p->color_floor>>16, p->color_floor>>8&0x00FF, p->color_floor&0x00FF,
+        p->color_floor>>16, p->color_floor>>8 & 0x00FF, p->color_floor&0x00FF,
         p->color_ceiling>>16, p->color_ceiling>>8&0x00FF, p->color_ceiling&0x00FF,
         p->spawn_dir);
     while(p->map[i])
