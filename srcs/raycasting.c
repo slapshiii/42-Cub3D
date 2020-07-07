@@ -28,7 +28,7 @@ void    init_raycast(game_t *g)
     }
     init_castsprite(g);
     mlx_put_image_to_window(g->mlx_ptr, g->win_temp, g->win_img.img, 0, 0);
-    mlx_destroy_image(g->mlx_ptr, g->win_img.img);
+    // mlx_destroy_image(g->mlx_ptr, g->win_img.img);
     free(g->zbuffer);
 }
 

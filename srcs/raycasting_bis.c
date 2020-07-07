@@ -39,7 +39,7 @@ coord_t calc_texture(game_t *g, coord_t res)
     {
         g->tex_y = (int)g->tex_pos & (g->texture_side.height - 1);
         g->tex_pos += g->step;
-        color = (int)g->texture_side.data[g->texture_side.height * g->tex_y + g->tex_x];
+        color = (int)g->texture_side.data[g->texture_side.width * g->tex_y + g->tex_x];
         if (g->side == 0)
             color = (color >> 1) & 0x7F7F7F;
         g->win_img.data[(g->p->res_w + 1) * g->y + g->x] = color;

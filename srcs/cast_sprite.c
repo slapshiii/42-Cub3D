@@ -3,6 +3,8 @@
 #include "struct.h"
 #include <math.h>
 
+void    print(game_t *g);
+
 void    cast_sprite(game_t *g)
 {
     int x;
@@ -10,12 +12,13 @@ void    cast_sprite(game_t *g)
     int sprite_screen;
 
     x = 0;
+    // print(g);
     while (x < g->p->num_sprite)
     {
         g->s = (coord_t){g->p->sprite[x].pos.x - g->player.x, g->p->sprite[x].pos.y - g->player.y};
         inv_det = 1.0 / (g->plane.x * g->player_dir.y - g->player_dir.x * g->plane.y);
-        g->trans = (coord_t){inv_det * (g->player_dir.y * g->p->sprite[x].pos.x - g->player_dir.x * g->p->sprite[x].pos.y),
-            inv_det * (-g->plane.y * g->p->sprite[x].pos.x + g->plane.x * g->p->sprite[x].pos.y)};
+        g->trans = (coord_t){inv_det * (g->player_dir.y * g->s.x - g->player_dir.x * g->s.y),
+            inv_det * (-(g->plane.y) * g->s.x + g->plane.x * g->s.y)};
         sprite_screen = (int)((g->p->res_w / 2) * (1 + g->trans.x / g->trans.y));
         calc_hw_sprite(g, g->trans, sprite_screen);
         x++;
@@ -26,18 +29,18 @@ void    calc_hw_sprite(game_t *g, coord_t trans, int sprite_screen)
 {
     coord_t draw_y;
     coord_t draw_x;
+
     g->sprite_h = abs((int)(g->p->res_h / trans.y));
-    draw_y.x = (-g->sprite_h) / 2 + g->p->res_h / 2;
-    if(draw_y.x < 0)
-        draw_y.x = 0;
+    draw_y.x = -(g->sprite_h) / 2 + g->p->res_h / 2;
+    draw_y.x = (draw_y.x < 0) ? 0 : draw_y.x;
     draw_y.y = g->sprite_h / 2 + g->p->res_h / 2;
     if(draw_y.y >= g->p->res_h)
         draw_y.y = g->p->res_h - 1;
-    //int spriteWidth = abs( int (h / (transformY))); WTF IS THAT
-    draw_x.x = (-g->sprite_h) / 2 + sprite_screen;
-    if (draw_x.x < 0)
-        draw_x.x = 0;
-    draw_x.y = g->sprite_h / 2 + sprite_screen;
+
+    g->sprite_w = abs((int)(g->p->res_w / trans.y));
+    draw_x.x = -(g->sprite_h) / 2 + sprite_screen;
+    draw_x.x = (draw_x.x < 0) ? 0 : draw_x.x;
+    draw_x.y = g->sprite_w / 2 + sprite_screen;
     if (draw_x.y >= g->p->res_w)
         draw_x.y = g->p->res_w - 1;
     draw_sprite(g, draw_y, draw_x, sprite_screen);
@@ -54,17 +57,31 @@ void draw_sprite(game_t *g, coord_t draw_y, coord_t draw_x, int sprite_screen)
     y = draw_y.x;
     while (stripe < (int)draw_x.y)
     {
-        g->tex_x = (int)(256 * (stripe - ((-g->sprite_w) / 2 + sprite_screen)) * g->texture[0].width / g->sprite_h) / 256;
+        y = draw_y.x;
+        g->tex_x = (int)(256 * (stripe - (-(g->sprite_w) / 2 + sprite_screen)) * g->texture[0].width / g->sprite_w) / 256;
         if(g->trans.y > 0 && stripe > 0 && stripe < g->p->res_w && g->trans.y < g->zbuffer[stripe])
             while (y < draw_y.y)
             {
                 d = (y) * 256 - g->p->res_h * 128 + g->sprite_h * 128;
                 g->tex_y = ((d * g->texture[0].height) / g->sprite_h) / 256;
-                color = (int)g->texture[0].data[g->texture[0].height * g->tex_y + g->tex_x];
+                color = (int)g->texture[0].data[(g->texture[0].width) * g->tex_y + g->tex_x];
                 if((color & 0x00FFFFFF) != 0)
                     g->win_img.data[(g->p->res_w + 1) * y + stripe] = color;
                 y++;
             }
         stripe++;
     }
+}
+
+void    print(game_t *g)
+{
+    int i = 0;
+
+    printf("%f %f\n", g->player.x, g->player.y);
+    while (i < g->p->num_sprite)
+    {
+        printf("%f %f %d\n", g->p->sprite[i].pos.x, g->p->sprite[i].pos.y, g->p->sprite[i].id);
+        i++;
+    }
+    
 }
