@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 17:21:32 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/08 02:12:33 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/08 08:24:20 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,17 @@ typedef struct  vect_s
     double  y;
 }               vect_t;
 
+typedef struct	save_s
+{
+	int 		size;
+	int 		offset;
+	int 		header_bytes;
+	short int	plane;
+	short int	bpixel;
+	int			unused;
+}				save_t;
+
+
 typedef struct  game_s
 {
     param_t     *p;
@@ -80,6 +91,7 @@ typedef struct  game_s
     void        *win_temp;
     image_t     texture[5];
     image_t     screen;
+	int			save;
 
     coord_t     player;
     vect_t      player_dir;

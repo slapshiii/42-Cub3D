@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:39:15 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/08 03:10:19 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/08 05:07:05 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,10 @@ coord_t calc_dda(game_t *g);
 coord_t calc_texture(game_t *g, coord_t res);
 image_t get_texture(game_t *g);
 void	get_side(game_t *g);
+
+void	save_bitmap(game_t *g);
+int 	exists(const char *fname);
+int		screenshot(game_t *g, int fd);
+void	write_texture_bmp_file(game_t *g, int fd);
 
 #endif

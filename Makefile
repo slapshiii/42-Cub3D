@@ -6,7 +6,7 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
-#    Updated: 2020/07/08 02:30:36 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/07/08 03:41:13 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ SRCS = 	srcs/main.c\
 		srcs/raycasting_bis.c\
 		srcs/init_sprite.c\
 		srcs/cast_sprite.c\
+		srcs/bitmap.c\
 
 OBJS = $(SRC:.c=.o)
 
