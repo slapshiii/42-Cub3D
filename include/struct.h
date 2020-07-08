@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 17:21:32 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/07 23:34:49 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/08 02:12:33 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ typedef struct  game_s
     double      *zbuffer;
     int         sprite_h;
     int         sprite_w;
+	int			sprite_screen;
     coord_t     s;
     coord_t     trans;
 

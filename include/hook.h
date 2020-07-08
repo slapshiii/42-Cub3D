@@ -24,9 +24,7 @@
 
 int     key_press_hook(int key, game_t *g);
 int     key_release_hook(int key, game_t *g);
-int     mouse_focus_hook(game_t *g);
 int     mouse_motion_hook(int x, int y, game_t *g);
-int     resized_hook(int x, int y, game_t *g);
 int     exit_hook(game_t *g);
 int     loop(game_t *g);
 

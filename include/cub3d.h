@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:39:15 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/07 09:08:12 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/08 03:10:19 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,12 @@ int     sprite_cmp(coord_t pos1, coord_t pos2, game_t *g);
 void    swap_sprite(sprite_t *s1, sprite_t *s2);
 
 void    cast_sprite(game_t *g);
-void    calc_hw_sprite(game_t *g, coord_t trans, int sprite_screen);
-void    draw_sprite(game_t *g, coord_t draw_y, coord_t draw_x, int sprite_screen);
+void    calc_hw_sprite(game_t *g, coord_t trans);
+void    draw_sprite(game_t *g, coord_t draw_y, coord_t draw_x);
 
 coord_t calc_dda(game_t *g);
 coord_t calc_texture(game_t *g, coord_t res);
 image_t get_texture(game_t *g);
+void	get_side(game_t *g);
 
 #endif

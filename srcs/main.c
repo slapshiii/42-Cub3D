@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:37:59 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/06/18 14:51:55 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/08 03:02:08 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,16 @@ int	main(int ac, char **av)
 
 	screen = 0;
 	g = NULL;
-	if(ac == 3 && (ft_strncmp(av[2], "--save", 7) == 0))
+	if (ac == 3 && (ft_strncmp(av[2], "--save", 7) == 0))
 		screen = 1;
-	if(ac == (2 + screen))
-    {
-	    if (!(g = (game_t*)malloc(sizeof(game_t))))
-		    error_exit("Error: Could'n malloc.\n", g);
+	if (ac == (2 + screen))
+	{
+		if (!(g = (game_t*)malloc(sizeof(game_t))))
+			error_exit("Error: Could'n malloc.\n", g);
 		bzero(g, sizeof(game_t));
-	    ft_game(g, screen, av[1]);
-    }
-    else
-        error_exit("Error: Too much/Too few argument.\n", g);
-    exit(0);
+		ft_game(g, screen, av[1]);
+	}
+	else
+		error_exit("Error: Too much/Too few argument.\n", g);
+	exit(0);
 }

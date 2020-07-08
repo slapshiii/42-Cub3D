@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:50:41 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/07 05:24:04 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/08 02:57:11 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 
 int check_file(char **tab, int index, game_t *g);
 int parser_param(game_t *g, char *path);
+int	check_close_map(char **map, int x, int y);
+int	check_spawn(char **map, int x, int y, param_t *p);
 
 int handle_color(char *rgb);
 int check_map_valid(param_t *p);
