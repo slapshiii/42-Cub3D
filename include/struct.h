@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 17:21:32 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/08 08:24:20 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/10 05:19:25 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,22 +95,20 @@ typedef struct  game_s
 
     coord_t     player;
     vect_t      player_dir;
-    double      player_rad;
-    vect_t      ray_dir;
     vect_t      plane;
 
-    int         map_x;
-    int         map_y;
-    vect_t      sidedist;
-    vect_t      deltadist;
-    double      perpwalldist;
-    int         step_x;
-    int         step_y;
-    int         hit;
-    int         side;
-    int         col;
+    vect_t      ray_dir;
+	int			mapx;
+	int			mapy;
+	vect_t		sidedist;
+	vect_t		deltdist;
+	double		perp;
+	vect_t		step;
+	int			side;
+	int			lineheight;
+	int			dstart;
+	int			dend;
 
-    double      step;
     double      tex_pos;
     int         tex_x;
     int         tex_y;
@@ -126,8 +124,6 @@ typedef struct  game_s
 
     int         y;
     int         x;
-
-    coord_t     coord_to_res;
 
     int         mouse_x;
     uint16_t    key_w:1;

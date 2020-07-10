@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:37:55 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/08 03:40:32 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/10 03:33:48 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,32 @@
 #include "hook.h"
 #include <math.h>
 
+int	testest(game_t *g);
+
 void	init_data(game_t *g)
 {
-	g->coord_to_res.x = g->p->res_w / g->p->max_x;
-	g->coord_to_res.y = g->p->res_h / g->p->max_y;
 	g->player.x = g->p->spawn_x + 0.5;
 	g->player.y = g->p->spawn_y + 0.5;
 	if (g->p->spawn_dir == 'N')
 	{
 		g->plane = (vect_t){0.66, 0.00};
-		g->player_rad = 270;
+		g->player_dir = (vect_t){0, -1};
 	}
 	if (g->p->spawn_dir == 'S')
 	{
 		g->plane = (vect_t){-0.66, 0.00};
-		g->player_rad = 80;
+		g->player_dir = (vect_t){0, 1};
 	}
 	if (g->p->spawn_dir == 'E')
 	{
 		g->plane = (vect_t){0.00, 0.66};
-		g->player_rad = 0;
+		g->player_dir = (vect_t){1, 0};
 	}
 	if (g->p->spawn_dir == 'W')
 	{
 		g->plane = (vect_t){0.00, -0.66};
-		g->player_rad = 180;
+		g->player_dir = (vect_t){-1, 0};
 	}
-	player_set_dir(g);
 }
 
 int		make_window(game_t *g)
@@ -57,17 +56,13 @@ int		make_window(game_t *g)
 	mlx_hook(g->win_temp, 2, 0, key_press_hook, g);
 	mlx_hook(g->win_temp, 3, 0, key_release_hook, g);
 	mlx_hook(g->win_temp, 17, 0, exit_hook, g);
-	mlx_loop_hook(g->mlx_ptr, loop, g);
+	mlx_loop_hook(g->mlx_ptr, testest, g);
 	mlx_loop(g->mlx_ptr);
 	return (0);
 }
 
-void	player_set_dir(game_t *g)
+int	testest(game_t *g)
 {
-	if (g->player_rad >= 360)
-		g->player_rad -= 360;
-	else if (g->player_rad < 0)
-		g->player_rad += 360;
-	g->player_dir.x = cos((g->player_rad * 3.14159 / 180));
-	g->player_dir.y = sin((g->player_rad * 3.14159 / 180));
+	init_raycast(g);
+	return (0);
 }

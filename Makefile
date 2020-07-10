@@ -6,7 +6,7 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
-#    Updated: 2020/07/08 03:41:13 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/07/10 05:07:38 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ GNLDIR = get_next_line/
 
 MLXDIR = minilibx/
 
-HEADER = include/
+HEADERDIR = include/
 
 SRCS = 	srcs/main.c\
 		srcs/game.c\
@@ -32,10 +32,16 @@ SRCS = 	srcs/main.c\
 		srcs/move.c\
 		srcs/turn.c\
 		srcs/raycasting.c\
+		srcs/init_raycasting.c\
 		srcs/raycasting_bis.c\
 		srcs/init_sprite.c\
 		srcs/cast_sprite.c\
 		srcs/bitmap.c\
+
+HEADER =	include/cub3d.h\
+			include/hook.h\
+			include/struct.h\
+			include/parser_param.h\
 
 OBJS = $(SRC:.c=.o)
 
@@ -49,8 +55,6 @@ MLXFLAG = -lmlx -framework OpenGL -framework AppKit
 
 #MINILIBX = -L minilibx $(MLXFLAG)
 
-HEADER = include/
-
 LIBS = 	$(LIBFTDIR)libft.a\
 		$(GNLDIR)get_next_line.a\
 		$(MLXDIR)libmlx.dylib
@@ -59,7 +63,7 @@ LIBS = 	$(LIBFTDIR)libft.a\
 all: $(NAME)
 
 $(NAME): $(SRCS) $(LIBS) $(HEADER)
-	$(CC) $(FLAGS) -I$(HEADER) $(SRCS) -o $(NAME) $(LIBS)
+	$(CC) $(FLAGS) -I$(HEADERDIR) $(SRCS) -o $(NAME) $(LIBS)
 
 $(LIBS):
 	make -C $(LIBFTDIR)

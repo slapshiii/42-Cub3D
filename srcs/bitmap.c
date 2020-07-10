@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 03:40:48 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/08 09:00:52 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/09 23:53:39 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,43 +19,42 @@
 void	save_bitmap(game_t *g)
 {
 	int		fd;
-	// int		i;
-	// char	*filename;
+	int		i;
+	char	*filename;
 
-	// i = 0;
-	// if (!(filename = ft_strdup("./bitmap.bmp")))
-	// 	error_exit("no malloc\n", g);
-
-	// while (exists(filename) == 0)
-	// {
-	// 	ft_strlcpy(filename, "bitmap_0.bmp", 13);
-	// 	filename[7] += i;
-	// 	i++;
-	// }
-	if ((fd = open("bitmap.bmp", O_CREAT|O_TRUNC, 00006)) < 0)
+	i = 0;
+	if (!(filename = ft_strdup("./bitmap.bmp")))
+		error_exit("no malloc\n", g);
+	while (exists(filename) == 0)
+	{
+		ft_strlcpy(filename, "bitmap_0.bmp", 13);
+		filename[7] += i;
+		i++;
+	}
+	if ((fd = open(filename, O_RDWR | O_TRUNC)) == -1)
 	{
 		printf("%d\n", fd);
-		// free(filename);
+		free(filename);
 		error_exit("open failed\n", g);
 	}
-	// free(filename);
+	free(filename);
 	if (screenshot(g, fd) != 0)
 		error_exit("Screenshot failed\n", g);
 	printf("%d\n", fd);
 	error_exit("Screened\n", g);
 }
 
-// int 	exists(const char *fname)
-// {
-//     int fd;
-//     if ((fd = open(fname, O_CREAT|O_EXCL, S_IRWXO)) < 0)
-//     {
-// 		printf("tset\n");
-//         close(fd);
-//         return (1);
-//     }
-//     return (0);
-// }
+int		exists(const char *fname)
+{
+	int fd;
+
+	if ((fd = open(fname, O_CREAT | O_EXCL, 00777)) > 0)
+	{
+		close(fd);
+		return (1);
+	}
+	return (0);
+}
 
 int		screenshot(game_t *g, int fd)
 {
@@ -89,13 +88,14 @@ void	write_texture_bmp_file(game_t *g, int fd)
 	int width;
 
 	y = 0;
+	(void)fd;
 	while (y < g->p->res_h)
 	{
 		x = 0;
-		width = g->p->res_w * (g->p->res_h - y);
+		width = ((g->p->res_w + 1) * (g->p->res_h - y - 1));
 		while (x < g->p->res_w)
 		{
-			write(fd, &g->win_img.data[width * 4], 4);
+			write(fd, &g->win_img.data[width], 4);
 			width++;
 			x++;
 		}

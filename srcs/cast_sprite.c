@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:02:48 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/08 03:12:38 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/10 05:29:23 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	draw_sprite(game_t *g, coord_t draw_y, coord_t draw_x)
 				color = (int)g->texture[0].data[(g->texture[0].width)
 					* g->tex_y + g->tex_x];
 				if ((color & 0x00FFFFFF) != 0)
-					g->win_img.data[(g->p->res_w + 1) * g->y + g->x] = color;
+					g->win_img.data[(g->p->res_w) * g->y + g->x] = color;
 				g->y++;
 			}
 		g->x++;
