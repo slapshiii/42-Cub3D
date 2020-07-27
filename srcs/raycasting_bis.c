@@ -6,11 +6,11 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:33:07 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/10 05:26:45 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/28 01:35:11 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../include/cub3d.h"
 #include "struct.h"
 #include <math.h>
 
@@ -24,11 +24,17 @@ void	calc_texture(game_t *g, int start, int end)
 	get_wallx(g);
 	step = 1.0 * g->texture_side.height / g->lineheight;
 	g->tex_pos = (start - g->p->res_h / 2 + g->lineheight / 2) * step;
-	while (g->y < start)
+	while (g->y < g->p->res_h / 2)
 	{
-		g->win_img.data[(g->p->res_w) * g->y + g->x] = g->p->color_ceiling;
+		g->win_img.data[((g->p->res_w) * g->y) + g->x] = g->p->color_ceiling;
 		g->y++;
 	}
+	while (g->y < g->p->res_h)
+	{
+		g->win_img.data[((g->p->res_w) * g->y) + g->x] = g->p->color_floor;
+		g->y++;
+	}
+	g->y = start;
 	while (g->y < end)
 	{
 		g->tex_y = (int)g->tex_pos & (g->texture_side.height - 1);
@@ -36,14 +42,11 @@ void	calc_texture(game_t *g, int start, int end)
 		color = (int)g->texture_side.data
 			[g->texture_side.height * g->tex_y + g->tex_x];
 		color = (g->side == 0) ? (color >> 1) & 0x7F7F7F : color;
-		g->win_img.data[(g->p->res_w) * g->y + g->x] = color;
+		g->win_img.data[((g->p->res_w) * g->y) + g->x] = color;
 		g->y++;
 	}
-	while (g->y < g->p->res_h)
-	{
-		g->win_img.data[(g->p->res_w) * g->y + g->x] = g->p->color_floor;
-		g->y++;
-	}
+	// if (g->y > 570)
+	// printf("%d %d %d\n", g->y, g->x, color);
 }
 
 void	get_texture(game_t *g)

@@ -6,7 +6,7 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
-#    Updated: 2020/07/10 05:07:38 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/07/28 01:51:27 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ LIBFTDIR = libft/
 
 GNLDIR = get_next_line/
 
-MLXDIR = minilibx/
+MLXDIR = minilibx_a/
 
 HEADERDIR = include/
 
@@ -42,41 +42,50 @@ HEADER =	include/cub3d.h\
 			include/hook.h\
 			include/struct.h\
 			include/parser_param.h\
+			minilibx_a/*.h\
 
-OBJS = $(SRC:.c=.o)
+OBJS = $(SRCS:.c=.o)
 
 CC = gcc
 
 FLAGS = -Wall -Wextra -Werror
 
 #MLXFLAG = -lmlx -lXext -lX11
-MLXFLAG = -lmlx -framework OpenGL -framework AppKit
+MLXFLAG = -framework OpenGL -framework AppKit
 #MLXFLAG = -I/usr/X11/include -lmlx -framework OpenGL -framework AppKit
 
 #MINILIBX = -L minilibx $(MLXFLAG)
 
 LIBS = 	$(LIBFTDIR)libft.a\
 		$(GNLDIR)get_next_line.a\
-		$(MLXDIR)libmlx.dylib
+		$(MLXDIR)libmlx.a
+		#$(MLXDIR)libmlx.dylib
+		
 
 
 all: $(NAME)
 
-$(NAME): $(SRCS) $(LIBS) $(HEADER)
-	$(CC) $(FLAGS) -I$(HEADERDIR) $(SRCS) -o $(NAME) $(LIBS)
+$(NAME): $(OBJS) $(LIBS) $(HEADER)
+	$(CC) $(FLAGS) -o $(NAME) $(OBJS) $(LIBS) $(MLXFLAG)
 
 $(LIBS):
 	make -C $(LIBFTDIR)
 	make -C $(GNLDIR)
 	make -C $(MLXDIR)
-	cp $(MLXDIR)libmlx.dylib .
+	#cp $(MLXDIR)libmlx.dylib .
+	cp $(MLXDIR)libmlx.a .
+
+%.o:	%.c
+	$(CC) $(FLAGS) -c $< -o $(<:.c=.o)
 
 clean:
 	rm -rf $(OBJS)
 	make clean -C $(LIBFTDIR)
 	make clean -C $(GNLDIR)
 	make clean -C $(MLXDIR)
-	rm -rf libmlx.dylib
+	#rm -rf libmlx.dylib
+	rm -rf libmlx.a
+
 
 fclean: clean
 	rm -f $(NAME)

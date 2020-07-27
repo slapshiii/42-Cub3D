@@ -6,11 +6,11 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:57:55 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/04/08 21:09:17 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/28 01:38:43 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../get_next_line/get_next_line.h"
 
 size_t	ft_strclen(const char *str, int c)
 {

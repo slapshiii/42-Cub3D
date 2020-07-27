@@ -6,12 +6,12 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:20:56 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/10 03:31:07 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/28 01:46:27 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-#include "hook.h"
+#include "../include/cub3d.h"
+#include "../include/hook.h"
 #include <stdio.h>
 
 int	key_press_hook(int key, game_t *g)
@@ -33,7 +33,6 @@ int	key_press_hook(int key, game_t *g)
 		mlx_destroy_window(g->mlx_ptr, g->win_temp);
 		error_exit("KEY_ESC pressed\n", g);
 	}
-	// loop(g);
 	return (0);
 }
 

@@ -6,13 +6,39 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/18 14:34:56 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/08 03:05:00 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/28 01:38:43 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser_param.h"
-#include "get_next_line.h"
-#include "cub3d.h"
+#include "../include/parser_param.h"
+#include "../get_next_line/get_next_line.h"
+#include "../include/cub3d.h"
+
+void	init_data(game_t *g)
+{
+	g->player.x = g->p->spawn_x + 0.5;
+	g->player.y = g->p->spawn_y + 0.5;
+	if (g->p->spawn_dir == 'N')
+	{
+		g->plane = (vect_t){0.66, 0.00};
+		g->player_dir = (vect_t){0, -1};
+	}
+	if (g->p->spawn_dir == 'S')
+	{
+		g->plane = (vect_t){-0.66, 0.00};
+		g->player_dir = (vect_t){0, 1};
+	}
+	if (g->p->spawn_dir == 'E')
+	{
+		g->plane = (vect_t){0.00, 0.66};
+		g->player_dir = (vect_t){1, 0};
+	}
+	if (g->p->spawn_dir == 'W')
+	{
+		g->plane = (vect_t){0.00, -0.66};
+		g->player_dir = (vect_t){-1, 0};
+	}
+}
 
 int	parser_file(game_t *g)
 {
@@ -32,6 +58,7 @@ int	parser_file(game_t *g)
 					g->p->path_we, &(g->texture[4].width),
 					&(g->texture[4].height))))
 		return (-1);
+	init_data(g);
 	return (get_data_file(g));
 }
 
@@ -55,3 +82,4 @@ int	get_data_file(game_t *g)
 		return (-1);
 	return (0);
 }
+

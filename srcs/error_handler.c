@@ -6,12 +6,12 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 15:26:04 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/08 02:18:05 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/28 01:38:14 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-#include "parser_param.h"
+#include "../include/cub3d.h"
+#include "../include/parser_param.h"
 
 void	clear_path(param_t *p)
 {

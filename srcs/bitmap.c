@@ -6,11 +6,11 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 03:40:48 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/09 23:53:39 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/28 01:35:11 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../include/cub3d.h"
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -88,7 +88,6 @@ void	write_texture_bmp_file(game_t *g, int fd)
 	int width;
 
 	y = 0;
-	(void)fd;
 	while (y < g->p->res_h)
 	{
 		x = 0;

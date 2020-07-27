@@ -6,20 +6,20 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 04:29:38 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/10 05:01:14 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/28 01:46:27 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../include/cub3d.h"
 #include "struct.h"
 #include <math.h>
-#include "hook.h"
+#include "../include/hook.h"
 
 void	init_raycasting(game_t *g)
 {
 	double camera;
 
-	camera = 2 * g->x / (double)(g->p->res_w)-1;
+	camera = (2 * g->x / (double)(g->p->res_w)) - 1;
     g->ray_dir.x = g->player_dir.x + g->plane.x * camera;
     g->ray_dir.y = g->player_dir.y + g->plane.y * camera;
     g->mapx = (int)(g->player.x);

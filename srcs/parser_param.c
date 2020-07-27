@@ -6,13 +6,13 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:37:57 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/08 03:15:33 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/28 01:38:43 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser_param.h"
-#include "get_next_line.h"
-#include "cub3d.h"
+#include "../include/parser_param.h"
+#include "../get_next_line/get_next_line.h"
+#include "../include/cub3d.h"
 
 int	check_file(char **tab, int index, game_t *g)
 {

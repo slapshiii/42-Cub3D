@@ -6,11 +6,11 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:57:13 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/04/08 14:57:23 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/28 01:38:43 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../get_next_line/get_next_line.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
