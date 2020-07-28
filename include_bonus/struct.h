@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 17:21:32 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/28 04:51:32 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/28 23:09:07 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,14 @@ typedef struct  game_s
 	int			sprite_screen;
     coord_t     s;
     coord_t     trans;
+
+	vect_t		raydirz;
+	vect_t		raydiro;
+	float		rowdist;
+	vect_t		floorstep;
+	vect_t		floor;
+	image_t		texture_floor;
+	image_t		texture_ceil;
 
     int         y;
     int         x;

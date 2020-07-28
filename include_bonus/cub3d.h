@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:39:15 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/28 05:48:50 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/29 00:02:11 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,11 @@ void    ft_game(game_t *g, int screen, char *path);
 int     make_window(game_t *g);
 void    player_set_dir(game_t *g);
 
-void	init_raycast(game_t *g);
+void	init_floorcast(game_t *g);
+void	data_floorcast(game_t *g);
+void	loop_floorcast(game_t *g);
+
+int		init_raycast(game_t *g);
 void	init_raycasting(game_t *g);
 void	init_sidedist(game_t *g);
 void	calc_dda(game_t *g);

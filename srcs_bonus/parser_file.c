@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/18 14:34:56 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/28 04:45:12 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/28 23:59:09 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	init_data(game_t *g)
 	}
 }
 
-int	parser_file(game_t *g)
+int		parser_file(game_t *g)
 {
 	if (!(g->texture[0].img = mlx_xpm_file_to_image(g->mlx_ptr,
 					g->p->path_sprite, &(g->texture[0].width),
@@ -62,7 +62,7 @@ int	parser_file(game_t *g)
 	return (get_data_file(g));
 }
 
-int	get_data_file(game_t *g)
+int		get_data_file(game_t *g)
 {
 	if (!(g->texture[0].data = (int*)mlx_get_data_addr(g->texture[0].img,
 					&g->texture[0].bpp, &g->texture[0].sizeline,
@@ -82,4 +82,3 @@ int	get_data_file(game_t *g)
 		return (-1);
 	return (0);
 }
-
