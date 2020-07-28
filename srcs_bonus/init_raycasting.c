@@ -6,14 +6,14 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 04:29:38 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/28 01:46:27 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/28 04:44:38 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
-#include "struct.h"
+#include "../include_bonus/cub3d.h"
+#include "../include_bonus/struct.h"
 #include <math.h>
-#include "../include/hook.h"
+#include "../include_bonus/hook.h"
 
 void	init_raycasting(game_t *g)
 {

@@ -6,7 +6,7 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
-#    Updated: 2020/07/28 04:08:30 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/07/28 05:51:22 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,7 @@ SRCS_BONUS =	srcs_bonus/main.c\
 				srcs_bonus/init_sprite.c\
 				srcs_bonus/cast_sprite.c\
 				srcs_bonus/bitmap.c\
+				srcs_bonus/hub.c\
 
 HEADER =	include/cub3d.h\
 			include/hook.h\
@@ -64,6 +65,7 @@ HEADER_BONUS =	include_bonus/cub3d.h\
 				include_bonus/hook.h\
 				include_bonus/struct.h\
 				include_bonus/parser_param.h\
+				include_bonus/hub.h\
 				minilibx_a/*.h\
 
 OBJS = $(SRCS:.c=.o)

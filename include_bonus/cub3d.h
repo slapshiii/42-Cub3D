@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:39:15 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/28 02:55:44 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/28 05:48:50 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "parser_param.h"
 # include "libft.h"
 # include "struct.h"
+# include "hub.h"
 # include <mlx.h>
 # include <stdio.h>
 //# include <X11/X.h>

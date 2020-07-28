@@ -6,11 +6,11 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 03:40:48 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/28 03:45:40 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/28 04:43:26 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "../include_bonus/cub3d.h"
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>

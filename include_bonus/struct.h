@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 17:21:32 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/10 05:19:25 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/28 04:51:32 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,11 @@ typedef struct	save_s
 	int			unused;
 }				save_t;
 
+typedef struct	bonus_s
+{
+	image_t		hud;
+	image_t		map;
+}				bonus_t;
 
 typedef struct  game_s
 {
@@ -134,6 +139,7 @@ typedef struct  game_s
     uint16_t    key_e:1;
     uint16_t    remain:10;
 
+	bonus_t		*bonus;
 }               game_t;
 
 #endif

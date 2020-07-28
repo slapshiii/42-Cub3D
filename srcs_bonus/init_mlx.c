@@ -6,13 +6,13 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:59:10 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/28 01:45:54 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/28 04:44:16 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/parser_param.h"
+#include "../include_bonus/parser_param.h"
 #include "../get_next_line/get_next_line.h"
-#include "../include/cub3d.h"
+#include "../include_bonus/cub3d.h"
 #include "../minilibx_a/mlx.h"
 
 int	mlx_screen_size(void *mlx_ptr, int *width, int *height);

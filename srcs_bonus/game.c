@@ -6,12 +6,12 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 15:32:39 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/28 01:38:14 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/28 04:44:00 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
-#include "../include/parser_param.h"
+#include "../include_bonus/cub3d.h"
+#include "../include_bonus/parser_param.h"
 
 void	ft_game(game_t *g, int screen, char *path)
 {

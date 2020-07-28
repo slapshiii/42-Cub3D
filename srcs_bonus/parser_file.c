@@ -6,13 +6,13 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/18 14:34:56 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/28 01:38:43 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/28 04:45:12 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/parser_param.h"
+#include "../include_bonus/parser_param.h"
 #include "../get_next_line/get_next_line.h"
-#include "../include/cub3d.h"
+#include "../include_bonus/cub3d.h"
 
 void	init_data(game_t *g)
 {

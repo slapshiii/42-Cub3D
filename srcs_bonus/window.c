@@ -6,13 +6,13 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:37:55 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/28 03:44:50 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/28 06:22:53 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "../include_bonus/cub3d.h"
 #include <stdio.h>
-#include "../include/hook.h"
+#include "../include_bonus/hook.h"
 #include <math.h>
 
 int	testest(game_t *g);
@@ -23,7 +23,9 @@ int		make_window(game_t *g)
 		mlx_new_window(g->mlx_ptr, g->p->res_w, g->p->res_h, "Cub3D")))
 		return (1);
 	mlx_do_key_autorepeatoff(g->mlx_ptr);
+	init_hud(g);
 	init_raycast(g);
+	draw_map(g);
 	if (g->save)
 		save_bitmap(g);
 	mlx_hook(g->win_temp, 2, 0, key_press_hook, g);

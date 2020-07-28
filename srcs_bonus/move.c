@@ -6,12 +6,12 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:25:05 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/28 01:46:27 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/28 04:45:06 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
-#include "../include/hook.h"
+#include "../include_bonus/cub3d.h"
+#include "../include_bonus/hook.h"
 #include <math.h>
 
 void	move_up(game_t *g)

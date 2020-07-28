@@ -6,12 +6,12 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 15:26:04 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/28 01:38:14 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/28 04:56:59 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
-#include "../include/parser_param.h"
+#include "../include_bonus/cub3d.h"
+#include "../include_bonus/parser_param.h"
 
 void	clear_path(param_t *p)
 {
@@ -40,6 +40,8 @@ void	clear_game(game_t *g)
 			clear_path(g->p);
 			free(g->p);
 		}
+		if (g->bonus)
+			free (g->bonus);
 		free(g);
 	}
 }
