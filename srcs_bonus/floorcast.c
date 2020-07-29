@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 22:29:16 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/29 23:07:50 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/30 00:10:32 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	loop_floorcast(game_t *g)
 void	init_floorcast(game_t *g)
 {
 	g->texture_floor.img = mlx_xpm_file_to_image(g->mlx_ptr,
-		"texture/east.xpm", &g->texture_floor.width,
+		"texture/grass.xpm", &g->texture_floor.width,
 		&g->texture_floor.height);
 	g->texture_floor.data = (int*)mlx_get_data_addr(g->texture_floor.img,
 		&g->texture_floor.bpp, &g->texture_floor.sizeline,

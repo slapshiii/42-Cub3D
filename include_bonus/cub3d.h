@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:39:15 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/29 00:02:11 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/29 23:10:31 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 
 # define SPEED_WALK 0.063
 # define SPEED_TURN 0.063
+# define SPEED_RUN 0.091
+# define SPEED_CROUCH 0.031
 
 # define MIN_SIZE_W 200
 # define MIN_SIZE_H 200
