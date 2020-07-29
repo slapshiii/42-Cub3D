@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 04:35:33 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/28 23:57:18 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/30 00:40:11 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,24 +54,28 @@ void	draw_map(game_t *g)
 {
 	int x;
 	int y;
+	coord_t to_map;
+	coord_t to_win;
 
+	to_win = (coord_t){g->p->res_w / 6, g->p->res_h / 6};
+	to_map = (coord_t){g->p->max_x / to_win.x, g->p->max_y / to_win.y};
 	x = 0;
 	while (x < g->p->res_w / 6)
 	{
 		y = 0;
 		while (y < g->p->res_h / 6)
 		{
-			if (g->p->map[y * g->p->max_y / (g->p->res_h / 6)]
-						[x * g->p->max_x / (g->p->res_w / 6)] == '1')
-				g->bonus->map.data[g->p->res_w / 6 * y + x] = 0xFFFFFF;
-			else if (g->p->map[y * g->p->max_y / (g->p->res_h / 6)]
-						[x * g->p->max_x / (g->p->res_w / 6)] == '0')
-				g->bonus->map.data[g->p->res_w / 6 * y + x] = 0x0;
-			else if (g->p->map[y * g->p->max_y / (g->p->res_h / 6)]
-						[x * g->p->max_x / (g->p->res_w / 6)] == '2')
-				g->bonus->map.data[g->p->res_w / 6 * y + x] = 0xBA202F;
+			if (x * to_map.x <= ft_strlen(g->p->map[(int)(y * to_map.y)])
+				&& g->p->map[(int)(y * to_map.y)][(int)(x * to_map.x)] == '1')
+				g->bonus->map.data[(int)(to_win.x * y + x)] = 0xFFFFFF;
+			else if (x * to_map.x <= ft_strlen(g->p->map[(int)(y * to_map.y)])
+				&& g->p->map[(int)(y * to_map.y)][(int)(x * to_map.x)] == '0')
+				g->bonus->map.data[(int)(to_win.x * y + x)] = 0x0;
+			else if (x * to_map.x <= ft_strlen(g->p->map[(int)(y * to_map.y)])
+				&& g->p->map[(int)(y * to_map.y)][(int)(x * to_map.x)] == '2')
+				g->bonus->map.data[(int)(to_win.x * y + x)] = 0xBA202F;
 			else
-				g->bonus->map.data[g->p->res_w / 6 * y + x] = 0x263D63;
+				g->bonus->map.data[(int)(to_win.x * y + x)] = 0x263D63;
 			y++;
 		}
 		x++;

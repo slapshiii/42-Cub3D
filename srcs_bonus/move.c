@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:25:05 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/30 00:07:02 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/30 00:24:48 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,10 @@ void	set_speed(game_t *g)
 	else if (g->key_x)
 	{
 		g->speed = SPEED_CROUCH;
-		g->posz = -200;
+		g->posz = -(g->p->res_h / 5);
 	}
 	else
-	{
 		g->speed = SPEED_WALK;
-		g->posz = 0;
-	}
 }
 
 void	move_up(game_t *g)

@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 04:29:38 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/29 22:40:59 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/30 00:14:31 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,9 +95,9 @@ void	calc_startend(game_t *g)
 	else
 		g->perp = (g->mapy - g->player.y + (1 - g->step.y) / 2) / g->ray_dir.y;
 	g->lineheight = (int)(g->p->res_h / g->perp);
-	g->dstart = -g->lineheight / 2 + g->p->res_h / 2 + g->pitch;
+	g->dstart = -g->lineheight / 2 + g->p->res_h / 2 + g->pitch + (g->posz / g->perp);
 	g->dstart = (g->dstart < 0) ? 0 : g->dstart;
-	g->dend = g->lineheight / 2 + g->p->res_h / 2 + g->pitch;
+	g->dend = g->lineheight / 2 + g->p->res_h / 2 + g->pitch + (g->posz / g->perp);
 	g->dend = (g->dend >= g->p->res_h) ? g->p->res_h - 1 : g->dend;
 	calc_texture(g, g->dstart, g->dend);
 }

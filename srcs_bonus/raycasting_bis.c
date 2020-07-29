@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:33:07 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/29 22:41:33 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/30 00:14:52 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	calc_texture(game_t *g, int start, int end)
 	get_texture(g);
 	get_wallx(g);
 	step = 1.0 * g->texture_side.height / g->lineheight;
-	g->tex_pos = (start - g->pitch -g->p->res_h / 2 + g->lineheight / 2) * step;
+	g->tex_pos = (start - g->pitch - (g->posz / g->perp) -g->p->res_h / 2 + g->lineheight / 2) * step;
 	g->y = start;
 	while (g->y < end)
 	{

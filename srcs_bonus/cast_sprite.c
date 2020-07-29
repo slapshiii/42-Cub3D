@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:02:48 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/29 22:58:18 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/30 00:16:11 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	calc_hw_sprite(game_t *g, coord_t trans)
 	coord_t	draw_y;
 	coord_t	draw_x;
 
-	g->movscreen = g->pitch;
+	g->movscreen = g->pitch + (g->posz / g->trans.y);
 	g->sprite_h = abs((int)(g->p->res_h / trans.y));
 	draw_y.x = -(g->sprite_h) / 2 + g->p->res_h / 2 + g->movscreen;
 	draw_y.x = (draw_y.x < 0) ? 0 : draw_y.x;
