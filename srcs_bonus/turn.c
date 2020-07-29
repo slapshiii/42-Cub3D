@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:29:57 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/29 00:05:07 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/29 22:59:23 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,18 @@ void	turn_right(game_t *g)
 		+ g->player_dir.y * cos(SPEED_TURN);
 	g->plane.x = g->plane.x * cos(SPEED_TURN) - g->plane.y * sin(SPEED_TURN);
 	g->plane.y = oldplane.x * sin(SPEED_TURN) + g->plane.y * cos(SPEED_TURN);
+}
+
+void	turn_down(game_t *g)
+{
+	g->pitch -= 150 * SPEED_TURN;
+    if(g->pitch < -200)
+		g->pitch = -200;
+}
+
+void	turn_up(game_t *g)
+{
+	g->pitch += 150 * SPEED_TURN;
+    if(g->pitch > 200)
+		g->pitch = 200;
 }

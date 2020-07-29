@@ -35,6 +35,8 @@ void    move_right(game_t *g);
 
 void    turn_left(game_t *g);
 void    turn_right(game_t *g);
+void	turn_down(game_t *g);
+void	turn_up(game_t *g);
 
 int	    mlx_mouse_hide();
 int     mlx_mouse_move(void *win_ptr, int x, int y); 

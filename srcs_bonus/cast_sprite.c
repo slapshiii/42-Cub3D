@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:02:48 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/29 05:35:45 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/29 22:58:18 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,11 @@ void	calc_hw_sprite(game_t *g, coord_t trans)
 	coord_t	draw_y;
 	coord_t	draw_x;
 
+	g->movscreen = g->pitch;
 	g->sprite_h = abs((int)(g->p->res_h / trans.y));
-	draw_y.x = -(g->sprite_h) / 2 + g->p->res_h / 2;
+	draw_y.x = -(g->sprite_h) / 2 + g->p->res_h / 2 + g->movscreen;
 	draw_y.x = (draw_y.x < 0) ? 0 : draw_y.x;
-	draw_y.y = g->sprite_h / 2 + g->p->res_h / 2;
+	draw_y.y = g->sprite_h / 2 + g->p->res_h / 2 + g->movscreen;
 	if (draw_y.y >= g->p->res_h)
 		draw_y.y = g->p->res_h - 1;
 	g->sprite_w = abs((int)(g->p->res_w / trans.y));
@@ -72,7 +73,7 @@ void	draw_sprite(game_t *g, coord_t draw_y, coord_t draw_x)
 			&& g->x < g->p->res_w && g->trans.y < g->zbuffer[g->x])
 			while (g->y < draw_y.y)
 			{
-				d = (g->y) * 256 - g->p->res_h * 128 + g->sprite_h * 128;
+				d = (g->y - g->movscreen) * 256 - g->p->res_h * 128 + g->sprite_h * 128;
 				g->tex_y = ((d * g->texture[0].height) / g->sprite_h) / 256;
 				color = (int)g->texture[0].data[(g->texture[0].width)
 					* g->tex_y + g->tex_x];

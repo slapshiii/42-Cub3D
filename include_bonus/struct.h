@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 17:21:32 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/29 05:42:45 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/29 22:58:46 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,6 +149,8 @@ typedef struct  game_s
     uint16_t    remain:10;
 
 	bonus_t		*bonus;
+	double		pitch;
+	int			is_floor;
 }               game_t;
 
 #endif
