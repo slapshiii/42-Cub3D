@@ -1,6 +1,6 @@
 R 450 369
-NO texture/north.xpm  
-SO      texture/south.xpm  
+NO texture/brick.xpm  
+SO      texture/wall.xpm  
 WE          texture/west.xpm  
 EA                 texture/east.xpm  
 
