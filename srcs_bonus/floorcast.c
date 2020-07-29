@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 22:29:16 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/29 23:02:13 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/29 23:07:50 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	data_floorcast(game_t *g)
 	g->raydiro = (vect_t){g->player_dir.x + g->plane.x,
 						g->player_dir.y + g->plane.y};
 	g->rowdist = (0.5 * g->p->res_h)
-		/ g->is_floor ? (g->y - g->p->res_h / 2 - g->pitch)
-		: (g->p->res_h / 2 - g->y + g->pitch);
+		/ ((g->is_floor) ? (g->y - g->p->res_h / 2 - g->pitch)
+		: (g->p->res_h / 2 - g->y + g->pitch));
 	g->floorstep.x = g->rowdist * (g->raydiro.x - g->raydirz.x) / g->p->res_w;
 	g->floorstep.y = g->rowdist * (g->raydiro.y - g->raydirz.y) / g->p->res_w;
 	g->floor.x = g->player.x + g->rowdist * g->raydirz.x;
