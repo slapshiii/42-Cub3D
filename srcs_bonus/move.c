@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:25:05 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/30 01:52:46 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/30 03:39:03 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,15 @@ void	dash(game_t *g)
 void	move_up(game_t *g)
 {	
 	if (g->p->map[(int)(g->player.y)]
-		[(int)(g->player.x + (g->player_dir.x * g->speed))] != '1')
+		[(int)(g->player.x + (g->player_dir.x * g->speed))] != '1'
+		&& g->p->map[(int)(g->player.y)]
+		[(int)(g->player.x + (g->player_dir.x * g->speed))] != '2')
 		g->player = (coord_t){g->player.x
 			+ (g->player_dir.x * g->speed), g->player.y};
 	if (g->p->map[(int)(g->player.y + (g->player_dir.y * g->speed))]
-		[(int)(g->player.x)] != '1')
+		[(int)(g->player.x)] != '1'
+		&& g->p->map[(int)(g->player.y + (g->player_dir.y * g->speed))]
+		[(int)(g->player.x)] != '2')
 		g->player = (coord_t){g->player.x, g->player.y
 			+ (g->player_dir.y * g->speed)};
 }
@@ -41,11 +45,15 @@ void	move_up(game_t *g)
 void	move_down(game_t *g)
 {
 	if (g->p->map[(int)(g->player.y)]
-		[(int)(g->player.x - (g->player_dir.x * g->speed))] != '1')
+		[(int)(g->player.x - (g->player_dir.x * g->speed))] != '1'
+		&& g->p->map[(int)(g->player.y)]
+		[(int)(g->player.x - (g->player_dir.x * g->speed))] != '2')
 		g->player = (coord_t){g->player.x
 			- (g->player_dir.x * g->speed), g->player.y};
 	if (g->p->map[(int)(g->player.y - (g->player_dir.y * g->speed))]
-		[(int)(g->player.x)] != '1')
+		[(int)(g->player.x)] != '1'
+		&& g->p->map[(int)(g->player.y - (g->player_dir.y * g->speed))]
+		[(int)(g->player.x)] != '2')
 		g->player = (coord_t){g->player.x, g->player.y
 			- (g->player_dir.y * g->speed)};
 }
@@ -53,11 +61,15 @@ void	move_down(game_t *g)
 void	move_left(game_t *g)
 {
 	if (g->p->map[(int)(g->player.y)]
-		[(int)(g->player.x + (g->player_dir.y * g->speed))] != '1')
+		[(int)(g->player.x + (g->player_dir.y * g->speed))] != '1'
+		&& g->p->map[(int)(g->player.y)]
+		[(int)(g->player.x + (g->player_dir.y * g->speed))] != '2')
 		g->player = (coord_t){g->player.x
 			+ (g->player_dir.y * g->speed), g->player.y};
 	if (g->p->map[(int)(g->player.y - (g->player_dir.x * g->speed))]
-		[(int)(g->player.x)] != '1')
+		[(int)(g->player.x)] != '1'
+		&& g->p->map[(int)(g->player.y - (g->player_dir.x * g->speed))]
+		[(int)(g->player.x)] != '2')
 		g->player = (coord_t){g->player.x, g->player.y
 			- (g->player_dir.x * g->speed)};
 }
@@ -65,11 +77,15 @@ void	move_left(game_t *g)
 void	move_right(game_t *g)
 {
 	if (g->p->map[(int)(g->player.y)]
-		[(int)(g->player.x - (g->player_dir.y * g->speed))] != '1')
+		[(int)(g->player.x - (g->player_dir.y * g->speed))] != '1'
+		&& g->p->map[(int)(g->player.y)]
+		[(int)(g->player.x - (g->player_dir.y * g->speed))] != '2')
 		g->player = (coord_t){g->player.x
 			- (g->player_dir.y * g->speed), g->player.y};
 	if (g->p->map[(int)(g->player.y + (g->player_dir.x * g->speed))]
-		[(int)(g->player.x)] != '1')
+		[(int)(g->player.x)] != '1'
+		&& g->p->map[(int)(g->player.y + (g->player_dir.x * g->speed))]
+		[(int)(g->player.x)] != '2')
 		g->player = (coord_t){g->player.x, g->player.y
 			+ (g->player_dir.x * g->speed)};
 }

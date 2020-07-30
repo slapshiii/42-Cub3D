@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 15:26:04 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/30 02:15:54 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/30 02:56:10 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,6 @@ void	error_exit(char *msg, game_t *g)
 	ft_putstr_fd(msg, 2);
 	clear_game(g);
 	system("pkill afplay");
-	system("leaks Cub3D");
+	//system("leaks Cub3D");
 	exit(1);
 }
