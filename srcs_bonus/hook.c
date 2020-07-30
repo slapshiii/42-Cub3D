@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:20:56 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/30 01:50:24 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/30 05:40:27 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,10 @@ int	key_press_hook(int key, game_t *g)
 		g->key_shift = 1;
 	if (key == KEY_X)
 		g->key_x = 1;
+	if (key == KEY_T)
+		attack(g);
 	if (key == KEY_ESC)
-	{
-		mlx_destroy_window(g->mlx_ptr, g->win_temp);
 		error_exit("KEY_ESC pressed\n", g);
-	}
 	return (0);
 }
 

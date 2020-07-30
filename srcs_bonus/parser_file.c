@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/18 14:34:56 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/29 23:59:59 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/30 06:18:11 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,21 +44,16 @@ void	init_data(game_t *g)
 
 int		parser_file(game_t *g)
 {
-	if (!(g->texture[0].img = mlx_xpm_file_to_image(g->mlx_ptr,
-					g->p->path_sprite, &(g->texture[0].width),
-					&(g->texture[0].height)))
+	if (!(g->texture[4].img = mlx_xpm_file_to_image(g->mlx_ptr,
+		g->p->path_sprite, &(g->texture[4].width), &(g->texture[4].height)))
+			|| !(g->texture[0].img = mlx_xpm_file_to_image(g->mlx_ptr,
+		g->p->path_no, &(g->texture[0].width), &(g->texture[0].height)))
 			|| !(g->texture[1].img = mlx_xpm_file_to_image(g->mlx_ptr,
-					g->p->path_no, &(g->texture[1].width),
-					&(g->texture[1].height)))
+		g->p->path_so, &(g->texture[1].width), &(g->texture[1].height)))
 			|| !(g->texture[2].img = mlx_xpm_file_to_image(g->mlx_ptr,
-					g->p->path_so, &(g->texture[2].width),
-					&(g->texture[2].height)))
+		g->p->path_ea, &(g->texture[2].width), &(g->texture[2].height)))
 			|| !(g->texture[3].img = mlx_xpm_file_to_image(g->mlx_ptr,
-					g->p->path_ea, &(g->texture[3].width),
-					&(g->texture[3].height)))
-			|| !(g->texture[4].img = mlx_xpm_file_to_image(g->mlx_ptr,
-					g->p->path_we, &(g->texture[4].width),
-					&(g->texture[4].height))))
+		g->p->path_we, &(g->texture[3].width), &(g->texture[3].height))))
 		return (-1);
 	init_data(g);
 	return (get_data_file(g));
@@ -66,7 +61,10 @@ int		parser_file(game_t *g)
 
 int		get_data_file(game_t *g)
 {
-	if (!(g->texture[0].data = (int*)mlx_get_data_addr(g->texture[0].img,
+	if (!(g->texture[4].data = (int*)mlx_get_data_addr(g->texture[4].img,
+					&g->texture[4].bpp, &g->texture[4].sizeline,
+					&g->texture[4].endian))
+			|| !(g->texture[0].data = (int*)mlx_get_data_addr(g->texture[0].img,
 					&g->texture[0].bpp, &g->texture[0].sizeline,
 					&g->texture[0].endian))
 			|| !(g->texture[1].data = (int*)mlx_get_data_addr(g->texture[1].img,
@@ -77,10 +75,7 @@ int		get_data_file(game_t *g)
 					&g->texture[2].endian))
 			|| !(g->texture[3].data = (int*)mlx_get_data_addr(g->texture[3].img,
 					&g->texture[3].bpp, &g->texture[3].sizeline,
-					&g->texture[3].endian))
-			|| !(g->texture[4].data = (int*)mlx_get_data_addr(g->texture[4].img,
-					&g->texture[4].bpp, &g->texture[4].sizeline,
-					&g->texture[4].endian)))
+					&g->texture[3].endian)))
 		return (-1);
 	return (0);
 }

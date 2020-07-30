@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:33:07 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/30 00:14:52 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/30 06:20:08 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ void	calc_texture(game_t *g, int start, int end)
 void	get_texture(game_t *g)
 {
 	if (g->side == 1 && g->ray_dir.y < 0)
-		g->texture_side = g->texture[1];
+		g->texture_side = g->texture[0];
 	else if (g->side == 1)
-		g->texture_side = g->texture[2];
+		g->texture_side = g->texture[1];
 	else if (g->side == 0 && g->ray_dir.x > 0)
-		g->texture_side = g->texture[3];
+		g->texture_side = g->texture[2];
 	else
-		g->texture_side = g->texture[4];
+		g->texture_side = g->texture[3];
 }
 
 void	get_wallx(game_t *g)

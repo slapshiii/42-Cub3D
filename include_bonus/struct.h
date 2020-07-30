@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 17:21:32 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/30 01:44:27 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/30 03:46:17 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct  coord_s
 typedef struct  sprite_s
 {
     coord_t     pos;
-    int         id;
+    int         hp;
 }               sprite_t;
 
 typedef struct  param_s

@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 19:45:35 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/28 04:43:49 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/30 03:51:43 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ int	check_config(param_t *p)
 			if (p->map[i][j] == '2')
 			{
 				p->sprite[k].pos = (coord_t){j, i};
-				p->sprite[k].id = k;
+				p->sprite[k].hp = 3;
 				k++;
 			}
 	}

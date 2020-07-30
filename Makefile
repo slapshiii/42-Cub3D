@@ -6,7 +6,7 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
-#    Updated: 2020/07/30 02:19:47 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/07/30 05:21:10 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ SRCS_BONUS =	srcs_bonus/main.c\
 				srcs_bonus/window.c\
 				srcs_bonus/hook.c\
 				srcs_bonus/move.c\
+				srcs_bonus/move_alt.c\
 				srcs_bonus/turn.c\
 				srcs_bonus/raycasting.c\
 				srcs_bonus/init_raycasting.c\
