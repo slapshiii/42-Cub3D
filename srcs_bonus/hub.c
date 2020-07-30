@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 04:35:33 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/30 00:40:11 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/30 02:11:35 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	init_hud(game_t *g)
 			g->p->res_w / 6, g->p->res_h / 6);
 	g->bonus->map.data = (int*)mlx_get_data_addr(g->bonus->map.img,
 		&g->bonus->map.bpp, &g->bonus->map.sizeline, &g->bonus->map.endian);
+	play_music();
 }
 
 void	draw_hud(game_t *g)
@@ -84,7 +85,13 @@ void	draw_map(game_t *g)
 
 void	update_map(game_t *g)
 {
+	mlx_put_image_to_window(g->mlx_ptr, g->win_temp, g->bonus->map.img, 0, 0);
 	mlx_pixel_put(g->mlx_ptr, g->win_temp,
 		g->player.x * (g->p->res_w / 6) / g->p->max_x,
 		g->player.y * (g->p->res_h / 6) / g->p->max_y, 0xFF0000);
+}
+
+void	play_music()
+{
+	system("afplay music/cat.mp3 &");
 }

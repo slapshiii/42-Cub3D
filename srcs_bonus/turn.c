@@ -6,13 +6,26 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:29:57 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/30 00:01:43 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/30 01:44:54 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include_bonus/cub3d.h"
 #include "../include_bonus/hook.h"
 #include <math.h>
+
+void	set_speed(game_t *g)
+{
+	if (g->key_shift && !g->key_x)
+		g->speed = SPEED_RUN;
+	else if (g->key_x)
+	{
+		g->speed = SPEED_CROUCH;
+		g->posz = -(g->p->res_h / 5);
+	}
+	else
+		g->speed = SPEED_WALK;
+}
 
 void	turn_left(game_t *g)
 {

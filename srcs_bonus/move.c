@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:25:05 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/30 00:24:48 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/30 01:52:46 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,16 @@
 #include "../include_bonus/hook.h"
 #include <math.h>
 
-void	set_speed(game_t *g)
+void	dash(game_t *g)
 {
-	if (g->key_shift && !g->key_x)
-		g->speed = SPEED_RUN;
-	else if (g->key_x)
+	int	i;
+
+	i = 0;
+	while (i < 20)
 	{
-		g->speed = SPEED_CROUCH;
-		g->posz = -(g->p->res_h / 5);
+		move_up(g);
+		i++;
 	}
-	else
-		g->speed = SPEED_WALK;
 }
 
 void	move_up(game_t *g)

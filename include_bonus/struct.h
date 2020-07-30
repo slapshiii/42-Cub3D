@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 17:21:32 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/30 00:07:02 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/30 01:44:27 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,8 +139,7 @@ typedef struct  game_s
 
     int         y;
     int         x;
-
-    int         mouse_x;
+	
     uint16_t    key_w:1;
     uint16_t    key_s:1;
     uint16_t    key_a:1;
@@ -149,7 +148,7 @@ typedef struct  game_s
     uint16_t    key_e:1;
 	uint16_t    key_x:1;
 	uint16_t    key_shift:1;
-    uint16_t    remain:10;
+    uint16_t    remain:8;
 
 	bonus_t		*bonus;
 	double		pitch;

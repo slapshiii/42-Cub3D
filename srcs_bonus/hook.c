@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:20:56 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/30 00:25:32 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/30 01:50:24 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	key_press_hook(int key, game_t *g)
 	if (key == KEY_E)
 		g->key_e = 1;
 	if (key == KEY_SPACE)
-		g->posz = g->p->res_h/5;
+		g->posz = g->p->res_h / 5;
 	if (key == KEY_SHIFT)
 		g->key_shift = 1;
 	if (key == KEY_X)
@@ -56,11 +56,13 @@ int	key_release_hook(int key, game_t *g)
 		g->key_q = 0;
 	if (key == KEY_E)
 		g->key_e = 0;
+	if (key == KEY_R)
+		dash(g);
 	if (key == KEY_SHIFT)
 		g->key_shift = 0;
 	if (key == KEY_X)
 	{
-		g->posz = 0; 
+		g->posz = 0;
 		g->key_x = 0;
 	}
 	return (0);

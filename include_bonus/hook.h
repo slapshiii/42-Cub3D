@@ -14,6 +14,7 @@
 # define KEY_A 0
 # define KEY_D 2
 # define KEY_X 7
+# define KEY_R 15
 # define KEY_SPACE 49
 # define KEY_SHIFT 257
 # define KEY_VERMAJ 272
@@ -38,6 +39,7 @@ void    move_down(game_t *g);
 void    move_left(game_t *g);
 void    move_right(game_t *g);
 
+void	dash(game_t *g);
 void    turn_left(game_t *g);
 void    turn_right(game_t *g);
 void	turn_down(game_t *g);
