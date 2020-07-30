@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 22:29:16 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/30 00:13:43 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/30 06:47:48 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ void	data_floorcast(game_t *g)
 						g->player_dir.y - g->plane.y};
 	g->raydiro = (vect_t){g->player_dir.x + g->plane.x,
 						g->player_dir.y + g->plane.y};
-	g->rowdist = ((g->is_floor) ? (0.5 * g->p->res_h + g->posz) : (0.5 * g->p->res_h - g->posz))
+	g->rowdist = ((g->is_floor) ?
+		(0.5 * g->p->res_h + g->posz) : (0.5 * g->p->res_h - g->posz))
 		/ ((g->is_floor) ? (g->y - g->p->res_h / 2 - g->pitch)
 		: (g->p->res_h / 2 - g->y + g->pitch));
 	g->floorstep.x = g->rowdist * (g->raydiro.x - g->raydirz.x) / g->p->res_w;
@@ -42,16 +43,22 @@ void	loop_floorcast(game_t *g)
 	{
 		if (g->is_floor)
 		{
-			tx = (int)(g->texture_floor.width * (g->floor.x - (int)(g->floor.x)))
+			tx = (int)(g->texture_floor.width
+				* (g->floor.x - (int)(g->floor.x)))
 				& (g->texture_floor.width - 1);
-			ty = (int)(g->texture_floor.height * (g->floor.y - (int)(g->floor.y)))
+			ty = (int)(g->texture_floor.height
+				* (g->floor.y - (int)(g->floor.y)))
 				& (g->texture_floor.height - 1);
-			color = (int)g->texture_floor.data[(g->texture_floor.width * ty) + tx];
-			g->win_img.data[((g->p->res_w) * g->y) + g->x] = (color >> 1) & 8355711;
-		} else {
+			color = (int)g->texture_floor.data[
+					(g->texture_floor.width * ty) + tx];
+			g->win_img.data[g->p->res_w * g->y + g->x] = (color >> 1 & 8355711);
+		}
+		else
+		{
 			tx = (int)(g->texture_ceil.width * (g->floor.x - (int)(g->floor.x)))
 				& (g->texture_ceil.width - 1);
-			ty = (int)(g->texture_ceil.height * (g->floor.y - (int)(g->floor.y)))
+			ty = (int)(g->texture_ceil.height
+				* (g->floor.y - (int)(g->floor.y)))
 				& (g->texture_ceil.height - 1);
 			color = (int)g->texture_ceil.data[g->texture_ceil.width * ty + tx];
 			g->win_img.data[g->p->res_w * g->y + g->x] = (color >> 1) & 8355711;

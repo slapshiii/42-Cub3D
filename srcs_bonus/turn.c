@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:29:57 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/30 01:44:54 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/30 06:38:13 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,13 @@ void	turn_right(game_t *g)
 void	turn_down(game_t *g)
 {
 	g->pitch -= 150 * SPEED_TURN;
-    if(g->pitch < -200)
+	if (g->pitch < -200)
 		g->pitch = -200;
 }
 
 void	turn_up(game_t *g)
 {
 	g->pitch += 150 * SPEED_TURN;
-    if(g->pitch > 200)
+	if (g->pitch > 200)
 		g->pitch = 200;
 }

@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 04:37:03 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/30 02:05:50 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/30 06:48:56 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,5 @@ void	init_hud(game_t *g);
 void	draw_hud(game_t *g);
 void	draw_map(game_t *g);
 void	update_map(game_t *g);
-
-void	play_music();
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:25:05 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/30 03:39:03 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/07/30 06:38:36 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	dash(game_t *g)
 }
 
 void	move_up(game_t *g)
-{	
+{
 	if (g->p->map[(int)(g->player.y)]
 		[(int)(g->player.x + (g->player_dir.x * g->speed))] != '1'
 		&& g->p->map[(int)(g->player.y)]
