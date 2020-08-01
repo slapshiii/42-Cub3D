@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/30 05:18:27 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/01 05:47:43 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/01 07:10:37 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 void	attack(game_t *g)
 {
-	g->frame = 8;
+	g->frame = 5;
 	if ((int)(g->player.x + g->player_dir.x / 4)
 		== (int)(g->p->sprite[g->p->num_sprite - 1].pos.x)
 		&& (int)(g->player.y + g->player_dir.y / 4)

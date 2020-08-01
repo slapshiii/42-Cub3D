@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 04:04:55 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/01 05:53:35 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/01 07:50:33 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	draw_attack(game_t *g, image_t image)
 		x = 0;
 		while (x < g->p->res_w / 2)
 		{
-			tex_hp = (coord_t){x * image.width / (g->p->res_w / 2), y * image.height / (g->p->res_w / 2)};
+			tex_hp = (coord_t){x * image.width / (g->p->res_w / 2), y * image.height / (g->p->res_h / 2)};
 			color = (int)image.data[(int)(image.width * tex_hp.y + tex_hp.x)];
 			if (color >= 0)
 				g->win_img.data[(int)((g->p->res_w) * (y + g->p->res_h / 2) + (x + g->p->res_w / 2))] = color;
@@ -66,10 +66,12 @@ void	animate_attack(game_t *g)
 		draw_attack(g, g->bonus->attack[0]);
 	else if (g->frame < 2)
 		draw_attack(g, g->bonus->attack[1]);
-	else if (g->frame < 4)
+	else if (g->frame < 3)
 		draw_attack(g, g->bonus->attack[2]);
-	else if (g->frame < 6)
+	else if (g->frame < 4)
 		draw_attack(g, g->bonus->attack[3]);
 	else
 		draw_attack(g, g->bonus->attack[4]);
+	if (g->frame > 0)
+		g->frame--;
 }
