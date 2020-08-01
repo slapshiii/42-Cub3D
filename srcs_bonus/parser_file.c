@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/18 14:34:56 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/30 06:18:11 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/01 00:24:09 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 
 void	init_data(game_t *g)
 {
-	g->player.x = g->p->spawn_x + 0.5;
-	g->player.y = g->p->spawn_y + 0.5;
+	g->player = (coord_t){g->p->spawn_x + 0.5, g->p->spawn_y + 0.5};
 	g->pitch = 0;
 	g->posz = 0;
+	g->hp = HP_MAX;
 	if (g->p->spawn_dir == 'N')
 	{
 		g->plane = (vect_t){0.66, 0.00};

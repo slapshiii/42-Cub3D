@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 17:21:32 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/30 03:46:17 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/01 00:07:06 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,8 @@ typedef struct	save_s
 
 typedef struct	bonus_s
 {
-	image_t		hud;
 	image_t		map;
+	image_t		hp;
 }				bonus_t;
 
 typedef struct  game_s
@@ -102,6 +102,7 @@ typedef struct  game_s
     vect_t      player_dir;
     vect_t      plane;
 	double		speed;
+	int			hp;
 
     vect_t      ray_dir;
 	int			mapx;

@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/30 05:18:27 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/30 06:40:48 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/01 02:48:12 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,7 @@ void	attack(game_t *g)
 		g->p->map[(int)(g->p->sprite[g->p->num_sprite - 1].pos.y)]
 		[(int)(g->p->sprite[g->p->num_sprite - 1].pos.x)] = '0';
 		g->p->num_sprite--;
+		g->hp--;
+		draw_map(g);
 	}
 }

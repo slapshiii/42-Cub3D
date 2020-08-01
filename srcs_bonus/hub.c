@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 04:35:33 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/30 06:52:32 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/01 03:23:01 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 void	init_hud(game_t *g)
 {
 	if (!(g->bonus = (bonus_t*)malloc(sizeof(bonus_t))))
-		error_exit("malloc HUD\n", g);
-	g->bonus->hud.img = mlx_xpm_file_to_image(g->mlx_ptr,
-		"texture/crosshair.xpm", &g->bonus->hud.width, &g->bonus->hud.height);
-	g->bonus->hud.data = (int*)mlx_get_data_addr(g->bonus->hud.img,
-		&g->bonus->hud.bpp, &g->bonus->hud.sizeline, &g->bonus->hud.endian);
+		error_exit("malloc Bonus\n", g);
+	g->bonus->hp.img = mlx_xpm_file_to_image(g->mlx_ptr,
+		"texture/coeur.xpm", &g->bonus->hp.width, &g->bonus->hp.height);
+	g->bonus->hp.data = (int*)mlx_get_data_addr(g->bonus->hp.img,
+		&g->bonus->hp.bpp, &g->bonus->hp.sizeline, &g->bonus->hp.endian);
 	g->bonus->map.img = mlx_new_image(g->mlx_ptr,
 			g->p->res_w / 6, g->p->res_h / 6);
 	g->bonus->map.data = (int*)mlx_get_data_addr(g->bonus->map.img,
@@ -28,27 +28,42 @@ void	init_hud(game_t *g)
 	system("afplay music/cat.mp3 &");
 }
 
-void	draw_hud(game_t *g)
+void	draw_hp(game_t *g, coord_t coord)
 {
-	int x;
 	int y;
+	int	x;
+	int	color;
+	coord_t tex_hp;
 
-	x = 0;
-	if (!g->save)
-		while (x < g->p->res_w)
+	y = 0;
+	while (y < g->p->res_w / 50)
+	{
+		x = 0;
+		while (x < g->p->res_w / 50)
 		{
-			y = 0;
-			while (y < g->p->res_h)
-			{
-				if (g->bonus->hud.data[
-					(y * g->bonus->hud.height / g->p->res_h)
-					* g->bonus->hud.width
-					+ (x * g->bonus->hud.width / g->p->res_w)] != 0x0)
-					g->win_img.data[g->p->res_w * y + x] = 0xFFFFFF;
-				y++;
-			}
+			tex_hp = (coord_t){x * g->bonus->hp.width / (g->p->res_w / 50), y * g->bonus->hp.height / (g->p->res_w / 50)};
+			color = (int)g->bonus->hp.data[(int)(g->bonus->hp.width * tex_hp.y + tex_hp.x)];
+			if (color >= 0)
+				g->win_img.data[(int)((g->p->res_w) * (y + coord.y)	+ (x + coord.x))] = color;
 			x++;
 		}
+		y++;
+	}
+}
+
+void	update_hp(game_t *g)
+{
+	int		i;
+	coord_t	coord;
+
+	i = 0;
+	while (i < g->hp)
+	{
+		coord = (coord_t){(g->p->res_w / 2) + (g->bonus->hp.width + 5)
+			* (i - (HP_MAX + 1) / 2), g->p->res_h * 9 / 10};
+		draw_hp(g, coord);
+		i++;
+	}
 }
 
 void	draw_map(game_t *g)
