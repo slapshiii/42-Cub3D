@@ -6,7 +6,7 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
-#    Updated: 2020/07/30 05:21:10 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/08/01 05:30:16 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,6 +56,7 @@ SRCS_BONUS =	srcs_bonus/main.c\
 				srcs_bonus/bitmap.c\
 				srcs_bonus/hub.c\
 				srcs_bonus/floorcast.c\
+				srcs_bonus/animate_attack.c\
 
 HEADER =	include/cub3d.h\
 			include/hook.h\
@@ -76,8 +77,8 @@ OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 CC = gcc
 
-#FLAGS = -Wall -Wextra -Werror -fsanitize=address
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -fsanitize=address
+#FLAGS = -Wall -Wextra -Werror
 
 
 #MLXFLAG = -lmlx -lXext -lX11

@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 03:05:16 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/01 03:00:13 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/01 05:42:42 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	init_raycast(game_t *g)
 		g->x++;
 	}
 	init_castsprite(g);
+	animate_attack(g);
 	update_hp(g);
 	mlx_put_image_to_window(g->mlx_ptr, g->win_temp, g->win_img.img, 0, 0);
 	update_map(g);

@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/18 14:34:56 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/01 00:24:09 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/01 05:37:31 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int		parser_file(game_t *g)
 		g->p->path_we, &(g->texture[3].width), &(g->texture[3].height))))
 		return (-1);
 	init_data(g);
+	g->frame = 0;
 	return (get_data_file(g));
 }
 

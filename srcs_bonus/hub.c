@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 04:35:33 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/01 03:23:01 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/01 05:43:59 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ void	init_hud(game_t *g)
 			g->p->res_w / 6, g->p->res_h / 6);
 	g->bonus->map.data = (int*)mlx_get_data_addr(g->bonus->map.img,
 		&g->bonus->map.bpp, &g->bonus->map.sizeline, &g->bonus->map.endian);
+	if(!(g->bonus->attack = (image_t*)malloc(sizeof(image_t) * 5)))
+		error_exit("Can't load images for attacks\n", g);
+	load_images(g);
 	system("afplay music/cat.mp3 &");
 }
 

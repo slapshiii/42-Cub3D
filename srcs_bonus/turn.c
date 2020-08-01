@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:29:57 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/30 06:38:13 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/01 05:24:52 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 
 void	set_speed(game_t *g)
 {
+	if (g->frame != 0)
+		g->frame--;
 	if (g->key_shift && !g->key_x)
 		g->speed = SPEED_RUN;
 	else if (g->key_x)
