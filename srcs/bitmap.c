@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 03:40:48 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/03 21:36:31 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/03 22:55:20 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	write_texture_bmp_file(game_t *g, int fd)
 	while (y < g->p->res_h)
 	{
 		x = 0;
-		width = ((g->p->res_w) * (g->p->res_h - y) - g->p->res_w);
+		width = ((g->p->res_w) * (g->p->res_h - y - 1));
 		while (x < g->p->res_w)
 		{
 			write(fd, &g->win_img.data[width], 4);
