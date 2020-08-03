@@ -1,10 +1,10 @@
-R 450 369
+R 18000 30690
 NO texture/brick.xpm  
 SO      texture/wall.xpm  
 WE          texture/west.xpm  
 EA                 texture/east.xpm  
 
-S     texture/sprite.xpm 
+S     texture/bonhome.xpm 
 
 F 87,58,24
 C 111,74,29
