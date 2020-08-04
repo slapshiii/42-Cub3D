@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:39:15 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/28 02:55:44 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/04 04:12:14 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,13 @@ void    ft_game(game_t *g, int screen, char *path);
 int     make_window(game_t *g);
 void    player_set_dir(game_t *g);
 
-void	init_raycast(game_t *g);
+int		init_raycast(game_t *g);
 void	init_raycasting(game_t *g);
 void	init_sidedist(game_t *g);
 void	calc_dda(game_t *g);
 void	calc_startend(game_t *g);
 
+void	draw_ceiling_floor(game_t* g, int start, int end);
 void	calc_texture(game_t *g, int start, int end);
 void	get_texture(game_t *g);
 void	get_wallx(game_t *g);

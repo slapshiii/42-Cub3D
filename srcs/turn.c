@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:29:57 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/28 01:46:27 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/04 04:09:59 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	turn_left(game_t *g)
 		+ g->player_dir.y * cos(-SPEED_TURN);
 	g->plane.x = g->plane.x * cos(-SPEED_TURN) - g->plane.y * sin(-SPEED_TURN);
 	g->plane.y = oldplane.x * sin(-SPEED_TURN) + g->plane.y * cos(-SPEED_TURN);
-	// init_raycast(g);
 }
 
 void	turn_right(game_t *g)
@@ -43,5 +42,4 @@ void	turn_right(game_t *g)
 		+ g->player_dir.y * cos(SPEED_TURN);
 	g->plane.x = g->plane.x * cos(SPEED_TURN) - g->plane.y * sin(SPEED_TURN);
 	g->plane.y = oldplane.x * sin(SPEED_TURN) + g->plane.y * cos(SPEED_TURN);
-	// init_raycast(g);
 }

@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:02:48 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/30 06:34:18 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/04 04:59:01 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,13 @@ void	calc_hw_sprite(game_t *g, int x)
 	draw_sprite(g, draw_y, draw_x, x);
 }
 
+void	check_hp(game_t *g, int color)
+{
+	color = (g->p->sprite[x].hp == 2) ? (color >> 1) & 0x7F7F7F : color;
+	color = (g->p->sprite[x].hp == 1) ? (color >> 1) & 0x272727 : color;
+	g->win_img.data[(g->p->res_w) * g->y + g->x] = color;
+}
+
 void	draw_sprite(game_t *g, coord_t draw_y, coord_t draw_x, int x)
 {
 	int color;
@@ -73,16 +80,13 @@ void	draw_sprite(game_t *g, coord_t draw_y, coord_t draw_x, int x)
 			&& g->x < g->p->res_w && g->trans.y < g->zbuffer[g->x])
 			while (g->y < draw_y.y)
 			{
-				d = (g->y - g->movscreen) * 256 - g->p->res_h * 128 + g->sprite_h * 128;
+				d = (g->y - g->movscreen) * 256
+					- g->p->res_h * 128 + g->sprite_h * 128;
 				g->tex_y = ((d * g->texture[4].height) / g->sprite_h) / 256;
 				color = (int)g->texture[4].data[(g->texture[4].width)
 					* g->tex_y + g->tex_x];
 				if ((color & 0x00FFFFFF) != 0)
-				{
-					color = (g->p->sprite[x].hp == 2) ? (color >> 1) & 0x7F7F7F : color;
-					color = (g->p->sprite[x].hp == 1) ? (color >> 1) & 0x272727 : color;
-					g->win_img.data[(g->p->res_w) * g->y + g->x] = color;
-				}
+					check_hp(g, color);
 				g->y++;
 			}
 		g->x++;

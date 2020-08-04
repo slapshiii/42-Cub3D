@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:59:10 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/28 01:45:54 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/04 04:29:19 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 #include "../get_next_line/get_next_line.h"
 #include "../include/cub3d.h"
 #include "../minilibx_a/mlx.h"
-
-int	mlx_screen_size(void *mlx_ptr, int *width, int *height);
 
 int	init_mlx(game_t *g)
 {

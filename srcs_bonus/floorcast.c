@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 22:29:16 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/30 06:47:48 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/04 04:55:22 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,20 @@
 #include "../include_bonus/struct.h"
 #include <math.h>
 #include "../include_bonus/hook.h"
+
+void	draw_floorcast(game_t *g, image_t tex)
+{
+	int tx;
+	int	ty;
+	int color;
+
+	tx = (int)(tex.width * (g->floor.x - (int)(g->floor.x)))
+		& (tex.width - 1);
+	ty = (int)(tex.height * (g->floor.y - (int)(g->floor.y)))
+		& (tex.height - 1);
+	color = (int)tex.data[(tex.width * ty) + tx];
+	g->win_img.data[g->p->res_w * g->y + g->x] = (color >> 1 & 8355711);
+}
 
 void	data_floorcast(game_t *g)
 {
@@ -34,35 +48,13 @@ void	data_floorcast(game_t *g)
 
 void	loop_floorcast(game_t *g)
 {
-	int tx;
-	int	ty;
-	int color;
-
 	g->x = 0;
 	while (g->x < g->p->res_w)
 	{
 		if (g->is_floor)
-		{
-			tx = (int)(g->texture_floor.width
-				* (g->floor.x - (int)(g->floor.x)))
-				& (g->texture_floor.width - 1);
-			ty = (int)(g->texture_floor.height
-				* (g->floor.y - (int)(g->floor.y)))
-				& (g->texture_floor.height - 1);
-			color = (int)g->texture_floor.data[
-					(g->texture_floor.width * ty) + tx];
-			g->win_img.data[g->p->res_w * g->y + g->x] = (color >> 1 & 8355711);
-		}
+			draw_floorcast(g, g->texture_floor);
 		else
-		{
-			tx = (int)(g->texture_ceil.width * (g->floor.x - (int)(g->floor.x)))
-				& (g->texture_ceil.width - 1);
-			ty = (int)(g->texture_ceil.height
-				* (g->floor.y - (int)(g->floor.y)))
-				& (g->texture_ceil.height - 1);
-			color = (int)g->texture_ceil.data[g->texture_ceil.width * ty + tx];
-			g->win_img.data[g->p->res_w * g->y + g->x] = (color >> 1) & 8355711;
-		}
+			draw_floorcast(g, g->texture_ceil);
 		g->floor.x += g->floorstep.x;
 		g->floor.y += g->floorstep.y;
 		g->x++;
@@ -71,12 +63,12 @@ void	loop_floorcast(game_t *g)
 
 void	init_floorcast(game_t *g)
 {
-	g->texture_floor.img = mlx_xpm_file_to_image(g->mlx_ptr,
-		"texture/grass.xpm", &g->texture_floor.width,
-		&g->texture_floor.height);
-	g->texture_floor.data = (int*)mlx_get_data_addr(g->texture_floor.img,
-		&g->texture_floor.bpp, &g->texture_floor.sizeline,
-		&g->texture_floor.endian);
+	tex.img = mlx_xpm_file_to_image(g->mlx_ptr,
+		"texture/grass.xpm", &tex.width,
+		&tex.height);
+	tex.data = (int*)mlx_get_data_addr(tex.img,
+		&tex.bpp, &tex.sizeline,
+		&tex.endian);
 	g->texture_ceil.img = mlx_xpm_file_to_image(g->mlx_ptr, "texture/stone.xpm",
 		&g->texture_ceil.width, &g->texture_ceil.height);
 	g->texture_ceil.data = (int*)mlx_get_data_addr(g->texture_ceil.img,

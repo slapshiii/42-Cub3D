@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 03:05:16 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/03 21:34:44 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/04 04:10:51 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <math.h>
 #include "../include/hook.h"
 
-void	init_raycast(game_t *g)
+int	init_raycast(game_t *g)
 {
 	g->x = 0;
 	if (!(g->zbuffer = (double*)malloc(sizeof(double) * g->p->res_w)))
@@ -33,4 +33,5 @@ void	init_raycast(game_t *g)
 	mlx_put_image_to_window(g->mlx_ptr, g->win_temp, g->win_img.img, 0, 0);
 	free(g->zbuffer);
 	loop(g);
+	return (0);
 }

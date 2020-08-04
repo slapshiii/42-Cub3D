@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:39:15 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/01 00:23:38 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/04 05:16:22 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void    swap_sprite(sprite_t *s1, sprite_t *s2);
 
 void    cast_sprite(game_t *g);
 void    calc_hw_sprite(game_t *g, int x);
+void	check_hp(game_t *g, int color);
 void    draw_sprite(game_t *g, coord_t draw_y, coord_t draw_x, int x);
 
 void	save_bitmap(game_t *g);

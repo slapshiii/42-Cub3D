@@ -6,13 +6,28 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:33:07 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/28 01:35:11 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/04 04:09:10 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
-#include "struct.h"
+#include "../include/struct.h"
 #include <math.h>
+
+void	draw_ceiling_floor(game_t *g, int start, int end)
+{
+	while (g->y < start)
+	{
+		g->win_img.data[((g->p->res_w) * g->y) + g->x] = g->p->color_ceiling;
+		g->y++;
+	}
+	g->y = end;
+	while (g->y < g->p->res_h)
+	{
+		g->win_img.data[((g->p->res_w) * g->y) + g->x] = g->p->color_floor;
+		g->y++;
+	}
+}
 
 void	calc_texture(game_t *g, int start, int end)
 {
@@ -24,16 +39,7 @@ void	calc_texture(game_t *g, int start, int end)
 	get_wallx(g);
 	step = 1.0 * g->texture_side.height / g->lineheight;
 	g->tex_pos = (start - g->p->res_h / 2 + g->lineheight / 2) * step;
-	while (g->y < g->p->res_h / 2)
-	{
-		g->win_img.data[((g->p->res_w) * g->y) + g->x] = g->p->color_ceiling;
-		g->y++;
-	}
-	while (g->y < g->p->res_h)
-	{
-		g->win_img.data[((g->p->res_w) * g->y) + g->x] = g->p->color_floor;
-		g->y++;
-	}
+	draw_ceiling_floor(g, start, end);
 	g->y = start;
 	while (g->y < end)
 	{
@@ -45,8 +51,6 @@ void	calc_texture(game_t *g, int start, int end)
 		g->win_img.data[((g->p->res_w) * g->y) + g->x] = color;
 		g->y++;
 	}
-	// if (g->y > 570)
-	// printf("%d %d %d\n", g->y, g->x, color);
 }
 
 void	get_texture(game_t *g)
@@ -65,12 +69,12 @@ void	get_wallx(game_t *g)
 {
 	if (g->side == 0)
 		g->wallx = g->player.y + g->perp * g->ray_dir.y;
-	else           
+	else
 		g->wallx = g->player.x + g->perp * g->ray_dir.x;
 	g->wallx -= floor((g->wallx));
 	g->tex_x = (int)(g->wallx * (double)(g->texture_side.width));
-	if(g->side == 0 && g->ray_dir.x > 0) 
+	if (g->side == 0 && g->ray_dir.x > 0)
 		g->tex_x = g->texture_side.width - g->tex_x - 1;
-	if(g->side == 1 && g->ray_dir.y < 0) 
+	if (g->side == 1 && g->ray_dir.y < 0)
 		g->tex_x = g->texture_side.width - g->tex_x - 1;
 }

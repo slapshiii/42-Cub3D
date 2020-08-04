@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 04:37:03 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/01 05:20:33 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/04 05:20:54 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ void	update_map(game_t *g);
 void	animate_attack(game_t *g);
 void	draw_attack(game_t *g, image_t image);
 void	load_images(game_t *g);
+void	get_data_image(image_t image, char *path);
 
 #endif
