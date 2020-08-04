@@ -1,4 +1,4 @@
-R 18000 30690
+R 700 306
 NO texture/brick.xpm  
 SO      texture/wall.xpm  
 WE          texture/west.xpm  
@@ -11,6 +11,6 @@ C 111,74,29
 
 111111
 100101
-102001
+100001
 1100N1
 111111

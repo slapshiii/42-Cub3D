@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 04:35:33 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/04 04:46:34 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/04 06:56:50 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	init_hud(game_t *g)
 	system("afplay music/cat.mp3 &");
 }
 
-void	draw_hp(game_t *g, coord_t coord)
+void	draw_hp(game_t *g, coord_t coord, int size)
 {
 	int		y;
 	int		x;
@@ -39,13 +39,13 @@ void	draw_hp(game_t *g, coord_t coord)
 	coord_t tex_hp;
 
 	y = 0;
-	while (y < g->p->res_w / 50)
+	while (y < size)
 	{
 		x = 0;
-		while (x < g->p->res_w / 50)
+		while (x < size)
 		{
-			tex_hp = (coord_t){x * g->bonus->hp.width / (g->p->res_w / 50),
-				y * g->bonus->hp.height / (g->p->res_w / 50)};
+			tex_hp = (coord_t){x * g->bonus->hp.width / (size),
+				y * g->bonus->hp.height / (size)};
 			color = (int)g->bonus->hp.data[(int)(g->bonus->hp.width
 				* tex_hp.y + tex_hp.x)];
 			if (color >= 0)
@@ -61,13 +61,17 @@ void	update_hp(game_t *g)
 {
 	int		i;
 	coord_t	coord;
+	int		size;
 
 	i = 0;
+	size = (g->bonus->hp.width > g->p->res_w / 100) ? g->bonus->hp.width
+		: g->p->res_w / 100;
 	while (i < g->hp)
 	{
-		coord = (coord_t){(g->p->res_w / 2) + (g->bonus->hp.width + 5)
-			* (i - (HP_MAX + 1) / 2), g->p->res_h * 9 / 10};
-		draw_hp(g, coord);
+		coord = (coord_t){(int)(g->p->res_w / 2)
+			+ (g->bonus->hp.width + size / 2)
+			* (i - (int)((HP_MAX + 1) / 2)), (int)(g->p->res_h * 9 / 10)};
+		draw_hp(g, coord, size);
 		i++;
 	}
 }
@@ -85,17 +89,20 @@ void	draw_map(game_t *g)
 		g->y = -1;
 		while (++g->y < g->p->res_h / 6)
 		{
-			c = g->p->map[(int)(g->y * g->p->max_y / to_win.y)]
-				[(int)(g->x * g->p->max_x / to_win.x)];
 			len = ft_strlen(g->p->map[(int)(g->y * g->p->max_y / to_win.y)]);
-			if (g->x * g->p->max_x / to_win.x <= len && c == '1')
-				g->bonus->map.data[(int)(to_win.x * g->y + g->x)] = 0xFFFFFF;
-			else if (g->x * g->p->max_x / to_win.x <= len && c == '0')
-				g->bonus->map.data[(int)(to_win.x * g->y + g->x)] = 0x0;
-			else if (g->x * g->p->max_x / to_win.x <= len && c == '2')
-				g->bonus->map.data[(int)(to_win.x * g->y + g->x)] = 0xBA202F;
-			else
-				g->bonus->map.data[(int)(to_win.x * g->y + g->x)] = 0x263D63;
+			if (g->x * g->p->max_x / to_win.x <= len)
+			{
+				c = g->p->map[(int)(g->y * g->p->max_y / to_win.y)]
+					[(int)(g->x * g->p->max_x / to_win.x)];
+				if (c == '1')
+					g->bonus->map.data[(int)(to_win.x * g->y + g->x)] = BLK;
+				else if (c == '0')
+					g->bonus->map.data[(int)(to_win.x * g->y + g->x)] = WHT;
+				else if (c == '2')
+					g->bonus->map.data[(int)(to_win.x * g->y + g->x)] = RED;
+				else
+					g->bonus->map.data[(int)(to_win.x * g->y + g->x)] = BLU;
+			}
 		}
 	}
 }

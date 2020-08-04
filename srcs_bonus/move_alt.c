@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/30 05:18:27 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/01 07:10:37 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/04 06:31:07 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,20 @@
 void	attack(game_t *g)
 {
 	g->frame = 5;
-	if ((int)(g->player.x + g->player_dir.x / 4)
-		== (int)(g->p->sprite[g->p->num_sprite - 1].pos.x)
-		&& (int)(g->player.y + g->player_dir.y / 4)
-		== (int)(g->p->sprite[g->p->num_sprite - 1].pos.y))
-		g->p->sprite[g->p->num_sprite - 1].hp--;
-	if (g->p->sprite[g->p->num_sprite - 1].hp == 0)
+	if (g->p->num_sprite)
 	{
-		g->p->map[(int)(g->p->sprite[g->p->num_sprite - 1].pos.y)]
-		[(int)(g->p->sprite[g->p->num_sprite - 1].pos.x)] = '0';
-		g->p->num_sprite--;
-		g->hp--;
-		draw_map(g);
+		if ((int)(g->player.x + g->player_dir.x / 4)
+			== (int)(g->p->sprite[g->p->num_sprite - 1].pos.x)
+			&& (int)(g->player.y + g->player_dir.y / 4)
+			== (int)(g->p->sprite[g->p->num_sprite - 1].pos.y))
+			g->p->sprite[g->p->num_sprite - 1].hp--;
+		if (g->p->sprite[g->p->num_sprite - 1].hp == 0)
+		{
+			g->p->map[(int)(g->p->sprite[g->p->num_sprite - 1].pos.y)]
+			[(int)(g->p->sprite[g->p->num_sprite - 1].pos.x)] = '0';
+			g->p->num_sprite--;
+			g->hp--;
+			draw_map(g);
+		}
 	}
 }
