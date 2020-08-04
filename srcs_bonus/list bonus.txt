@@ -1,0 +1,16 @@
+Collision contre les murs
+Collision contre les objets
+HUD
+Regarder en haut et en bas
+Sauter
+S'accroupir
+Barre de points de vie
+Perte de point de vie
+Animation
+Musique
+Screenshot qui ecrase pas
+Dash vers l'avant
+Sprint
+Arme et mechants
+Controle de la souris
+Attaque

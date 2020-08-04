@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/30 05:18:27 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/04 06:31:07 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/04 23:31:54 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,27 @@
 
 void	attack(game_t *g)
 {
+	int i;
+	int x;
+	int y;
+
+	i = -1;
+	x = (int)(g->player.x + g->player_dir.x / 4);
+	y = (int)(g->player.y + g->player_dir.y / 4);
 	g->frame = 5;
 	if (g->p->num_sprite)
-	{
-		if ((int)(g->player.x + g->player_dir.x / 4)
-			== (int)(g->p->sprite[g->p->num_sprite - 1].pos.x)
-			&& (int)(g->player.y + g->player_dir.y / 4)
-			== (int)(g->p->sprite[g->p->num_sprite - 1].pos.y))
-			g->p->sprite[g->p->num_sprite - 1].hp--;
-		if (g->p->sprite[g->p->num_sprite - 1].hp == 0)
+		while (++i < g->p->num_sprite)
 		{
-			g->p->map[(int)(g->p->sprite[g->p->num_sprite - 1].pos.y)]
-			[(int)(g->p->sprite[g->p->num_sprite - 1].pos.x)] = '0';
-			g->p->num_sprite--;
-			g->hp--;
-			draw_map(g);
+			if (g->p->sprite[i].pos.x == x && g->p->sprite[i].pos.y == y)
+				if (--g->p->sprite[i].hp == 0)
+				{
+					swap_sprite(&g->p->sprite[i],
+						&g->p->sprite[g->p->num_sprite - 1]);
+					g->p->map[y][x] = '0';
+					g->p->num_sprite--;
+					if (--g->hp == 0)
+						error_exit("No Health Point left\n", g);
+					draw_map(g);
+				}
 		}
-	}
 }
