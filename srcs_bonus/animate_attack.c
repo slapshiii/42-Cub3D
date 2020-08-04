@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 04:04:55 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/04 06:58:06 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 01:07:07 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,11 @@ void	get_data_image(void *mlx_ptr, image_t *image, char *path)
 
 void	load_images(game_t *g)
 {
-	get_data_image(g->mlx_ptr,
-		&g->bonus->attack[0], "texture/attack/frame1.xpm");
-	get_data_image(g->mlx_ptr,
-		&g->bonus->attack[1], "texture/attack/frame2.xpm");
-	get_data_image(g->mlx_ptr,
-		&g->bonus->attack[2], "texture/attack/frame3.xpm");
-	get_data_image(g->mlx_ptr,
-		&g->bonus->attack[3], "texture/attack/frame4.xpm");
-	get_data_image(g->mlx_ptr,
-		&g->bonus->attack[4], "texture/attack/frame5.xpm");
+	get_data_image(g->mlx_ptr, &g->bonus->attack[0], ATTACK_F1_PATH);
+	get_data_image(g->mlx_ptr, &g->bonus->attack[1], ATTACK_F2_PATH);
+	get_data_image(g->mlx_ptr, &g->bonus->attack[2], ATTACK_F3_PATH);
+	get_data_image(g->mlx_ptr, &g->bonus->attack[3], ATTACK_F4_PATH);
+	get_data_image(g->mlx_ptr, &g->bonus->attack[4], ATTACK_F5_PATH);
 }
 
 void	draw_attack(game_t *g, image_t image)

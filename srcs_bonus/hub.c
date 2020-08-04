@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 04:35:33 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/04 06:56:50 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 01:08:14 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	init_hud(game_t *g)
 	if (!(g->bonus = (bonus_t*)malloc(sizeof(bonus_t))))
 		error_exit("malloc Bonus\n", g);
 	g->bonus->hp.img = mlx_xpm_file_to_image(g->mlx_ptr,
-		"texture/coeur.xpm", &g->bonus->hp.width, &g->bonus->hp.height);
+		HEALTH_PATH, &g->bonus->hp.width, &g->bonus->hp.height);
 	g->bonus->hp.data = (int*)mlx_get_data_addr(g->bonus->hp.img,
 		&g->bonus->hp.bpp, &g->bonus->hp.sizeline, &g->bonus->hp.endian);
 	g->bonus->map.img = mlx_new_image(g->mlx_ptr,
@@ -28,7 +28,7 @@ void	init_hud(game_t *g)
 	if (!(g->bonus->attack = (image_t*)malloc(sizeof(image_t) * 5)))
 		error_exit("Can't load images for attacks\n", g);
 	load_images(g);
-	system("afplay music/cat.mp3 &");
+	system(PLAY_MUSIC);
 }
 
 void	draw_hp(game_t *g, coord_t coord, int size)

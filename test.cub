@@ -4,7 +4,7 @@ SO      texture/wall.xpm
 WE          texture/west.xpm  
 EA                 texture/east.xpm  
 
-S     texture/bonhome.xpm 
+S     texture/sprite.xpm 
 
 F 87,58,24
 C 111,74,29

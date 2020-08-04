@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 22:29:16 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/04 05:32:51 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 01:08:55 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,12 @@ void	loop_floorcast(game_t *g)
 void	init_floorcast(game_t *g)
 {
 	g->texture_floor.img = mlx_xpm_file_to_image(g->mlx_ptr,
-		"texture/grass.xpm", &g->texture_floor.width,
+		FLOOR_PATH, &g->texture_floor.width,
 		&g->texture_floor.height);
 	g->texture_floor.data = (int*)mlx_get_data_addr(g->texture_floor.img,
 		&g->texture_floor.bpp, &g->texture_floor.sizeline,
 		&g->texture_floor.endian);
-	g->texture_ceil.img = mlx_xpm_file_to_image(g->mlx_ptr, "texture/stone.xpm",
+	g->texture_ceil.img = mlx_xpm_file_to_image(g->mlx_ptr, CEILING_PATH,
 		&g->texture_ceil.width, &g->texture_ceil.height);
 	g->texture_ceil.data = (int*)mlx_get_data_addr(g->texture_ceil.img,
 		&g->texture_ceil.bpp, &g->texture_ceil.sizeline,
