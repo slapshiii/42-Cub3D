@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:02:48 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/04 04:59:01 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/04 05:30:32 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	calc_hw_sprite(game_t *g, int x)
 	draw_sprite(g, draw_y, draw_x, x);
 }
 
-void	check_hp(game_t *g, int color)
+void	check_hp(game_t *g, int color, int x)
 {
 	color = (g->p->sprite[x].hp == 2) ? (color >> 1) & 0x7F7F7F : color;
 	color = (g->p->sprite[x].hp == 1) ? (color >> 1) & 0x272727 : color;
@@ -86,7 +86,7 @@ void	draw_sprite(game_t *g, coord_t draw_y, coord_t draw_x, int x)
 				color = (int)g->texture[4].data[(g->texture[4].width)
 					* g->tex_y + g->tex_x];
 				if ((color & 0x00FFFFFF) != 0)
-					check_hp(g, color);
+					check_hp(g, color, x);
 				g->y++;
 			}
 		g->x++;

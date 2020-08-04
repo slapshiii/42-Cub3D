@@ -6,16 +6,16 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 04:04:55 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/04 05:23:18 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/04 05:35:20 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include_bonus/cub3d.h"
 #include "../include_bonus/hub.h"
 
-void	get_data_image(image_t image, char *path)
+void	get_data_image(void *mlx_ptr, image_t image, char *path)
 {
-	image.img = mlx_xpm_file_to_image(g->mlx_ptr, path,
+	image.img = mlx_xpm_file_to_image(mlx_ptr, path,
 		&image.width, &image.height);
 	image.data = (int*)mlx_get_data_addr(image.img,
 		&image.bpp, &image.sizeline, &image.endian);
@@ -23,11 +23,16 @@ void	get_data_image(image_t image, char *path)
 
 void	load_images(game_t *g)
 {
-	get_data_image(g->bonus->attack[0], "texture/attack/frame1.xpm");
-	get_data_image(g->bonus->attack[1], "texture/attack/frame2.xpm");
-	get_data_image(g->bonus->attack[2], "texture/attack/frame3.xpm");
-	get_data_image(g->bonus->attack[3], "texture/attack/frame4.xpm");
-	get_data_image(g->bonus->attack[4], "texture/attack/frame5.xpm");
+	get_data_image(g->mlx_ptr,
+		g->bonus->attack[0], "texture/attack/frame1.xpm");
+	get_data_image(g->mlx_ptr,
+		g->bonus->attack[1], "texture/attack/frame2.xpm");
+	get_data_image(g->mlx_ptr,
+		g->bonus->attack[2], "texture/attack/frame3.xpm");
+	get_data_image(g->mlx_ptr,
+		g->bonus->attack[3], "texture/attack/frame4.xpm");
+	get_data_image(g->mlx_ptr,
+		g->bonus->attack[4], "texture/attack/frame5.xpm");
 }
 
 void	draw_attack(game_t *g, image_t image)
