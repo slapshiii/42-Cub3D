@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 17:21:32 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/01 05:22:16 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 01:55:05 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,9 @@ typedef struct	bonus_s
 	image_t		map;
 	image_t		hp;
 	image_t		*attack;
+	image_t		end_game;
+	image_t		start_game;
+	int			status;
 }				bonus_t;
 
 typedef struct  game_s

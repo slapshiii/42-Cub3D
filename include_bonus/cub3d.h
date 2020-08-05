@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:39:15 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/04 05:31:40 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 01:43:48 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void    error_exit(char *msg, game_t *g);
 void    ft_game(game_t *g, int screen, char *path);
 
 int     make_window(game_t *g);
+int		check_status_game(game_t *g);
 void    player_set_dir(game_t *g);
 
 void	draw_floorcast(game_t *g, image_t tex);

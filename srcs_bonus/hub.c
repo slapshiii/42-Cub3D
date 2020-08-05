@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 04:35:33 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 01:08:14 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 01:46:08 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	init_hud(game_t *g)
 {
 	if (!(g->bonus = (bonus_t*)malloc(sizeof(bonus_t))))
 		error_exit("malloc Bonus\n", g);
+	bzero(g->bonus, sizeof(bonus_t));
 	g->bonus->hp.img = mlx_xpm_file_to_image(g->mlx_ptr,
 		HEALTH_PATH, &g->bonus->hp.width, &g->bonus->hp.height);
 	g->bonus->hp.data = (int*)mlx_get_data_addr(g->bonus->hp.img,

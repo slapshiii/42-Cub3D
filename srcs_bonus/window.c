@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:37:55 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/01 00:23:45 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 01:58:28 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,17 @@
 #include <stdio.h>
 #include "../include_bonus/hook.h"
 #include <math.h>
+
+int	check_status_game(game_t *g)
+{
+	if (g->bonus->status == 2)
+		end_game(g);
+	else if (g->bonus->status == 0)
+		start_game(g);
+	else
+		init_raycast(g);
+	return (0);
+}
 
 int	make_window(game_t *g)
 {
@@ -33,7 +44,7 @@ int	make_window(game_t *g)
 	mlx_hook(g->win_temp, 3, 0, key_release_hook, g);
 	mlx_hook(g->win_temp, 6, 0, mouse_motion_hook, g);
 	mlx_hook(g->win_temp, 17, 0, exit_hook, g);
-	mlx_loop_hook(g->mlx_ptr, init_raycast, g);
+	mlx_loop_hook(g->mlx_ptr, check_status_game, g);
 	mlx_loop(g->mlx_ptr);
 	return (0);
 }

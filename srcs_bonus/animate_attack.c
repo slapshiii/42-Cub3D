@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 04:04:55 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 01:07:07 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 01:54:13 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	load_images(game_t *g)
 	get_data_image(g->mlx_ptr, &g->bonus->attack[2], ATTACK_F3_PATH);
 	get_data_image(g->mlx_ptr, &g->bonus->attack[3], ATTACK_F4_PATH);
 	get_data_image(g->mlx_ptr, &g->bonus->attack[4], ATTACK_F5_PATH);
+	get_data_image(g->mlx_ptr, &g->bonus->end_game, ENDSCREEN_PATH);
+	get_data_image(g->mlx_ptr, &g->bonus->start_game, STARTSCREEN_PATH);
 }
 
 void	draw_attack(game_t *g, image_t image)

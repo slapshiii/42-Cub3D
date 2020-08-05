@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 04:37:03 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 01:09:01 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 01:58:45 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # define FLOOR_PATH "texture/grass.xpm"
 # define CEILING_PATH "texture/stone.xpm"
 # define HEALTH_PATH "texture/coeur.xpm"
+# define ENDSCREEN_PATH "texture/fb.xpm"
+# define STARTSCREEN_PATH "texture/fb.xpm"
 # define ATTACK_F1_PATH "texture/attack/frame1.xpm"
 # define ATTACK_F2_PATH "texture/attack/frame2.xpm"
 # define ATTACK_F3_PATH "texture/attack/frame3.xpm"
@@ -40,5 +42,8 @@ void	animate_attack(game_t *g);
 void	draw_attack(game_t *g, image_t image);
 void	load_images(game_t *g);
 void	get_data_image(void *mlx_ptr, image_t *image, char *path);
+
+void	end_game(game_t *g);
+void	start_game(game_t *g);
 
 #endif
