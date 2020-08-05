@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/30 05:18:27 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 01:58:05 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 02:06:12 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,15 @@ void	end_game(game_t *g)
 	int	color;
 
 	y = -1;
-	while(++y < g->p->res_h)
+	while (++y < g->p->res_h)
 	{
 		x = -1;
-		while(++x < g->p->res_w)
+		while (++x < g->p->res_w)
 		{
 			tx = (int)(g->bonus->end_game.width * x / g->p->res_w);
 			ty = (int)(g->bonus->end_game.height * y / g->p->res_h);
-			color = (int)g->bonus->end_game.data[(g->bonus->end_game.width * ty) + tx];
+			color = (int)g->bonus->end_game.data[
+				(g->bonus->end_game.width * ty) + tx];
 			g->win_img.data[g->p->res_w * y + x] = color;
 		}
 	}
@@ -46,14 +47,15 @@ void	start_game(game_t *g)
 	int	color;
 
 	y = -1;
-	while(++y < g->p->res_h)
+	while (++y < g->p->res_h)
 	{
 		x = -1;
-		while(++x < g->p->res_w)
+		while (++x < g->p->res_w)
 		{
 			tx = (int)(g->bonus->start_game.width * x / g->p->res_w);
 			ty = (int)(g->bonus->start_game.height * y / g->p->res_h);
-			color = (int)g->bonus->start_game.data[(g->bonus->start_game.width * ty) + tx];
+			color = (int)g->bonus->start_game.data[
+				(g->bonus->start_game.width * ty) + tx];
 			g->win_img.data[g->p->res_w * y + x] = color;
 		}
 	}

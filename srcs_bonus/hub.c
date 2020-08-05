@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 04:35:33 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 01:46:08 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 02:12:46 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ void	update_hp(game_t *g)
 void	draw_map(game_t *g)
 {
 	coord_t to_win;
-	int		len;
 	char	c;
 
 	to_win = (coord_t){g->p->res_w / 6, g->p->res_h / 6};
@@ -90,11 +89,10 @@ void	draw_map(game_t *g)
 		g->y = -1;
 		while (++g->y < g->p->res_h / 6)
 		{
-			len = ft_strlen(g->p->map[(int)(g->y * g->p->max_y / to_win.y)]);
-			if (g->x * g->p->max_x / to_win.x <= len)
+			if (g->x * g->p->max_x / to_win.x <= ft_strlen(g->p->map[
+(int)(g->y * g->p->max_y / to_win.y)]) && (c = g->p->map[(int)(g->y
+	* g->p->max_y / to_win.y)][(int)(g->x * g->p->max_x / to_win.x)]))
 			{
-				c = g->p->map[(int)(g->y * g->p->max_y / to_win.y)]
-					[(int)(g->x * g->p->max_x / to_win.x)];
 				if (c == '1')
 					g->bonus->map.data[(int)(to_win.x * g->y + g->x)] = BLK;
 				else if (c == '0')
