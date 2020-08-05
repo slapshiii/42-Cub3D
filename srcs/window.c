@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:37:55 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/04 04:12:30 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 02:34:43 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "../include/hook.h"
 #include <math.h>
 
-int		make_window(game_t *g)
+int		make_window(t_game *g)
 {
 	if (!(g->win_temp =
 		mlx_new_window(g->mlx_ptr, g->p->res_w, g->p->res_h, "Cub3D")))

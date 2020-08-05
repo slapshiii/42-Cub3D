@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/30 05:18:27 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 02:06:12 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 02:34:43 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../include_bonus/hook.h"
 #include <math.h>
 
-void	end_game(game_t *g)
+void	end_game(t_game *g)
 {
 	int	x;
 	int	y;
@@ -38,7 +38,7 @@ void	end_game(game_t *g)
 	mlx_put_image_to_window(g->mlx_ptr, g->win_temp, g->win_img.img, 0, 0);
 }
 
-void	start_game(game_t *g)
+void	start_game(t_game *g)
 {
 	int	x;
 	int	y;
@@ -62,7 +62,7 @@ void	start_game(game_t *g)
 	mlx_put_image_to_window(g->mlx_ptr, g->win_temp, g->win_img.img, 0, 0);
 }
 
-void	attack(game_t *g)
+void	attack(t_game *g)
 {
 	int i;
 	int x;

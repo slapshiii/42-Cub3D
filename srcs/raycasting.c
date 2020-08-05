@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 03:05:16 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/04 04:10:51 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 02:34:43 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <math.h>
 #include "../include/hook.h"
 
-int	init_raycast(game_t *g)
+int	init_raycast(t_game *g)
 {
 	g->x = 0;
 	if (!(g->zbuffer = (double*)malloc(sizeof(double) * g->p->res_w)))

@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/18 14:34:56 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/01 05:37:31 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 02:34:43 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,35 @@
 #include "../get_next_line/get_next_line.h"
 #include "../include_bonus/cub3d.h"
 
-void	init_data(game_t *g)
+void	init_data(t_game *g)
 {
-	g->player = (coord_t){g->p->spawn_x + 0.5, g->p->spawn_y + 0.5};
+	g->player = (t_coord){g->p->spawn_x + 0.5, g->p->spawn_y + 0.5};
 	g->pitch = 0;
 	g->posz = 0;
 	g->hp = HP_MAX;
 	if (g->p->spawn_dir == 'N')
 	{
-		g->plane = (vect_t){0.66, 0.00};
-		g->player_dir = (vect_t){0, -1};
+		g->plane = (t_vect){0.66, 0.00};
+		g->player_dir = (t_vect){0, -1};
 	}
 	if (g->p->spawn_dir == 'S')
 	{
-		g->plane = (vect_t){-0.66, 0.00};
-		g->player_dir = (vect_t){0, 1};
+		g->plane = (t_vect){-0.66, 0.00};
+		g->player_dir = (t_vect){0, 1};
 	}
 	if (g->p->spawn_dir == 'E')
 	{
-		g->plane = (vect_t){0.00, 0.66};
-		g->player_dir = (vect_t){1, 0};
+		g->plane = (t_vect){0.00, 0.66};
+		g->player_dir = (t_vect){1, 0};
 	}
 	if (g->p->spawn_dir == 'W')
 	{
-		g->plane = (vect_t){0.00, -0.66};
-		g->player_dir = (vect_t){-1, 0};
+		g->plane = (t_vect){0.00, -0.66};
+		g->player_dir = (t_vect){-1, 0};
 	}
 }
 
-int		parser_file(game_t *g)
+int		parser_file(t_game *g)
 {
 	if (!(g->texture[4].img = mlx_xpm_file_to_image(g->mlx_ptr,
 		g->p->path_sprite, &(g->texture[4].width), &(g->texture[4].height)))
@@ -60,7 +60,7 @@ int		parser_file(game_t *g)
 	return (get_data_file(g));
 }
 
-int		get_data_file(game_t *g)
+int		get_data_file(t_game *g)
 {
 	if (!(g->texture[4].data = (int*)mlx_get_data_addr(g->texture[4].img,
 					&g->texture[4].bpp, &g->texture[4].sizeline,

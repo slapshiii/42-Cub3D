@@ -1,13 +1,27 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   hook.h                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/08/05 02:46:12 by phnguyen          #+#    #+#             */
+/*   Updated: 2020/08/05 02:46:43 by phnguyen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef HOOK_H
 # define HOOK_H
 
-/* DEFINE KEYCODE QUIT */
+/*
+**	DEFINE KEYCODE QUIT
+*/
 
 # define KEY_ESC 53
 
-/* DEFINE KEYCODE MOVE */
+/*
+**	DEFINE KEYCODE MOVE
+*/
 
 # define KEY_W 13
 # define KEY_S 1
@@ -20,36 +34,37 @@
 # define KEY_SHIFT 257
 # define KEY_VERMAJ 272
 
-/* DEFINE KEYCODE TURN */
+/*
+**	DEFINE KEYCODE TURN
+*/
 
 # define KEY_Q 12
 # define KEY_E 14
 
-
 # include "cub3d.h"
 
-int     key_press_hook(int key, game_t *g);
-int     key_release_hook(int key, game_t *g);
-int     mouse_motion_hook(int x, int y, game_t *g);
-int 	mouse_press_hook(int button, game_t *g);
-int     exit_hook(game_t *g);
-int     loop(game_t *g);
+int		key_press_hook(int key, t_game *g);
+int		key_release_hook(int key, t_game *g);
+int		mouse_motion_hook(int x, int y, t_game *g);
+int		mouse_press_hook(int button, t_game *g);
+int		exit_hook(t_game *g);
+int		loop(t_game *g);
 
-void	set_speed(game_t *g);
-void    move_up(game_t *g);
-void    move_down(game_t *g);
-void    move_left(game_t *g);
-void    move_right(game_t *g);
+void	set_speed(t_game *g);
+void	move_up(t_game *g);
+void	move_down(t_game *g);
+void	move_left(t_game *g);
+void	move_right(t_game *g);
 
-void	dash(game_t *g);
-void    turn_left(game_t *g);
-void    turn_right(game_t *g);
-void	turn_down(game_t *g);
-void	turn_up(game_t *g);
+void	dash(t_game *g);
+void	turn_left(t_game *g);
+void	turn_right(t_game *g);
+void	turn_down(t_game *g);
+void	turn_up(t_game *g);
 
-void	attack(game_t *g);
+void	attack(t_game *g);
 
-int	    mlx_mouse_hide();
-int     mlx_mouse_move(void *win_ptr, int x, int y); 
+int		mlx_mouse_hide();
+int		mlx_mouse_move(void *win_ptr, int x, int y);
 
 #endif

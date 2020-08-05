@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:29:57 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/01 07:49:56 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 02:34:43 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../include_bonus/hook.h"
 #include <math.h>
 
-void	set_speed(game_t *g)
+void	set_speed(t_game *g)
 {
 	if (g->key_shift && !g->key_x)
 		g->speed = SPEED_RUN;
@@ -27,10 +27,10 @@ void	set_speed(game_t *g)
 		g->speed = SPEED_WALK;
 }
 
-void	turn_left(game_t *g)
+void	turn_left(t_game *g)
 {
-	vect_t	olddir;
-	vect_t	oldplane;
+	t_vect	olddir;
+	t_vect	oldplane;
 
 	olddir = g->player_dir;
 	oldplane = g->plane;
@@ -42,10 +42,10 @@ void	turn_left(game_t *g)
 	g->plane.y = oldplane.x * sin(-SPEED_TURN) + g->plane.y * cos(-SPEED_TURN);
 }
 
-void	turn_right(game_t *g)
+void	turn_right(t_game *g)
 {
-	vect_t	olddir;
-	vect_t	oldplane;
+	t_vect	olddir;
+	t_vect	oldplane;
 
 	olddir = g->player_dir;
 	oldplane = g->plane;
@@ -57,14 +57,14 @@ void	turn_right(game_t *g)
 	g->plane.y = oldplane.x * sin(SPEED_TURN) + g->plane.y * cos(SPEED_TURN);
 }
 
-void	turn_down(game_t *g)
+void	turn_down(t_game *g)
 {
 	g->pitch -= 150 * SPEED_TURN;
 	if (g->pitch < -200)
 		g->pitch = -200;
 }
 
-void	turn_up(game_t *g)
+void	turn_up(t_game *g)
 {
 	g->pitch += 150 * SPEED_TURN;
 	if (g->pitch > 200)

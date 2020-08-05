@@ -6,14 +6,14 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 04:04:55 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 01:54:13 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 02:34:43 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include_bonus/cub3d.h"
 #include "../include_bonus/hub.h"
 
-void	get_data_image(void *mlx_ptr, image_t *image, char *path)
+void	get_data_image(void *mlx_ptr, t_image *image, char *path)
 {
 	image->img = mlx_xpm_file_to_image(mlx_ptr, path,
 		&image->width, &image->height);
@@ -21,7 +21,7 @@ void	get_data_image(void *mlx_ptr, image_t *image, char *path)
 		&image->bpp, &image->sizeline, &image->endian);
 }
 
-void	load_images(game_t *g)
+void	load_images(t_game *g)
 {
 	get_data_image(g->mlx_ptr, &g->bonus->attack[0], ATTACK_F1_PATH);
 	get_data_image(g->mlx_ptr, &g->bonus->attack[1], ATTACK_F2_PATH);
@@ -32,12 +32,12 @@ void	load_images(game_t *g)
 	get_data_image(g->mlx_ptr, &g->bonus->start_game, STARTSCREEN_PATH);
 }
 
-void	draw_attack(game_t *g, image_t image)
+void	draw_attack(t_game *g, t_image image)
 {
 	int		y;
 	int		x;
 	int		color;
-	coord_t tex_hp;
+	t_coord tex_hp;
 
 	y = 0;
 	while (y < g->p->res_h / 2)
@@ -45,7 +45,7 @@ void	draw_attack(game_t *g, image_t image)
 		x = 0;
 		while (x < g->p->res_w / 2)
 		{
-			tex_hp = (coord_t){x * image.width / (g->p->res_w / 2),
+			tex_hp = (t_coord){x * image.width / (g->p->res_w / 2),
 				y * image.height / (g->p->res_h / 2)};
 			color = (int)image.data[(int)(image.width * tex_hp.y + tex_hp.x)];
 			if (color >= 0)
@@ -57,7 +57,7 @@ void	draw_attack(game_t *g, image_t image)
 	}
 }
 
-void	animate_attack(game_t *g)
+void	animate_attack(t_game *g)
 {
 	if (g->frame == 0)
 		draw_attack(g, g->bonus->attack[0]);

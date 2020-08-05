@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:20:56 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 01:45:31 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 02:34:43 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../include_bonus/hook.h"
 #include <stdio.h>
 
-int	key_press_hook(int key, game_t *g)
+int	key_press_hook(int key, t_game *g)
 {
 	if (key == KEY_W)
 		g->key_w = 1;
@@ -41,7 +41,7 @@ int	key_press_hook(int key, game_t *g)
 	return (0);
 }
 
-int	key_release_hook(int key, game_t *g)
+int	key_release_hook(int key, t_game *g)
 {
 	if (key == KEY_W)
 		g->key_w = 0;
@@ -67,7 +67,7 @@ int	key_release_hook(int key, game_t *g)
 	return (0);
 }
 
-int	mouse_motion_hook(int x, int y, game_t *g)
+int	mouse_motion_hook(int x, int y, t_game *g)
 {
 	mlx_mouse_hide();
 	if (x > g->p->res_w / 2)
@@ -82,14 +82,14 @@ int	mouse_motion_hook(int x, int y, game_t *g)
 	return (0);
 }
 
-int	exit_hook(game_t *g)
+int	exit_hook(t_game *g)
 {
 	mlx_destroy_window(g->mlx_ptr, g->win_temp);
 	error_exit("Exit button pressed\n", g);
 	return (0);
 }
 
-int	loop(game_t *g)
+int	loop(t_game *g)
 {
 	set_speed(g);
 	if (g->posz > 0)

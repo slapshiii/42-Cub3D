@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 19:45:35 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/30 03:51:43 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 02:33:12 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	handle_color(char *rgb)
 	return (res);
 }
 
-int	check_map_valid(param_t *p)
+int	check_map_valid(t_param *p)
 {
 	int x;
 	int y;
@@ -58,7 +58,7 @@ int	check_map_valid(param_t *p)
 	return (0);
 }
 
-int	check_param(char **split, param_t *p)
+int	check_param(char **split, t_param *p)
 {
 	if (ft_strncmp(split[0], "R", 1) == 0 && !p->res_h)
 	{
@@ -85,7 +85,7 @@ int	check_param(char **split, param_t *p)
 	return (1);
 }
 
-int	check_map(char **tab, param_t *p, int offset, int max)
+int	check_map(char **tab, t_param *p, int offset, int max)
 {
 	if (ft_strchr(" 1", tab[offset][0]))
 	{
@@ -106,7 +106,7 @@ int	check_map(char **tab, param_t *p, int offset, int max)
 	return (0);
 }
 
-int	check_config(param_t *p)
+int	check_config(t_param *p)
 {
 	int i;
 	int j;
@@ -117,16 +117,16 @@ int	check_config(param_t *p)
 	if (!p->res_h || !p->res_w || !p->path_no || !p->path_so || !p->path_we
 		|| !p->path_ea || !p->path_sprite || !p->color_floor
 		|| !p->color_ceiling || !p->map || !p->spawn_dir
-		|| !(p->sprite = (sprite_t*)malloc(sizeof(sprite_t) * p->num_sprite)))
+		|| !(p->sprite = (t_sprite*)malloc(sizeof(t_sprite) * p->num_sprite)))
 		return (1);
-	bzero(p->sprite, sizeof(sprite_t) * p->num_sprite);
+	bzero(p->sprite, sizeof(t_sprite) * p->num_sprite);
 	while (p->map[++i])
 	{
 		j = -1;
 		while (p->map[i][++j])
 			if (p->map[i][j] == '2')
 			{
-				p->sprite[k].pos = (coord_t){j, i};
+				p->sprite[k].pos = (t_coord){j, i};
 				p->sprite[k].hp = 3;
 				k++;
 			}

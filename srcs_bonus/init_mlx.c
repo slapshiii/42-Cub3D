@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:59:10 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/04 04:56:06 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 02:34:43 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "../include_bonus/cub3d.h"
 #include "../minilibx_a/mlx.h"
 
-int	init_mlx(game_t *g)
+int	init_mlx(t_game *g)
 {
 	int size_x;
 	int size_y;

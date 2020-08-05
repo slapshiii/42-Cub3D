@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 22:29:16 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 01:08:55 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 02:34:43 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <math.h>
 #include "../include_bonus/hook.h"
 
-void	draw_floorcast(game_t *g, image_t tex)
+void	draw_floorcast(t_game *g, t_image tex)
 {
 	int tx;
 	int	ty;
@@ -29,12 +29,12 @@ void	draw_floorcast(game_t *g, image_t tex)
 	g->win_img.data[g->p->res_w * g->y + g->x] = (color >> 1 & 8355711);
 }
 
-void	data_floorcast(game_t *g)
+void	data_floorcast(t_game *g)
 {
 	g->is_floor = g->y > g->p->res_h / 2 + g->pitch;
-	g->raydirz = (vect_t){g->player_dir.x - g->plane.x,
+	g->raydirz = (t_vect){g->player_dir.x - g->plane.x,
 						g->player_dir.y - g->plane.y};
-	g->raydiro = (vect_t){g->player_dir.x + g->plane.x,
+	g->raydiro = (t_vect){g->player_dir.x + g->plane.x,
 						g->player_dir.y + g->plane.y};
 	g->rowdist = ((g->is_floor) ?
 		(0.5 * g->p->res_h + g->posz) : (0.5 * g->p->res_h - g->posz))
@@ -46,7 +46,7 @@ void	data_floorcast(game_t *g)
 	g->floor.y = g->player.y + g->rowdist * g->raydirz.y;
 }
 
-void	loop_floorcast(game_t *g)
+void	loop_floorcast(t_game *g)
 {
 	g->x = 0;
 	while (g->x < g->p->res_w)
@@ -61,7 +61,7 @@ void	loop_floorcast(game_t *g)
 	}
 }
 
-void	init_floorcast(game_t *g)
+void	init_floorcast(t_game *g)
 {
 	g->texture_floor.img = mlx_xpm_file_to_image(g->mlx_ptr,
 		FLOOR_PATH, &g->texture_floor.width,

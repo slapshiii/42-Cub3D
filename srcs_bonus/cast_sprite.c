@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:02:48 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/04 05:30:32 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 02:34:43 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../include_bonus/struct.h"
 #include <math.h>
 
-void	cast_sprite(game_t *g)
+void	cast_sprite(t_game *g)
 {
 	int		x;
 	double	inv_det;
@@ -22,11 +22,11 @@ void	cast_sprite(game_t *g)
 	x = 0;
 	while (x < g->p->num_sprite)
 	{
-		g->s = (coord_t){g->p->sprite[x].pos.x - g->player.x + 0.5,
+		g->s = (t_coord){g->p->sprite[x].pos.x - g->player.x + 0.5,
 			g->p->sprite[x].pos.y - g->player.y + 0.5};
 		inv_det = 1.0 / (g->plane.x * g->player_dir.y
 			- g->player_dir.x * g->plane.y);
-		g->trans = (coord_t){inv_det * (g->player_dir.y * g->s.x -
+		g->trans = (t_coord){inv_det * (g->player_dir.y * g->s.x -
 			g->player_dir.x * g->s.y),
 			inv_det * (-(g->plane.y) * g->s.x + g->plane.x * g->s.y)};
 		g->sprite_screen = (int)((g->p->res_w / 2)
@@ -36,10 +36,10 @@ void	cast_sprite(game_t *g)
 	}
 }
 
-void	calc_hw_sprite(game_t *g, int x)
+void	calc_hw_sprite(t_game *g, int x)
 {
-	coord_t	draw_y;
-	coord_t	draw_x;
+	t_coord	draw_y;
+	t_coord	draw_x;
 
 	g->movscreen = g->pitch + (g->posz / g->trans.y);
 	g->sprite_h = abs((int)(g->p->res_h / g->trans.y));
@@ -57,14 +57,14 @@ void	calc_hw_sprite(game_t *g, int x)
 	draw_sprite(g, draw_y, draw_x, x);
 }
 
-void	check_hp(game_t *g, int color, int x)
+void	check_hp(t_game *g, int color, int x)
 {
 	color = (g->p->sprite[x].hp == 2) ? (color >> 1) & 0x7F7F7F : color;
 	color = (g->p->sprite[x].hp == 1) ? (color >> 1) & 0x272727 : color;
 	g->win_img.data[(g->p->res_w) * g->y + g->x] = color;
 }
 
-void	draw_sprite(game_t *g, coord_t draw_y, coord_t draw_x, int x)
+void	draw_sprite(t_game *g, t_coord draw_y, t_coord draw_x, int x)
 {
 	int color;
 	int d;

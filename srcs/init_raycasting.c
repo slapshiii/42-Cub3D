@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 04:29:38 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/04 04:27:57 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 02:34:43 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <math.h>
 #include "../include/hook.h"
 
-void	init_raycasting(game_t *g)
+void	init_raycasting(t_game *g)
 {
 	double camera;
 
@@ -39,7 +39,7 @@ void	init_raycasting(game_t *g)
 	init_sidedist(g);
 }
 
-void	init_sidedist(game_t *g)
+void	init_sidedist(t_game *g)
 {
 	if (g->ray_dir.x < 0)
 	{
@@ -64,7 +64,7 @@ void	init_sidedist(game_t *g)
 	calc_dda(g);
 }
 
-void	calc_dda(game_t *g)
+void	calc_dda(t_game *g)
 {
 	int hit;
 
@@ -88,7 +88,7 @@ void	calc_dda(game_t *g)
 	calc_startend(g);
 }
 
-void	calc_startend(game_t *g)
+void	calc_startend(t_game *g)
 {
 	if (g->side == 0)
 		g->perp = (g->mapx - g->player.x + (1 - g->step.x) / 2) / g->ray_dir.x;

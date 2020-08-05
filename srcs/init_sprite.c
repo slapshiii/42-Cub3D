@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:22:28 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/28 01:35:11 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 02:34:43 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 #include "struct.h"
 #include <math.h>
 
-void	init_castsprite(game_t *g)
+void	init_castsprite(t_game *g)
 {
 	sort_sprites(g);
 	cast_sprite(g);
 }
 
-void	sort_sprites(game_t *g)
+void	sort_sprites(t_game *g)
 {
 	int swap;
 	int i;
@@ -43,7 +43,7 @@ void	sort_sprites(game_t *g)
 	}
 }
 
-int		sprite_cmp(coord_t pos1, coord_t pos2, game_t *g)
+int		sprite_cmp(t_coord pos1, t_coord pos2, t_game *g)
 {
 	if (((g->player.x - pos1.x) * (g->player.x - pos1.x)
 		+ (g->player.y - pos1.y) * (g->player.y - pos1.y))
@@ -59,9 +59,9 @@ int		sprite_cmp(coord_t pos1, coord_t pos2, game_t *g)
 		return (0);
 }
 
-void	swap_sprite(sprite_t *s1, sprite_t *s2)
+void	swap_sprite(t_sprite *s1, t_sprite *s2)
 {
-	sprite_t	temp;
+	t_sprite	temp;
 
 	temp = *s1;
 	*s1 = *s2;

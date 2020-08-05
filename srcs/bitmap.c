@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 03:40:48 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/03 22:55:20 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 02:34:43 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-void	save_bitmap(game_t *g)
+void	save_bitmap(t_game *g)
 {
 	int		fd;
 	int		i;
@@ -56,11 +56,11 @@ int		exists(const char *fname)
 	return (0);
 }
 
-int		screenshot(game_t *g, int fd)
+int		screenshot(t_game *g, int fd)
 {
-	save_t temp;
+	t_save temp;
 
-	temp = (save_t){(54 + 4 * g->p->res_w * g->p->res_h), 54, 40, 1, 32, 0};
+	temp = (t_save){(54 + 4 * g->p->res_w * g->p->res_h), 54, 40, 1, 32, 0};
 	write(fd, "BM", 2);
 	write(fd, &temp.size, sizeof(int));
 	write(fd, &temp.unused, sizeof(int));
@@ -81,7 +81,7 @@ int		screenshot(game_t *g, int fd)
 	return (0);
 }
 
-void	write_texture_bmp_file(game_t *g, int fd)
+void	write_texture_bmp_file(t_game *g, int fd)
 {
 	int	x;
 	int	y;

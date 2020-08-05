@@ -6,14 +6,14 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 15:26:04 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/04 04:59:17 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 02:34:43 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include_bonus/cub3d.h"
 #include "../include_bonus/parser_param.h"
 
-void	clear_path(param_t *p)
+void	clear_path(t_param *p)
 {
 	if (p->path_no)
 		free(p->path_no);
@@ -29,7 +29,7 @@ void	clear_path(param_t *p)
 		clear_tab(p->map, 0);
 }
 
-void	clear_game(game_t *g)
+void	clear_game(t_game *g)
 {
 	if (g)
 	{
@@ -75,7 +75,7 @@ void	clear_tab(char **tab, int max)
 	}
 }
 
-void	error_exit(char *msg, game_t *g)
+void	error_exit(char *msg, t_game *g)
 {
 	ft_putstr_fd(msg, 2);
 	clear_game(g);

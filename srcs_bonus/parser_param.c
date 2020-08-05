@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:37:57 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/28 04:45:17 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 02:34:43 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../get_next_line/get_next_line.h"
 #include "../include_bonus/cub3d.h"
 
-int	check_file(char **tab, int index, game_t *g)
+int	check_file(char **tab, int index, t_game *g)
 {
 	int		i;
 	char	**split;
@@ -40,7 +40,7 @@ int	check_file(char **tab, int index, game_t *g)
 	return (0);
 }
 
-int	parser_param(game_t *g, char *path)
+int	parser_param(t_game *g, char *path)
 {
 	char	*temp[255];
 	int		fd;
@@ -48,9 +48,9 @@ int	parser_param(game_t *g, char *path)
 
 	i = 0;
 	if ((fd = open(path, O_RDONLY)) >= 0)
-		if ((g->p = (param_t*)malloc(sizeof(param_t))))
+		if ((g->p = (t_param*)malloc(sizeof(t_param))))
 		{
-			ft_bzero(g->p, sizeof(param_t));
+			ft_bzero(g->p, sizeof(t_param));
 			while (get_next_line(fd, &temp[i]) > 0)
 				i++;
 			if (check_file(temp, i, g) == 0)
@@ -78,7 +78,7 @@ int	check_close_map(char **map, int x, int y)
 	return (0);
 }
 
-int	check_spawn(char **map, int x, int y, param_t *p)
+int	check_spawn(char **map, int x, int y, t_param *p)
 {
 	if (ft_strchr("NSWE", map[y][x]))
 	{

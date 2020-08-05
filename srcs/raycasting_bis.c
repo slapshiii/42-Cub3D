@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:33:07 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/04 04:09:10 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 02:34:43 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../include/struct.h"
 #include <math.h>
 
-void	draw_ceiling_floor(game_t *g, int start, int end)
+void	draw_ceiling_floor(t_game *g, int start, int end)
 {
 	while (g->y < start)
 	{
@@ -29,7 +29,7 @@ void	draw_ceiling_floor(game_t *g, int start, int end)
 	}
 }
 
-void	calc_texture(game_t *g, int start, int end)
+void	calc_texture(t_game *g, int start, int end)
 {
 	int		color;
 	double	step;
@@ -53,7 +53,7 @@ void	calc_texture(game_t *g, int start, int end)
 	}
 }
 
-void	get_texture(game_t *g)
+void	get_texture(t_game *g)
 {
 	if (g->side == 1 && g->ray_dir.y < 0)
 		g->texture_side = g->texture[1];
@@ -65,7 +65,7 @@ void	get_texture(game_t *g)
 		g->texture_side = g->texture[4];
 }
 
-void	get_wallx(game_t *g)
+void	get_wallx(t_game *g)
 {
 	if (g->side == 0)
 		g->wallx = g->player.y + g->perp * g->ray_dir.y;

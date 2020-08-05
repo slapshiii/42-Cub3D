@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:25:05 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/07/30 06:38:36 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 02:34:43 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../include_bonus/hook.h"
 #include <math.h>
 
-void	dash(game_t *g)
+void	dash(t_game *g)
 {
 	int	i;
 
@@ -26,66 +26,66 @@ void	dash(game_t *g)
 	}
 }
 
-void	move_up(game_t *g)
+void	move_up(t_game *g)
 {
 	if (g->p->map[(int)(g->player.y)]
 		[(int)(g->player.x + (g->player_dir.x * g->speed))] != '1'
 		&& g->p->map[(int)(g->player.y)]
 		[(int)(g->player.x + (g->player_dir.x * g->speed))] != '2')
-		g->player = (coord_t){g->player.x
+		g->player = (t_coord){g->player.x
 			+ (g->player_dir.x * g->speed), g->player.y};
 	if (g->p->map[(int)(g->player.y + (g->player_dir.y * g->speed))]
 		[(int)(g->player.x)] != '1'
 		&& g->p->map[(int)(g->player.y + (g->player_dir.y * g->speed))]
 		[(int)(g->player.x)] != '2')
-		g->player = (coord_t){g->player.x, g->player.y
+		g->player = (t_coord){g->player.x, g->player.y
 			+ (g->player_dir.y * g->speed)};
 }
 
-void	move_down(game_t *g)
+void	move_down(t_game *g)
 {
 	if (g->p->map[(int)(g->player.y)]
 		[(int)(g->player.x - (g->player_dir.x * g->speed))] != '1'
 		&& g->p->map[(int)(g->player.y)]
 		[(int)(g->player.x - (g->player_dir.x * g->speed))] != '2')
-		g->player = (coord_t){g->player.x
+		g->player = (t_coord){g->player.x
 			- (g->player_dir.x * g->speed), g->player.y};
 	if (g->p->map[(int)(g->player.y - (g->player_dir.y * g->speed))]
 		[(int)(g->player.x)] != '1'
 		&& g->p->map[(int)(g->player.y - (g->player_dir.y * g->speed))]
 		[(int)(g->player.x)] != '2')
-		g->player = (coord_t){g->player.x, g->player.y
+		g->player = (t_coord){g->player.x, g->player.y
 			- (g->player_dir.y * g->speed)};
 }
 
-void	move_left(game_t *g)
+void	move_left(t_game *g)
 {
 	if (g->p->map[(int)(g->player.y)]
 		[(int)(g->player.x + (g->player_dir.y * g->speed))] != '1'
 		&& g->p->map[(int)(g->player.y)]
 		[(int)(g->player.x + (g->player_dir.y * g->speed))] != '2')
-		g->player = (coord_t){g->player.x
+		g->player = (t_coord){g->player.x
 			+ (g->player_dir.y * g->speed), g->player.y};
 	if (g->p->map[(int)(g->player.y - (g->player_dir.x * g->speed))]
 		[(int)(g->player.x)] != '1'
 		&& g->p->map[(int)(g->player.y - (g->player_dir.x * g->speed))]
 		[(int)(g->player.x)] != '2')
-		g->player = (coord_t){g->player.x, g->player.y
+		g->player = (t_coord){g->player.x, g->player.y
 			- (g->player_dir.x * g->speed)};
 }
 
-void	move_right(game_t *g)
+void	move_right(t_game *g)
 {
 	if (g->p->map[(int)(g->player.y)]
 		[(int)(g->player.x - (g->player_dir.y * g->speed))] != '1'
 		&& g->p->map[(int)(g->player.y)]
 		[(int)(g->player.x - (g->player_dir.y * g->speed))] != '2')
-		g->player = (coord_t){g->player.x
+		g->player = (t_coord){g->player.x
 			- (g->player_dir.y * g->speed), g->player.y};
 	if (g->p->map[(int)(g->player.y + (g->player_dir.x * g->speed))]
 		[(int)(g->player.x)] != '1'
 		&& g->p->map[(int)(g->player.y + (g->player_dir.x * g->speed))]
 		[(int)(g->player.x)] != '2')
-		g->player = (coord_t){g->player.x, g->player.y
+		g->player = (t_coord){g->player.x, g->player.y
 			+ (g->player_dir.x * g->speed)};
 }
