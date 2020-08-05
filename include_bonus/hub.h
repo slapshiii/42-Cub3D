@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 04:37:03 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 03:54:45 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 06:16:51 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	end_game(t_game *g);
 void	start_game(t_game *g);
 
 void	move_sprite(t_game *g);
+t_coord	update_pos(t_game *g, t_vect dir, t_sprite *sprite);
 void	edit_map(t_game *g, t_coord pos, t_sprite sprite);
 t_vect	pos_to_dir(t_game *g, int i);
 

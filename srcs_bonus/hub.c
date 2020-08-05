@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 04:35:33 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 02:43:34 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 08:20:29 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ void	update_hp(t_game *g)
 		draw_hp(g, coord, size);
 		i++;
 	}
+	draw_map(g);
 }
 
 void	draw_map(t_game *g)

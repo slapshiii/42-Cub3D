@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:20:56 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 02:34:43 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 08:22:56 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,10 +92,6 @@ int	exit_hook(t_game *g)
 int	loop(t_game *g)
 {
 	set_speed(g);
-	if (g->posz > 0)
-		g->posz -= 10;
-	if (g->posz < 0 && !g->key_x)
-		g->posz = 0;
 	if (g->key_w == 1)
 		move_up(g);
 	if (g->key_s == 1)

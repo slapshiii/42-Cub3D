@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 03:21:46 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 04:55:14 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 08:23:29 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,23 @@ t_vect	pos_to_dir(t_game *g, int i)
 	return (res);
 }
 
+t_coord	update_pos(t_game *g, t_vect dir, t_sprite *sprite)
+{
+	t_coord	res;
+	int		x;
+	int		y;
+
+	x = (int)(dir.x * SPEED_SPRITE + sprite->pos.x);
+	y = (int)(dir.y * SPEED_SPRITE + sprite->pos.y);
+	res = (t_coord){sprite->pos.x, sprite->pos.y};
+	if (x != (int)g->player.x && g->p->map[y][x] != '1')
+		sprite->pos.x = dir.x * SPEED_SPRITE + sprite->pos.x;
+	if (y != (int)g->player.y && g->p->map[y][x] != '1')
+		sprite->pos.y = dir.y * SPEED_SPRITE + sprite->pos.y;
+	edit_map(g, res, *sprite);
+	return (res);
+}
+
 void	edit_map(t_game *g, t_coord pos, t_sprite sprite)
 {
 	int	x;
@@ -38,12 +55,9 @@ void	edit_map(t_game *g, t_coord pos, t_sprite sprite)
 	y = (int)pos.y;
 	sx = (int)sprite.pos.x;
 	sy = (int)sprite.pos.y;
+	g->p->map[sy][sx] = '2';
 	if (sx != x || sy != y)
-	{
 		g->p->map[y][x] = '0';
-		g->p->map[sy][sx] = '2';
-		draw_map(g);
-	}
 }
 
 void	move_sprite(t_game *g)
@@ -57,12 +71,9 @@ void	move_sprite(t_game *g)
 	while (++i < g->p->num_sprite)
 	{
 		dir = pos_to_dir(g, i);
-		old_pos = (t_coord){g->p->sprite[i].pos.x, g->p->sprite[i].pos.y};
-		g->p->sprite[i].pos.x = dir.x * SPEED_SPRITE + g->p->sprite[i].pos.x;
-		g->p->sprite[i].pos.y = dir.y * SPEED_SPRITE + g->p->sprite[i].pos.y;
-		g->bonus->hit = (fabs(g->player.x - g->p->sprite[i].pos.x) < 0.5
-			&& fabs(g->player.y - g->p->sprite[i].pos.y) < 0.5);
-		edit_map(g, old_pos, g->p->sprite[i]);
+		old_pos = update_pos(g, dir, &g->p->sprite[i]);
+		g->bonus->hit = (fabs(g->player.x - g->p->sprite[i].pos.x) < 0.7
+			&& fabs(g->player.y - g->p->sprite[i].pos.y) < 0.7);
 	}
 	if (g->bonus->hit && g->bonus->invincible == 0)
 	{
