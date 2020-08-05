@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/30 05:18:27 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 08:13:35 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 08:34:37 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,26 +65,25 @@ void	start_game(t_game *g)
 void	attack(t_game *g)
 {
 	int i;
-	int x;
-	int y;
 
 	i = -1;
-	x = (int)(g->player.x + g->player_dir.x / 2);
-	y = (int)(g->player.y + g->player_dir.y / 2);
 	g->frame = 5;
 	if (g->bonus->status == 0)
 		g->bonus->status = 1;
 	if (g->p->num_sprite)
 		while (++i < g->p->num_sprite)
 		{
-			if ((int)g->p->sprite[i].pos.x <= x && (int)g->p->sprite[i].pos.y <= y)
+			if ((int)g->p->sprite[i].pos.x <= (int)(g->player.x
+	+ g->player_dir.x / 2)
+	&& (int)g->p->sprite[i].pos.y <= (int)(g->player.y + g->player_dir.y / 2))
 				if (--g->p->sprite[i].hp == 0)
 				{
-					g->p->map[(int)g->p->sprite[i].pos.y][(int)g->p->sprite[i].pos.x] = '0';
+					g->p->map[(int)g->p->sprite[i].pos.y]
+						[(int)g->p->sprite[i].pos.x] = '0';
 					swap_sprite(&g->p->sprite[i],
-						&g->p->sprite[g->p->num_sprite - 1]);
-					g->p->num_sprite--;
-					g->hp++;
+						&g->p->sprite[--g->p->num_sprite]);
+					if (++g->hp > HP_MAX)
+						g->hp = HP_MAX;
 					draw_map(g);
 				}
 		}
