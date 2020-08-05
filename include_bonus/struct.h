@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 17:21:32 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 02:44:32 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 04:59:18 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ typedef struct	s_bonus
 	t_image		end_game;
 	t_image		start_game;
 	int			status;
+	int			hit;
+	int			invincible;
 }				t_bonus;
 
 typedef struct	s_game

@@ -6,7 +6,7 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
-#    Updated: 2020/08/01 05:30:16 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/08/05 03:55:39 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,6 +57,7 @@ SRCS_BONUS =	srcs_bonus/main.c\
 				srcs_bonus/hub.c\
 				srcs_bonus/floorcast.c\
 				srcs_bonus/animate_attack.c\
+				srcs_bonus/move_sprite.c\
 
 HEADER =	include/cub3d.h\
 			include/hook.h\

@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:39:15 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 02:47:39 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 03:39:05 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define SPEED_TURN 0.063
 # define SPEED_RUN 0.091
 # define SPEED_CROUCH 0.031
+# define SPEED_SPRITE 0.033
 
 # define HP_MAX 10
 

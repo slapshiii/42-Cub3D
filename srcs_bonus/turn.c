@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:29:57 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 02:34:43 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 04:58:47 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@ void	set_speed(t_game *g)
 	}
 	else
 		g->speed = SPEED_WALK;
+	if (g->posz > 0)
+		g->posz -= 10;
+	else if (g->posz < 0 && !g->key_x)
+		g->posz = 0;
+	if (g->bonus->invincible > 0)
+		g->bonus->invincible--;
 }
 
 void	turn_left(t_game *g)

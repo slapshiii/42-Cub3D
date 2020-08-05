@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/30 05:18:27 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 02:34:43 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 04:49:45 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,23 +69,22 @@ void	attack(t_game *g)
 	int y;
 
 	i = -1;
-	x = (int)(g->player.x + g->player_dir.x / 4);
-	y = (int)(g->player.y + g->player_dir.y / 4);
+	x = (int)(g->player.x + g->player_dir.x / 2);
+	y = (int)(g->player.y + g->player_dir.y / 2);
 	g->frame = 5;
 	if (g->bonus->status == 0)
 		g->bonus->status = 1;
 	if (g->p->num_sprite)
 		while (++i < g->p->num_sprite)
 		{
-			if (g->p->sprite[i].pos.x == x && g->p->sprite[i].pos.y == y)
+			if ((int)g->p->sprite[i].pos.x == x && (int)g->p->sprite[i].pos.y == y)
 				if (--g->p->sprite[i].hp == 0)
 				{
 					swap_sprite(&g->p->sprite[i],
 						&g->p->sprite[g->p->num_sprite - 1]);
 					g->p->map[y][x] = '0';
 					g->p->num_sprite--;
-					if (--g->hp == 0)
-						g->bonus->status = 2;
+					g->hp++;
 					draw_map(g);
 				}
 		}

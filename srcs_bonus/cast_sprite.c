@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:02:48 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 02:34:43 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/05 04:47:02 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	cast_sprite(t_game *g)
 	x = 0;
 	while (x < g->p->num_sprite)
 	{
-		g->s = (t_coord){g->p->sprite[x].pos.x - g->player.x + 0.5,
-			g->p->sprite[x].pos.y - g->player.y + 0.5};
+		g->s = (t_coord){g->p->sprite[x].pos.x - g->player.x,
+			g->p->sprite[x].pos.y - g->player.y};
 		inv_det = 1.0 / (g->plane.x * g->player_dir.y
 			- g->player_dir.x * g->plane.y);
 		g->trans = (t_coord){inv_det * (g->player_dir.y * g->s.x -
