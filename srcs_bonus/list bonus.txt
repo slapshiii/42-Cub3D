@@ -15,3 +15,5 @@ Arme et mechants
 Controle de la souris
 Attaque
 Ecran de debut et fin
+Sprite deplacement
+Sprite attaque

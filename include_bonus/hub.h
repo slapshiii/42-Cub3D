@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 04:37:03 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 06:16:51 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/07 00:09:22 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # define FLOOR_PATH "texture/grass.xpm"
 # define CEILING_PATH "texture/stone.xpm"
 # define HEALTH_PATH "texture/coeur.xpm"
-# define ENDSCREEN_PATH "texture/fb.xpm"
-# define STARTSCREEN_PATH "texture/fb.xpm"
+# define ENDSCREEN_PATH "texture/exit_screen.xpm"
+# define STARTSCREEN_PATH "texture/start_screen.xpm"
 # define ATTACK_F1_PATH "texture/attack/frame1.xpm"
 # define ATTACK_F2_PATH "texture/attack/frame2.xpm"
 # define ATTACK_F3_PATH "texture/attack/frame3.xpm"
