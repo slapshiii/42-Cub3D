@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 03:21:46 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 08:27:01 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/07 01:44:40 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,18 @@ t_vect	pos_to_dir(t_game *g, int i)
 t_coord	update_pos(t_game *g, t_vect dir, t_sprite *sprite)
 {
 	t_coord	res;
+	t_coord	pos;
 	int		x;
 	int		y;
 
-	x = (int)(dir.x * SPEED_SPRITE + sprite->pos.x);
-	y = (int)(dir.y * SPEED_SPRITE + sprite->pos.y);
+	pos = (t_coord){dir.x * SPEED_SPRITE + sprite->pos.x,
+		dir.y * SPEED_SPRITE + sprite->pos.y};
+	x = (int)(pos.x);
+	y = (int)(pos.y);
 	res = (t_coord){sprite->pos.x, sprite->pos.y};
-	if (x != (int)g->player.x && g->p->map[y][x] != '1')
+	if (fabs(g->player.x - pos.x) > 0.5 && g->p->map[y][x] != '1')
 		sprite->pos.x = dir.x * SPEED_SPRITE + sprite->pos.x;
-	if (y != (int)g->player.y && g->p->map[y][x] != '1')
+	if (fabs(g->player.y - pos.y) > 0.5 && g->p->map[y][x] != '1')
 		sprite->pos.y = dir.y * SPEED_SPRITE + sprite->pos.y;
 	edit_map(g, res, *sprite);
 	return (res);
@@ -64,16 +67,15 @@ void	move_sprite(t_game *g)
 {
 	int		i;
 	t_vect	dir;
-	t_coord	old_pos;
 
 	i = -1;
 	g->bonus->hit = 0;
 	while (++i < g->p->num_sprite)
 	{
 		dir = pos_to_dir(g, i);
-		old_pos = update_pos(g, dir, &g->p->sprite[i]);
-		g->bonus->hit = (fabs(g->player.x - g->p->sprite[i].pos.x) < 0.7
-			&& fabs(g->player.y - g->p->sprite[i].pos.y) < 0.7);
+		update_pos(g, dir, &g->p->sprite[i]);
+		g->bonus->hit = (fabs(g->player.x - g->p->sprite[i].pos.x) < 0.6
+			&& fabs(g->player.y - g->p->sprite[i].pos.y) < 0.6);
 	}
 	if (g->bonus->hit && g->bonus->invincible == 0)
 	{

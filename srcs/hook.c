@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:20:56 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 02:34:43 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/07 01:09:50 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ int	key_press_hook(int key, t_game *g)
 		g->key_d = 1;
 	if (key == KEY_A)
 		g->key_a = 1;
-	if (key == KEY_Q)
+	if (key == ARR_L)
 		g->key_q = 1;
-	if (key == KEY_E)
+	if (key == ARR_R)
 		g->key_e = 1;
 	if (key == KEY_ESC)
 	{
 		mlx_destroy_window(g->mlx_ptr, g->win_temp);
-		error_exit("KEY_ESC pressed\n", g);
+		error_exit("", g);
 	}
 	return (0);
 }
@@ -46,9 +46,9 @@ int	key_release_hook(int key, t_game *g)
 		g->key_d = 0;
 	if (key == KEY_A)
 		g->key_a = 0;
-	if (key == KEY_Q)
+	if (key == ARR_L)
 		g->key_q = 0;
-	if (key == KEY_E)
+	if (key == ARR_R)
 		g->key_e = 0;
 	return (0);
 }
@@ -71,7 +71,7 @@ int	mouse_motion_hook(int x, int y, t_game *g)
 int	exit_hook(t_game *g)
 {
 	mlx_destroy_window(g->mlx_ptr, g->win_temp);
-	error_exit("Exit button pressed\n", g);
+	error_exit("", g);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 03:05:16 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 08:18:50 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/07 01:51:28 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ int	init_raycast(t_game *g)
 	g->x = 0;
 	if (!(g->zbuffer = (double*)malloc(sizeof(double) * g->p->res_w)))
 		error_exit("pas de malloc\n", g);
-	move_sprite(g);
+	if (g->key_w || g->key_s || g->key_a || g->key_d)
+		move_sprite(g);
 	init_floorcast(g);
 	while (g->x < (g->p->res_w))
 	{
