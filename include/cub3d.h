@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:39:15 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/07 09:10:23 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/07 10:30:31 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,13 @@
 # include "parser_param.h"
 # include "libft.h"
 # include "struct.h"
-# include "../minilibx_a/mlx.h"
 # include <stdio.h>
+
+# ifdef __APPLE__
+#  include "../minilibx_a/mlx.h"
+# else
+#  include "../minilibx_b/mlx.h"
+# endif
 
 # define SPEED_WALK 0.063
 # define SPEED_TURN 0.063

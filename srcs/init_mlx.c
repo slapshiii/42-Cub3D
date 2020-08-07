@@ -6,14 +6,13 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:59:10 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 02:34:43 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/07 10:29:39 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/parser_param.h"
 #include "../get_next_line/get_next_line.h"
 #include "../include/cub3d.h"
-#include "../minilibx_a/mlx.h"
 
 int	init_mlx(t_game *g)
 {
