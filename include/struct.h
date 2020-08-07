@@ -6,12 +6,14 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 17:21:32 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 02:34:50 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/07 09:10:43 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_H
 # define STRUCT_H
+
+# include <stdint.h>
 
 # define SUCCESS 0
 # define ERROR -1
