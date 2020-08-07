@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 03:21:46 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/07 05:37:44 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/07 12:36:33 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	move_sprite(t_game *g)
 	if (g->bonus->hit && g->bonus->invincible == 0)
 	{
 		g->bonus->invincible = 10;
-		// if (--g->hp == 0)
-		// 	g->bonus->status = 2;
+		if (--g->hp == 0)
+			g->bonus->status = 2;
 	}
 }

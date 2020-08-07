@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 02:46:12 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/07 08:17:16 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/07 12:35:07 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@
 
 #  define KEY_Q 12
 #  define KEY_E 14
+#  define ARR_R 124
+#  define ARR_L 123
 
 # else
 
@@ -75,7 +77,6 @@
 #  define ARR_L 113
 
 # endif
-
 
 # include "cub3d.h"
 

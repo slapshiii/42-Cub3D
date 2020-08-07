@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:20:56 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/07 01:09:50 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/07 12:33:48 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 int	key_press_hook(int key, t_game *g)
 {
-	printf("%d\n", key);
 	if (key == KEY_W)
 		g->key_w = 1;
 	if (key == KEY_S)
@@ -51,21 +50,6 @@ int	key_release_hook(int key, t_game *g)
 		g->key_q = 0;
 	if (key == ARR_R)
 		g->key_e = 0;
-	return (0);
-}
-
-int	mouse_motion_hook(int x, int y, t_game *g)
-{
-	mlx_mouse_hide(g->mlx_ptr, g->win_temp);
-	if (x != g->p->res_w / 2)
-	{
-		if (x > g->p->res_w / 2)
-			turn_right(g);
-		else if (x < g->p->res_w / 2)
-			turn_left(g);
-	}
-	(void)y;
-	mlx_mouse_move(g->mlx_ptr, g->win_temp, g->p->res_w / 2, g->p->res_h / 2);
 	return (0);
 }
 
