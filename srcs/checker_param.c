@@ -6,12 +6,11 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 19:45:35 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 02:33:12 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/07 12:42:34 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/parser_param.h"
-#include <stdio.h>
 
 int	handle_color(char *rgb)
 {

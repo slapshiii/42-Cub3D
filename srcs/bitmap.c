@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 03:40:48 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 02:34:43 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/07 12:43:49 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,12 @@ void	save_bitmap(t_game *g)
 	}
 	if ((fd = open(filename, O_RDWR | O_TRUNC)) == -1)
 	{
-		printf("%d\n", fd);
 		free(filename);
 		error_exit("open failed\n", g);
 	}
 	free(filename);
 	if (screenshot(g, fd) != 0)
 		error_exit("Screenshot failed\n", g);
-	printf("%d\n", fd);
 	error_exit("Screened\n", g);
 }
 

@@ -6,13 +6,12 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:20:56 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/07 01:56:14 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/07 12:42:12 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include_bonus/cub3d.h"
 #include "../include_bonus/hook.h"
-#include <stdio.h>
 
 int	key_press_hook(int key, t_game *g)
 {
