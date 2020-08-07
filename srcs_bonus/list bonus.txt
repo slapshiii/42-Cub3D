@@ -1,6 +1,6 @@
 Collision contre les murs
 Collision contre les objets
-HUD
+HUD (map)
 Regarder en haut et en bas
 Sauter
 S'accroupir
@@ -15,5 +15,3 @@ Arme et mechants
 Controle de la souris
 Attaque
 Ecran de debut et fin
-Sprite deplacement
-Sprite attaque
