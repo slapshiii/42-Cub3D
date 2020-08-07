@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 02:46:12 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 02:46:43 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/07 04:34:06 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ void	turn_down(t_game *g);
 void	turn_up(t_game *g);
 
 void	attack(t_game *g);
+int		check_distx_sprite(t_game *g, double vect);
+int		check_disty_sprite(t_game *g, double vect);
 
 int		mlx_mouse_hide();
 int		mlx_mouse_move(void *win_ptr, int x, int y);

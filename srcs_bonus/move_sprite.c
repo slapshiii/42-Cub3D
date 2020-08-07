@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 03:21:46 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/07 01:44:40 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/07 03:56:56 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ t_coord	update_pos(t_game *g, t_vect dir, t_sprite *sprite)
 	y = (int)(pos.y);
 	res = (t_coord){sprite->pos.x, sprite->pos.y};
 	if (fabs(g->player.x - pos.x) > 0.5 && g->p->map[y][x] != '1')
-		sprite->pos.x = dir.x * SPEED_SPRITE + sprite->pos.x;
+		sprite->pos.x += dir.x * SPEED_SPRITE;
 	if (fabs(g->player.y - pos.y) > 0.5 && g->p->map[y][x] != '1')
-		sprite->pos.y = dir.y * SPEED_SPRITE + sprite->pos.y;
+		sprite->pos.y += dir.y * SPEED_SPRITE;
 	edit_map(g, res, *sprite);
 	return (res);
 }
@@ -80,7 +80,7 @@ void	move_sprite(t_game *g)
 	if (g->bonus->hit && g->bonus->invincible == 0)
 	{
 		g->bonus->invincible = 10;
-		if (--g->hp == 0)
-			g->bonus->status = 2;
+		// if (--g->hp == 0)
+		// 	g->bonus->status = 2;
 	}
 }
