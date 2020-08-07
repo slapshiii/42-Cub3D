@@ -6,40 +6,74 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 02:46:12 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/07 04:34:06 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/07 08:17:16 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HOOK_H
 # define HOOK_H
+# ifdef __APPLE__
 
 /*
 **	DEFINE KEYCODE QUIT
 */
 
-# define KEY_ESC 53
+#  define KEY_ESC 53
 
 /*
 **	DEFINE KEYCODE MOVE
 */
 
-# define KEY_W 13
-# define KEY_S 1
-# define KEY_A 0
-# define KEY_D 2
-# define KEY_X 7
-# define KEY_R 15
-# define KEY_T 17
-# define KEY_SPACE 49
-# define KEY_SHIFT 257
-# define KEY_VERMAJ 272
+#  define KEY_W 13
+#  define KEY_S 1
+#  define KEY_A 0
+#  define KEY_D 2
+#  define KEY_X 7
+#  define KEY_R 15
+#  define KEY_T 17
+#  define KEY_SPACE 49
+#  define KEY_SHIFT 257
+#  define KEY_VERMAJ 272
 
 /*
 **	DEFINE KEYCODE TURN
 */
 
-# define KEY_Q 12
-# define KEY_E 14
+#  define KEY_Q 12
+#  define KEY_E 14
+
+# else
+
+/*
+**	DEFINE KEYCODE QUIT
+*/
+
+#  define KEY_ESC 65307
+
+/*
+**	DEFINE KEYCODE MOVE
+*/
+
+#  define KEY_W 119
+#  define KEY_S 115
+#  define KEY_A 97
+#  define KEY_D 100
+#  define KEY_X 120
+#  define KEY_R 114
+#  define KEY_T 116
+#  define KEY_SPACE 32
+#  define KEY_SHIFT 257
+#  define KEY_VERMAJ 272
+
+/*
+**	DEFINE KEYCODE TURN
+*/
+
+#  define KEY_Q 113
+#  define KEY_E 101
+
+# endif
+
 
 # include "cub3d.h"
 

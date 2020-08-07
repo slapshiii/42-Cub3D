@@ -6,11 +6,13 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
-#    Updated: 2020/08/07 04:27:13 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/08/07 08:26:56 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Cub3D
+
+UNAME := $(shell uname -s)
 
 LIBFTDIR = libft/
 
@@ -82,12 +84,12 @@ CC = gcc
 #FLAGS = -Wall -Wextra -Werror -fsanitize=address
 FLAGS = -Wall -Wextra -Werror
 
-
-#MLXFLAG = -lmlx -lXext -lX11
-MLXFLAG = -framework OpenGL -framework AppKit
-#MLXFLAG = -I/usr/X11/include -lmlx -framework OpenGL -framework AppKit
-
-#MINILIBX = -L minilibx $(MLXFLAG)
+ifeq ($(UNAME),Darwin)
+	MLXFLAG = -framework OpenGL -framework AppKit
+	FLAGS += -D __APPLE__
+else
+	MLXFLAG = -lmlx -lXext -lX11
+endif
 
 LIBS = 	$(LIBFTDIR)libft.a\
 		$(GNLDIR)get_next_line.a\
