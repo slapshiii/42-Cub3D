@@ -6,7 +6,7 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
-#    Updated: 2020/08/07 10:12:12 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/08/07 10:23:20 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,7 +88,7 @@ ifeq ($(UNAME),Darwin)
 	MLXDIR = minilibx_a/
 else
 	MLXFLAG = -lmlx -lXext -lX11
-	MLXDIR = minilibx_l/
+	MLXDIR = minilibx_b/
 endif
 
 LIBS = 	$(LIBFTDIR)libft.a\
