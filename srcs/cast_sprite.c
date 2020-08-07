@@ -6,12 +6,12 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:02:48 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/07 02:11:21 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/07 09:06:44 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
-#include "struct.h"
+#include "../include/struct.h"
 #include <math.h>
 
 void	cast_sprite(t_game *g)
