@@ -6,7 +6,7 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
-#    Updated: 2020/08/07 08:26:56 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/08/07 10:12:12 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,6 @@ UNAME := $(shell uname -s)
 LIBFTDIR = libft/
 
 GNLDIR = get_next_line/
-
-MLXDIR = minilibx_a/
 
 SRCS = 	srcs/main.c\
 		srcs/game.c\
@@ -87,8 +85,10 @@ FLAGS = -Wall -Wextra -Werror
 ifeq ($(UNAME),Darwin)
 	MLXFLAG = -framework OpenGL -framework AppKit
 	FLAGS += -D __APPLE__
+	MLXDIR = minilibx_a/
 else
 	MLXFLAG = -lmlx -lXext -lX11
+	MLXDIR = minilibx_l/
 endif
 
 LIBS = 	$(LIBFTDIR)libft.a\
