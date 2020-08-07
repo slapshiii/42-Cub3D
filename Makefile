@@ -98,7 +98,7 @@ LIBS = 	$(LIBFTDIR)libft.a\
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBS) $(HEADER)
-	$(CC) $(FLAGS) -o $(NAME) $(OBJS) $(LIBS) $(MLXFLAG)
+	$(CC) $(FLAGS) -L. -o $(NAME) $(OBJS) $(LIBS) $(MLXFLAG)
 
 bonus: $(OBJS_BONUS) $(LIBS) $(HEADER_BONUS)
 	$(CC) $(FLAGS) -o $(NAME) $(OBJS_BONUS) $(LIBS) $(MLXFLAG)

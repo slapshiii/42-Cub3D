@@ -23,7 +23,7 @@ int	init_mlx(t_game *g)
 	size_y = 0;
 	if ((g->mlx_ptr = mlx_init()) == NULL)
 		return (1);
-	if (mlx_screen_size(g->mlx_ptr, &size_x, &size_y) == 0)
+	if (mlx_get_screen_size(g->mlx_ptr, &size_x, &size_y) == 0)
 	{
 		if (size_x < (g->p->res_w))
 			g->p->res_w = size_x;

@@ -55,7 +55,7 @@ int	key_release_hook(int key, t_game *g)
 
 int	mouse_motion_hook(int x, int y, t_game *g)
 {
-	mlx_mouse_hide();
+	mlx_mouse_hide(g->mlx_ptr, g->win_temp);
 	if (x != g->p->res_w / 2)
 	{
 		if (x > g->p->res_w / 2)
@@ -64,7 +64,7 @@ int	mouse_motion_hook(int x, int y, t_game *g)
 			turn_left(g);
 	}
 	(void)y;
-	mlx_mouse_move(g->win_temp, g->p->res_w / 2, g->p->res_h / 2);
+	mlx_mouse_move(g->mlx_ptr, g->win_temp, g->p->res_w / 2, g->p->res_h / 2);
 	return (0);
 }
 

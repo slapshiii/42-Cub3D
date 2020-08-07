@@ -54,6 +54,5 @@ void	turn_left(t_game *g);
 void	turn_right(t_game *g);
 
 int		mlx_mouse_hide();
-int		mlx_mouse_move(void *win_ptr, int x, int y);
 
 #endif
