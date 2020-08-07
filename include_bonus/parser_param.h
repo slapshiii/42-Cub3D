@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:50:41 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 02:34:43 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/07 12:45:34 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int check_param(char **split, t_param *p);
 int check_map(char **tab, t_param *p, int offset, int max);
 int check_config(t_param *p);
 
-int	mlx_screen_size(void *mlx_ptr, int *width, int *height);
+int	mlx_get_screen_size(void *mlx_ptr, int *width, int *height);
 int init_mlx(t_game *g);
 int parser_file(t_game *g);
 int get_data_file(t_game *g);
