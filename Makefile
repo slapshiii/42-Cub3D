@@ -6,7 +6,7 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
-#    Updated: 2020/08/07 10:51:09 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/08/07 13:03:03 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,8 +79,8 @@ OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 CC = gcc
 
-#FLAGS = -Wall -Wextra -Werror -fsanitize=address
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -fsanitize=address
+#FLAGS = -Wall -Wextra -Werror
 
 ifeq ($(UNAME),Darwin)
 	MLXFLAG = -framework OpenGL -framework AppKit

@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 19:45:35 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/07 12:42:34 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/07 13:52:59 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,31 @@
 
 int	handle_color(char *rgb)
 {
-	int res;
+	int	res;
 
-	if (ft_atoi(rgb) < 0 || ft_atoi(rgb) > 255)
-		return (0);
-	res = ft_atoi(rgb) << 16;
-	if (ft_atoi(ft_strchr(rgb, ',') + 1) < 0
-		|| ft_atoi(ft_strchr(rgb, ',') + 1) > 255)
-		return (0);
-	res += ft_atoi(ft_strchr(rgb, ',') + 1) << 8;
-	if (ft_atoi(ft_strrchr(rgb, ',') + 1) < 0
-		|| ft_atoi(ft_strrchr(rgb, ',') + 1) > 255)
-		return (0);
-	res += ft_atoi(ft_strrchr(rgb, ',') + 1);
-	return (res);
+	if (rgb)
+	{
+		if (ft_atoi(rgb) < 0 || ft_atoi(rgb) > 255)
+			return (0);
+		res = (ft_atoi(rgb) << 16);
+		rgb = ft_strchr(rgb, ',') ? ft_strchr(rgb, ',') + 1 : 0;
+		if (rgb && *rgb)
+		{
+			if (ft_atoi(rgb) < 0 || ft_atoi(rgb) > 255)
+				return (0);
+			res += (ft_atoi(rgb) << 8);
+			rgb = ft_strchr(rgb, ',') ? ft_strchr(rgb, ',') + 1 : 0;
+			if (rgb && *rgb)
+			{
+				if (ft_atoi(rgb) < 0 || ft_atoi(rgb) > 255
+				|| ft_strchr(rgb, ','))
+					return (0);
+				res += ft_atoi(rgb);
+				return (res);
+			}
+		}
+	}
+	return (0);
 }
 
 int	check_map_valid(t_param *p)
