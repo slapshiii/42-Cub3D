@@ -6,7 +6,7 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
-#    Updated: 2020/08/07 10:23:20 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/08/07 10:51:09 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,7 +87,7 @@ ifeq ($(UNAME),Darwin)
 	FLAGS += -D __APPLE__
 	MLXDIR = minilibx_a/
 else
-	MLXFLAG = -lmlx -lXext -lX11
+	MLXFLAG = -lmlx -lXext -lX11 -lm
 	MLXDIR = minilibx_b/
 endif
 
