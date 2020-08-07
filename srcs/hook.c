@@ -16,6 +16,7 @@
 
 int	key_press_hook(int key, t_game *g)
 {
+	printf("%d\n", key);
 	if (key == KEY_W)
 		g->key_w = 1;
 	if (key == KEY_S)
