@@ -39,9 +39,9 @@ int	make_window(t_game *g)
 	draw_map(g);
 	if (g->save)
 		save_bitmap(g);
-	mlx_hook(g->win_temp, 2, 0, key_press_hook, g);
-	mlx_hook(g->win_temp, 3, 0, key_release_hook, g);
-	mlx_hook(g->win_temp, 6, 0, mouse_motion_hook, g);
+	mlx_hook(g->win_temp, 2, 1, key_press_hook, g);
+	mlx_hook(g->win_temp, 3, 2, key_release_hook, g);
+	mlx_hook(g->win_temp, 6, 7, mouse_motion_hook, g);
 	mlx_hook(g->win_temp, 17, 0, exit_hook, g);
 	mlx_loop_hook(g->mlx_ptr, check_status_game, g);
 	mlx_loop(g->mlx_ptr);

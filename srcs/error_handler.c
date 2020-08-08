@@ -73,5 +73,6 @@ void	error_exit(char *msg, t_game *g)
 {
 	ft_putstr_fd(msg, 2);
 	clear_game(g);
+	mlx_destroy_window(g->mlx_ptr, g->win_temp);
 	exit(1);
 }

@@ -15,6 +15,7 @@
 
 int	key_press_hook(int key, t_game *g)
 {
+	printf("%d pressed\n", key);
 	if (key == KEY_W)
 		g->key_w = 1;
 	if (key == KEY_S)
@@ -37,6 +38,7 @@ int	key_press_hook(int key, t_game *g)
 
 int	key_release_hook(int key, t_game *g)
 {
+	printf("%d release\n", key);
 	if (key == KEY_W)
 		g->key_w = 0;
 	if (key == KEY_S)

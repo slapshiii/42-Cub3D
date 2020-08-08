@@ -79,8 +79,8 @@ OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 CC = gcc
 
-FLAGS = -Wall -Wextra -Werror -fsanitize=address
-#FLAGS = -Wall -Wextra -Werror
+#FLAGS = -Wall -Wextra -Werror -fsanitize=address
+FLAGS = -Wall -Wextra -Werror
 
 ifeq ($(UNAME),Darwin)
 	MLXFLAG = -framework OpenGL -framework AppKit
@@ -101,7 +101,7 @@ $(NAME): $(OBJS) $(LIBS) $(HEADER)
 	$(CC) $(FLAGS) -L. -o $(NAME) $(OBJS) $(LIBS) $(MLXFLAG)
 
 bonus: $(OBJS_BONUS) $(LIBS) $(HEADER_BONUS)
-	$(CC) $(FLAGS) -o $(NAME) $(OBJS_BONUS) $(LIBS) $(MLXFLAG)
+	$(CC) $(FLAGS) -L. -o $(NAME) $(OBJS_BONUS) $(LIBS) $(MLXFLAG)
 
 
 $(LIBS):

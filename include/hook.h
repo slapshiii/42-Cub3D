@@ -50,31 +50,24 @@
 **	DEFINE KEYCODE QUIT
 */
 
-#  define KEY_ESC 9
+#  define KEY_ESC 65307
 
 /*
 **	DEFINE KEYCODE MOVE
 */
 
-#  define KEY_W 25
-#  define KEY_S 39
-#  define KEY_A 38
-#  define KEY_D 40
-#  define KEY_X 53
-#  define KEY_R 27
-#  define KEY_T 28
-#  define KEY_SPACE 65
-#  define KEY_SHIFT 50
-#  define KEY_VERMAJ 66
+#  define KEY_W 122
+#  define KEY_S 115
+#  define KEY_A 113
+#  define KEY_D 100
+#  define KEY_SPACE 32
 
 /*
 **	DEFINE KEYCODE TURN
 */
 
-#  define KEY_Q 24
-#  define KEY_E 26
-#  define ARR_R 114
-#  define ARR_L 113
+#  define ARR_R 65363
+#  define ARR_L 65361
 
 # endif
 

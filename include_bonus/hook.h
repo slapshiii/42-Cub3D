@@ -54,23 +54,25 @@
 **	DEFINE KEYCODE MOVE
 */
 
-#  define KEY_W 119
+#  define KEY_W 122
 #  define KEY_S 115
-#  define KEY_A 97
+#  define KEY_A 113
 #  define KEY_D 100
 #  define KEY_X 120
 #  define KEY_R 114
 #  define KEY_T 116
 #  define KEY_SPACE 32
-#  define KEY_SHIFT 257
-#  define KEY_VERMAJ 272
+#  define KEY_SHIFT 65505
+#  define KEY_VERMAJ 65509
 
 /*
 **	DEFINE KEYCODE TURN
 */
 
-#  define KEY_Q 113
+#  define KEY_Q 97
 #  define KEY_E 101
+#  define ARR_R 65363
+#  define ARR_L 65361
 
 # endif
 
@@ -98,8 +100,5 @@ void	turn_up(t_game *g);
 void	attack(t_game *g);
 int		check_distx_sprite(t_game *g, double vect);
 int		check_disty_sprite(t_game *g, double vect);
-
-int		mlx_mouse_hide();
-int		mlx_mouse_move(void *win_ptr, int x, int y);
 
 #endif

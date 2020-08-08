@@ -22,6 +22,8 @@
 # define CHARSET_NOTVALID " \n\0"
 # define CHARSET_SPAWN "NSEW"
 
+# include <stdint.h>
+
 typedef struct	s_coord
 {
 	double	x;
