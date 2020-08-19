@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:02:48 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 04:47:02 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/20 01:33:39 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	calc_hw_sprite(t_game *g, int x)
 	draw_y.y = g->sprite_h / 2 + g->p->res_h / 2 + g->movscreen;
 	if (draw_y.y >= g->p->res_h)
 		draw_y.y = g->p->res_h - 1;
-	g->sprite_w = abs((int)(g->p->res_w / g->trans.y));
+	g->sprite_w = abs((int)(g->p->res_h / g->trans.y));
 	draw_x.x = -(g->sprite_h) / 2 + g->sprite_screen;
 	draw_x.x = (draw_x.x < 0) ? 0 : draw_x.x;
 	draw_x.y = g->sprite_w / 2 + g->sprite_screen;

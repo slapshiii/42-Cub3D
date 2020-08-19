@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 15:26:04 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 02:34:43 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/20 01:33:05 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void	error_exit(char *msg, t_game *g)
 {
 	ft_putstr_fd(msg, 2);
 	clear_game(g);
+	mlx_destroy_window(g->mlx_ptr, g->win_temp);
 	system("pkill afplay");
 	exit(1);
 }

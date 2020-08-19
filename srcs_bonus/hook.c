@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:20:56 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/20 00:41:56 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/20 01:33:10 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,7 @@ int	exit_hook(t_game *g)
 	if (g->bonus->status == 1)
 		g->bonus->status++;
 	else
-	{
-		mlx_destroy_window(g->mlx_ptr, g->win_temp);
 		error_exit("", g);
-	}
 	return (0);
 }
 
