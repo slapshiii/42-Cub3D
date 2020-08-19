@@ -17,7 +17,11 @@
 # include "libft.h"
 # include "struct.h"
 # include "hub.h"
-# include <mlx.h>
+# ifdef __APPLE__
+#  include "../minilibx_a/mlx.h"
+# else
+#  include "../minilibx_b/mlx.h"
+# endif
 # include <stdio.h>
 
 # define SPEED_WALK 0.063
