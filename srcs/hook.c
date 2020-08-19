@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:20:56 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/20 01:26:30 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/20 01:42:09 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ int	key_release_hook(int key, t_game *g)
 
 int	exit_hook(t_game *g)
 {
-	mlx_destroy_window(g->mlx_ptr, g->win_temp);
 	error_exit("", g);
 	return (0);
 }
