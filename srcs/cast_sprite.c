@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:02:48 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/07 09:06:44 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/20 01:29:04 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	calc_hw_sprite(t_game *g, t_coord trans)
 	draw_y.y = g->sprite_h / 2 + g->p->res_h / 2;
 	if (draw_y.y >= g->p->res_h)
 		draw_y.y = g->p->res_h - 1;
-	g->sprite_w = abs((int)(g->p->res_w / trans.y));
+	g->sprite_w = abs((int)(g->p->res_h / trans.y));
 	draw_x.x = -(g->sprite_h) / 2 + g->sprite_screen;
 	draw_x.x = (draw_x.x < 0) ? 0 : draw_x.x;
 	draw_x.y = g->sprite_w / 2 + g->sprite_screen;
@@ -77,7 +77,7 @@ void	draw_sprite(t_game *g, t_coord draw_y, t_coord draw_x)
 				color = (int)g->texture[0].data[(g->texture[0].width)
 					* g->tex_y + g->tex_x];
 				if ((color & 0x00FFFFFF) != 0)
-					g->win_img.data[(g->p->res_w) * g->y + g->x] = color;
+					g->win_img.data[g->p->res_w * g->y + g->x] = color;
 				g->y++;
 			}
 		g->x++;

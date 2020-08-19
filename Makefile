@@ -6,7 +6,7 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
-#    Updated: 2020/08/20 00:27:10 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/08/20 01:12:55 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -101,7 +101,7 @@ $(NAME): $(OBJS) $(LIBS) $(HEADER)
 	$(CC) $(FLAGS) -L. -o $(NAME) $(OBJS) $(LIBS) $(MLXFLAG)
 
 bonus: $(OBJS_BONUS) $(LIBS) $(HEADER_BONUS)
-	$(CC) $(FLAGS) -L. -o $(NAME) $(OBJS_BONUS) $(LIBS) $(MLXFLAG)
+	$(CC) -O3 $(FLAGS) -L. -o $(NAME) $(OBJS_BONUS) $(LIBS) $(MLXFLAG)
 
 
 $(LIBS):
