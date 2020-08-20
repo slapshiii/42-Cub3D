@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:33:07 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/20 04:53:10 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/20 06:56:33 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,16 @@ void	calc_texture(t_game *g, int start, int end)
 	g->y = 0;
 	get_texture(g);
 	get_wallx(g);
+	draw_ceiling_floor(g, start, end);
 	step = 1.0 * g->texture_side.height / g->lineheight;
 	g->tex_pos = (start - g->p->res_h / 2 + g->lineheight / 2) * step;
-	draw_ceiling_floor(g, start, end);
 	g->y = start;
 	while (g->y < end)
 	{
-		g->tex_y = (int)g->tex_pos & (g->texture_side.height - 1);
+		g->tex_y = (int)g->tex_pos;
 		g->tex_pos += step;
 		color = (int)g->texture_side.data
-			[g->texture_side.height * g->tex_y + g->tex_x];
+			[g->texture_side.width * g->tex_y + g->tex_x];
 		color = (g->side == 0) ? (color >> 1) & 0x7F7F7F : color;
 		g->win_img.data[((g->p->res_w) * g->y) + g->x] = color;
 		g->y++;
@@ -73,8 +73,8 @@ void	get_wallx(t_game *g)
 		g->wallx = g->player.x + g->perp * g->ray_dir.x;
 	g->wallx -= floor((g->wallx));
 	g->tex_x = (int)(g->wallx * (double)(g->texture_side.width));
-	if (g->side == 0 && g->ray_dir.x > 0)
+	if (g->side == 0 && g->ray_dir.x < 0)
 		g->tex_x = g->texture_side.width - g->tex_x - 1;
-	if (g->side == 1 && g->ray_dir.y < 0)
+	if (g->side == 1 && g->ray_dir.y > 0)
 		g->tex_x = g->texture_side.width - g->tex_x - 1;
 }
