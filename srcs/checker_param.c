@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 19:45:35 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/20 03:06:43 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/20 08:36:17 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,9 @@ int	check_param(char **split, t_param *p)
 {
 	if (ft_strncmp(split[0], "R", 2) == 0 && !p->res_h
 		&& ((p->res_w = ft_atoi(split[1])) < 0
-		|| (p->res_h = ft_atoi(split[2])) < 0 || split[3] != '\0'))
+		|| (p->res_h = ft_atoi(split[2])) < 0 || !ft_strncmp(split[3], "\0", 1)))
 		return (0);
-	else if (split[2] == '\0')
+	else if (!ft_strncmp(split[2], "\0", 1)
 	{
 		if (ft_strncmp(split[0], "NO", 3) == 0 && !p->path_no)
 			p->path_no = ft_strdup(split[1]);
