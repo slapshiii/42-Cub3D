@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/30 05:18:27 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/20 07:26:16 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/20 07:34:10 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,10 @@ void	attack(t_game *g)
 	if (g->p->num_sprite)
 		while (++i < g->p->num_sprite)
 		{
-			if ((fabs(g->player.x + g->player_dir.x - g->p->sprite[i].pos.x) < 0.4
-			&& fabs(g->player.y + g->player_dir.y - g->p->sprite[i].pos.y) < 0.4))
+			if ((fabs(g->player.x + g->player_dir.x
+				- g->p->sprite[i].pos.x) < 0.4
+			&& fabs(g->player.y + g->player_dir.y
+				- g->p->sprite[i].pos.y) < 0.4))
 				if (--g->p->sprite[i].hp == 0)
 				{
 					g->p->map[(int)g->p->sprite[i].pos.y]
