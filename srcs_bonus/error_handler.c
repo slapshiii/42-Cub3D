@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 15:26:04 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/20 01:59:13 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/20 02:53:55 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,8 @@ void	clear_tab(char **tab, int max)
 void	error_exit(char *msg, t_game *g)
 {
 	ft_putstr_fd(msg, 2);
-	mlx_destroy_window(g->mlx_ptr, g->win_temp);
+	if (g->win_temp)
+		mlx_destroy_window(g->mlx_ptr, g->win_temp);
 	clear_game(g);
 	system("pkill afplay");
 	exit(1);
