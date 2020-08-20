@@ -1,10 +1,10 @@
  
 R 1500 880
-NO texture/north.xpm
+NO texture/north.xpm 
 SO texture/south.xpm
 WE texture/west.xpm
 EA texture/east.xpm
-S texture/sprite.xpm
+S texture/sprite.xpm f
 F 87,58,24
 C 111,74,29
 

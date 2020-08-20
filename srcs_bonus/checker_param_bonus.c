@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 19:45:35 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/20 08:36:56 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/20 22:21:11 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,28 +71,26 @@ int	check_map_valid(t_param *p)
 int	check_param(char **split, t_param *p)
 {
 	if (ft_strncmp(split[0], "R", 2) == 0 && !p->res_h
-		&& ((p->res_w = ft_atoi(split[1])) < 0
-		|| (p->res_h = ft_atoi(split[2])) < 0 || !ft_strncmp(split[3], "\0", 1)))
+		&& ((p->res_w = ft_atoi(split[1])) > 0
+		&& (p->res_h = ft_atoi(split[2])) > 0) && !split[3])
+		;
+	else if (ft_strncmp(split[0], "NO", 3) == 0 && !p->path_no && !split[2])
+		p->path_no = ft_strdup(split[1]);
+	else if (ft_strncmp(split[0], "SO", 3) == 0 && !p->path_so && !split[2])
+		p->path_so = ft_strdup(split[1]);
+	else if (ft_strncmp(split[0], "WE", 3) == 0 && !p->path_we && !split[2])
+		p->path_we = ft_strdup(split[1]);
+	else if (ft_strncmp(split[0], "EA", 3) == 0 && !p->path_ea && !split[2])
+		p->path_ea = ft_strdup(split[1]);
+	else if (ft_strncmp(split[0], "S", 2) == 0 && !p->path_sprite && !split[2])
+		p->path_sprite = ft_strdup(split[1]);
+	else if (ft_strncmp(split[0], "C", 2) == 0 && !p->color_ceiling
+		&& !split[2])
+		p->color_ceiling = handle_color(split[1]);
+	else if (ft_strncmp(split[0], "F", 2) == 0 && !p->color_floor && !split[2])
+		p->color_floor = handle_color(split[1]);
+	else
 		return (0);
-	else if (!ft_strncmp(split[2], "\0", 1))
-	{
-		if (ft_strncmp(split[0], "NO", 3) == 0 && !p->path_no)
-			p->path_no = ft_strdup(split[1]);
-		else if (ft_strncmp(split[0], "SO", 3) == 0 && !p->path_so)
-			p->path_so = ft_strdup(split[1]);
-		else if (ft_strncmp(split[0], "WE", 3) == 0 && !p->path_we)
-			p->path_we = ft_strdup(split[1]);
-		else if (ft_strncmp(split[0], "EA", 3) == 0 && !p->path_ea)
-			p->path_ea = ft_strdup(split[1]);
-		else if (ft_strncmp(split[0], "S", 2) == 0 && !p->path_sprite)
-			p->path_sprite = ft_strdup(split[1]);
-		else if (ft_strncmp(split[0], "C", 2) == 0 && !p->color_ceiling)
-			p->color_ceiling = handle_color(split[1]);
-		else if (ft_strncmp(split[0], "F", 2) == 0 && !p->color_floor)
-			p->color_floor = handle_color(split[1]);
-		else
-			return (0);
-	}
 	return (1);
 }
 
