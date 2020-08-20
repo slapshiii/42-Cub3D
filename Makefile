@@ -6,7 +6,7 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
-#    Updated: 2020/08/20 07:17:00 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/08/20 08:53:45 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,7 +77,7 @@ OBJS = $(SRCS:.c=.o)
 
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
-CC = gcc
+
 
 #FLAGS = -Wall -Wextra -Werror -fsanitize=address
 FLAGS = -Wall -Wextra -Werror
@@ -86,9 +86,11 @@ ifeq ($(UNAME),Darwin)
 	MLXFLAG = -framework OpenGL -framework AppKit
 	FLAGS += -D __APPLE__
 	MLXDIR = minilibx_a/
+	CC = gcc
 else
 	MLXFLAG = -lmlx -lXext -lX11 -lm
 	MLXDIR = minilibx_b/
+	CC = clang
 endif
 
 LIBS = 	$(LIBFTDIR)libft.a\
