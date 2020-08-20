@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_raycasting.c                                  :+:      :+:    :+:   */
+/*   init_raycasting_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 04:29:38 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 02:34:43 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/20 03:30:41 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include_bonus/cub3d.h"
-#include "../include_bonus/struct.h"
+#include "../include_bonus/cub3d_bonus.h"
+#include "../include_bonus/struct_bonus.h"
 #include <math.h>
-#include "../include_bonus/hook.h"
+#include "../include_bonus/hook_bonus.h"
 
 void	init_raycasting(t_game *g)
 {

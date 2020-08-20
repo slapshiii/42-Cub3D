@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_mlx.c                                         :+:      :+:    :+:   */
+/*   init_mlx_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:59:10 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/07 12:45:15 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/20 03:34:12 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include_bonus/parser_param.h"
+#include "../include_bonus/parser_param_bonus.h"
 #include "../get_next_line/get_next_line.h"
-#include "../include_bonus/cub3d.h"
+#include "../include_bonus/cub3d_bonus.h"
 #include "../minilibx_a/mlx.h"
 
 int	init_mlx(t_game *g)

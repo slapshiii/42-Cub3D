@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move.c                                             :+:      :+:    :+:   */
+/*   move_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:25:05 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/07 06:45:52 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/20 03:31:15 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include_bonus/cub3d.h"
-#include "../include_bonus/hook.h"
+#include "../include_bonus/cub3d_bonus.h"
+#include "../include_bonus/hook_bonus.h"
 #include <math.h>
 
 void	dash(t_game *g)

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_move.c                                       :+:      :+:    :+:   */
+/*   check_move_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 04:26:38 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/07 05:21:17 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/20 03:29:48 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include_bonus/cub3d.h"
-#include "../include_bonus/hook.h"
+#include "../include_bonus/cub3d_bonus.h"
+#include "../include_bonus/hook_bonus.h"
 #include <math.h>
 
 int	check_distx_sprite(t_game *g, double vect)

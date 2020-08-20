@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hook.c                                             :+:      :+:    :+:   */
+/*   hook_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:20:56 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/20 01:55:15 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/20 03:30:20 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include_bonus/cub3d.h"
-#include "../include_bonus/hook.h"
+#include "../include_bonus/cub3d_bonus.h"
+#include "../include_bonus/hook_bonus.h"
 
 int	key_press_hook(int key, t_game *g)
 {

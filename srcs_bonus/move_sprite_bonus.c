@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move_sprite.c                                      :+:      :+:    :+:   */
+/*   move_sprite_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 03:21:46 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/07 12:36:33 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/20 03:31:10 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include_bonus/cub3d.h"
-#include "../include_bonus/hub.h"
+#include "../include_bonus/cub3d_bonus.h"
+#include "../include_bonus/hub_bonus.h"
 #include <math.h>
 
 t_vect	pos_to_dir(t_game *g, int i)

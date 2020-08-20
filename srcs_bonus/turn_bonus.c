@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   turn.c                                             :+:      :+:    :+:   */
+/*   turn_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:29:57 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 04:58:47 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/20 03:32:17 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include_bonus/cub3d.h"
-#include "../include_bonus/hook.h"
+#include "../include_bonus/cub3d_bonus.h"
+#include "../include_bonus/hook_bonus.h"
 #include <math.h>
 
 void	set_speed(t_game *g)

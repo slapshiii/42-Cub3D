@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cast_sprite.c                                      :+:      :+:    :+:   */
+/*   cast_sprite_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:02:48 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/20 01:33:39 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/20 03:29:42 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include_bonus/cub3d.h"
-#include "../include_bonus/struct.h"
+#include "../include_bonus/cub3d_bonus.h"
+#include "../include_bonus/struct_bonus.h"
 #include <math.h>
 
 void	cast_sprite(t_game *g)

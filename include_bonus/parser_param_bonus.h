@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_param.h                                     :+:      :+:    :+:   */
+/*   parser_param_bonus.h                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:50:41 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/07 12:45:34 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/20 03:38:20 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSER_PARAM_H
-# define PARSER_PARAM_H
+#ifndef PARSER_PARAM_BONUS_H
+# define PARSER_PARAM_BONUS_H
 
-# include "libft.h"
+# include "libft_bonus.h"
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
-# include "cub3d.h"
-# include "struct.h"
+# include "cub3d_bonus.h"
+# include "struct_bonus.h"
 
 int check_file(char **tab, int index, t_game *g);
 int parser_param(t_game *g, char *path);

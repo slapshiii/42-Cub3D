@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_file.c                                      :+:      :+:    :+:   */
+/*   parser_file_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/18 14:34:56 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 02:34:43 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/20 03:31:55 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include_bonus/parser_param.h"
+#include "../include_bonus/parser_param_bonus.h"
 #include "../get_next_line/get_next_line.h"
-#include "../include_bonus/cub3d.h"
+#include "../include_bonus/cub3d_bonus.h"
 
 void	init_data(t_game *g)
 {

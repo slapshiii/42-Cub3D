@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker_param.c                                    :+:      :+:    :+:   */
+/*   checker_param_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 19:45:35 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/20 03:06:42 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/20 03:29:54 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include_bonus/parser_param.h"
+#include "../include_bonus/parser_param_bonus.h"
 
 int	handle_color(char *rgb)
 {

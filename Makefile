@@ -6,7 +6,7 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
-#    Updated: 2020/08/20 02:43:55 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/08/20 03:25:39 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,29 +36,29 @@ SRCS = 	srcs/main.c\
 		srcs/cast_sprite.c\
 		srcs/bitmap.c\
 
-SRCS_BONUS =	srcs_bonus/main.c\
-				srcs_bonus/game.c\
-				srcs_bonus/error_handler.c\
-				srcs_bonus/parser_param.c\
-				srcs_bonus/init_mlx.c\
-				srcs_bonus/parser_file.c\
-				srcs_bonus/checker_param.c\
-				srcs_bonus/window.c\
-				srcs_bonus/hook.c\
-				srcs_bonus/move.c\
-				srcs_bonus/check_move.c\
-				srcs_bonus/move_alt.c\
-				srcs_bonus/turn.c\
-				srcs_bonus/raycasting.c\
-				srcs_bonus/init_raycasting.c\
-				srcs_bonus/raycasting_bis.c\
-				srcs_bonus/init_sprite.c\
-				srcs_bonus/cast_sprite.c\
-				srcs_bonus/bitmap.c\
-				srcs_bonus/hub.c\
-				srcs_bonus/floorcast.c\
-				srcs_bonus/animate_attack.c\
-				srcs_bonus/move_sprite.c\
+SRCS_BONUS =	srcs_bonus/main_bonus.c\
+				srcs_bonus/game_bonus.c\
+				srcs_bonus/error_handler_bonus.c\
+				srcs_bonus/parser_param_bonus.c\
+				srcs_bonus/init_mlx_bonus.c\
+				srcs_bonus/parser_file_bonus.c\
+				srcs_bonus/checker_param_bonus.c\
+				srcs_bonus/window_bonus.c\
+				srcs_bonus/hook_bonus.c\
+				srcs_bonus/move_bonus.c\
+				srcs_bonus/check_move_bonus.c\
+				srcs_bonus/move_alt_bonus.c\
+				srcs_bonus/turn_bonus.c\
+				srcs_bonus/raycasting_bonus.c\
+				srcs_bonus/init_raycasting_bonus.c\
+				srcs_bonus/raycasting_bis_bonus.c\
+				srcs_bonus/init_sprite_bonus.c\
+				srcs_bonus/cast_sprite_bonus.c\
+				srcs_bonus/bitmap_bonus.c\
+				srcs_bonus/hub_bonus.c\
+				srcs_bonus/floorcast_bonus.c\
+				srcs_bonus/animate_attack_bonus.c\
+				srcs_bonus/move_sprite_bonus.c\
 
 HEADER =	include/cub3d.h\
 			include/hook.h\
@@ -66,11 +66,11 @@ HEADER =	include/cub3d.h\
 			include/parser_param.h\
 			minilibx_a/*.h\
 
-HEADER_BONUS =	include_bonus/cub3d.h\
-				include_bonus/hook.h\
-				include_bonus/struct.h\
-				include_bonus/parser_param.h\
-				include_bonus/hub.h\
+HEADER_BONUS =	include_bonus/cub3d_bonus.h\
+				include_bonus/hook_bonus.h\
+				include_bonus/struct_bonus.h\
+				include_bonus/parser_param_bonus.h\
+				include_bonus/hub_bonus.h\
 				minilibx_a/*.h\
 
 OBJS = $(SRCS:.c=.o)

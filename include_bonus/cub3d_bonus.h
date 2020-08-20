@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:39:15 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/07 05:41:17 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/20 03:37:48 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#ifndef CUB3D_BONUS_H
+# define CUB3D_BONUS_H
 
-# include "parser_param.h"
-# include "libft.h"
-# include "struct.h"
-# include "hub.h"
+# include "parser_param_bonus.h"
+# include "libft_bonus.h"
+# include "struct_bonus.h"
+# include "hub_bonus.h"
 # ifdef __APPLE__
 #  include "../minilibx_a/mlx.h"
 # else

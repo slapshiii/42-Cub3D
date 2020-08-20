@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hub.c                                              :+:      :+:    :+:   */
+/*   hub_bonus.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 04:35:33 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 08:20:29 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/20 03:30:26 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include_bonus/cub3d.h"
-#include "../include_bonus/hub.h"
+#include "../include_bonus/cub3d_bonus.h"
+#include "../include_bonus/hub_bonus.h"
 
 void	init_hud(t_game *g)
 {

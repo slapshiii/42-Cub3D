@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hook.h                                             :+:      :+:    :+:   */
+/*   hook_bonus.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 02:46:12 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/07 12:35:39 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/20 03:37:59 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HOOK_H
-# define HOOK_H
+#ifndef HOOK_BONUS_H
+# define HOOK_BONUS_H
 # ifdef __APPLE__
 
 /*
@@ -76,7 +76,7 @@
 
 # endif
 
-# include "cub3d.h"
+# include "cub3d_bonus.h"
 
 int		key_press_hook(int key, t_game *g);
 int		key_release_hook(int key, t_game *g);
