@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:37:57 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/07 13:23:42 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/20 02:47:20 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int	parser_param(t_game *g, char *path)
 
 	i = 0;
 	if ((fd = open(path, O_RDONLY)) >= 0)
+	{
 		if ((g->p = (t_param*)malloc(sizeof(t_param))))
 		{
 			ft_bzero(g->p, sizeof(t_param));
@@ -62,6 +63,8 @@ int	parser_param(t_game *g, char *path)
 			}
 			clear_tab(temp, i);
 		}
+		close(fd);
+	}
 	return (1);
 }
 
