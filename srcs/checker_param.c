@@ -68,14 +68,20 @@ int	check_map_valid(t_param *p)
 	return (0);
 }
 
+/*
+ * tout en else if, faut chercher comment verifier qu'il n'y a pas de split[3] pour R et 
+ * split[2] pour les autres
+ */
+
 int	check_param(char **split, t_param *p)
 {
 	if (ft_strncmp(split[0], "R", 2) == 0 && !p->res_h
 		&& ((p->res_w = ft_atoi(split[1])) < 0
-		|| (p->res_h = ft_atoi(split[2])) < 0 || !ft_strncmp(split[3], "\0", 1)))
+		|| (p->res_h = ft_atoi(split[2])) < 0))
 		return (0);
-	else if (split[0] && !ft_strncmp(split[2], "\0", 1))
+	else if (!ft_strchr(split[0], "1"))
 	{
+		printf("%s\n", split[2]);
 		if (ft_strncmp(split[0], "NO", 3) == 0 && !p->path_no)
 			p->path_no = ft_strdup(split[1]);
 		else if (ft_strncmp(split[0], "SO", 3) == 0 && !p->path_so)
