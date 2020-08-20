@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:33:07 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 02:34:43 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/20 04:53:10 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 void	draw_ceiling_floor(t_game *g, int start, int end)
 {
-	while (g->y < start)
+	while (g->y < start && g->y < g->p->res_h)
 	{
 		g->win_img.data[((g->p->res_w) * g->y) + g->x] = g->p->color_ceiling;
 		g->y++;
