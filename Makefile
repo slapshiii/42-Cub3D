@@ -6,7 +6,7 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
-#    Updated: 2020/08/20 23:17:03 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/08/21 01:25:46 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -100,38 +100,38 @@ LIBS = 	$(LIBFTDIR)libft.a\
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBS) $(HEADER)
-	$(CC) $(FLAGS) -L. -o $(NAME) $(OBJS) $(LIBS) $(MLXFLAG)
+	@$(CC) $(FLAGS) -L. -o $(NAME) $(OBJS) $(LIBS) $(MLXFLAG)
 
 bonus: $(OBJS_BONUS) $(LIBS) $(HEADER_BONUS)
-	$(CC) -O3 $(FLAGS) -L. -o $(NAME) $(OBJS_BONUS) $(LIBS) $(MLXFLAG)
+	@$(CC) -O3 $(FLAGS) -L. -o $(NAME) $(OBJS_BONUS) $(LIBS) $(MLXFLAG)
 
 
 $(LIBS):
-	make -C $(LIBFTDIR)
-	make -C $(GNLDIR)
-	make -C $(MLXDIR)
-	cp $(MLXDIR)libmlx.a .
+	@make -C $(LIBFTDIR)
+	@make -C $(GNLDIR)
+	@make -C $(MLXDIR)
+	@cp $(MLXDIR)libmlx.a .
 
 %.o:	%.c
 	$(CC) -O3 $(FLAGS) -c $< -o $(<:.c=.o)
 
 clean:
-	rm -rf $(OBJS)
-	rm -rf $(OBJS_BONUS)
-	make clean -C $(LIBFTDIR)
-	make clean -C $(GNLDIR)
-	make clean -C $(MLXDIR)
-	rm -rf libmlx.a
+	@rm -rf $(OBJS)
+	@rm -rf $(OBJS_BONUS)
+	@make clean -C $(LIBFTDIR)
+	@make clean -C $(GNLDIR)
+	@make clean -C $(MLXDIR)
+	@rm -rf libmlx.a
 
 
 fclean: clean
-	rm -f $(NAME)
-	make fclean -C $(LIBFTDIR)
-	make fclean -C $(GNLDIR)
+	@rm -f $(NAME)
+	@make fclean -C $(LIBFTDIR)
+	@make fclean -C $(GNLDIR)
 
 re: fclean all
-	make re -C $(LIBFTDIR)
-	make re -C $(GNLDIR)
+	@make re -C $(LIBFTDIR)
+	@make re -C $(GNLDIR)
 
 norm:
 	norminette include*/*.h

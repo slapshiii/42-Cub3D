@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:37:57 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/20 23:43:22 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/21 01:46:45 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,18 @@ int	check_file(char **tab, int index, t_game *g)
 	while (i <= index)
 	{
 		split = ft_split(tab[i], ' ');
-		if (split)
+		if (split && split[0] != NULL)
 		{
-			if (split[0])
-				res = check_param(split, g->p);
+			res = check_param(split, g->p);
 			if (res == 0)
+			{
 				if (check_map(tab, g->p, i, index) == 0)
 				{
 					clear_tab(split, 0);
 					return (1);
 				}
 				index = -1;
+			}
 		}
 		clear_tab(split, 0);
 		i++;
@@ -58,15 +59,15 @@ int	parser_param(t_game *g, char *path)
 			while (get_next_line(fd, &temp[i]) > 0)
 				i++;
 			close(fd);
-			if (check_file(temp, i, g) || check_config(g->p))
+			if (!check_file(temp, i, g) && !check_config(g->p))
 			{
 				clear_tab(temp, i);
-				return (1);
+				return (0);
 			}
 			clear_tab(temp, i);
 		}
 	}
-	return (0);
+	return (1);
 }
 
 int	check_close_map(char **map, int x, int y)

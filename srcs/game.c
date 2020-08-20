@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 15:32:39 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/05 02:34:43 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/21 01:03:33 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_game(t_game *g, int screen, char *path)
 	if (init_mlx(g) != 0)
 		error_exit("Init MLX failed\n", g);
 	if (parser_file(g) != 0)
-		error_exit("There is a not a valid file\n", g);
+		error_exit("There is a not valid file\n", g);
 	if (make_window(g) != 0)
 		error_exit("Error making window\n", g);
 	clear_game(g);

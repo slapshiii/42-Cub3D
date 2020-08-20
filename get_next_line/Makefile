@@ -6,7 +6,7 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 14:58:58 by phnguyen          #+#    #+#              #
-#    Updated: 2020/04/08 15:00:02 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/08/21 01:42:39 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,17 +21,17 @@ CFLAGS = -Wall -Werror -Wextra
 all: 		${NAME}
 
 ${NAME}:	${OBJS}
-		ar rc ${NAME} ${OBJS}
-		ranlib ${NAME}
+		@ar rc ${NAME} ${OBJS}
+		@ranlib ${NAME}
 
 %.o:		%.c
-		gcc ${CFLAGS} -c $< -o ${<:.c=.o}
+		@gcc ${CFLAGS} -c $< -o ${<:.c=.o}
 
 clean:
-		rm -rf ${OBJS}
+		@rm -rf ${OBJS}
 
 fclean:		clean
-		rm -rf ${NAME}
+		@rm -rf ${NAME}
 
 re:		fclean all
 

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: phnguyen <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/04 12:14:56 by phnguyen          #+#    #+#              #
-#    Updated: 2019/11/14 08:35:53 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/08/21 01:42:23 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,24 +31,24 @@ CFLAGS = -Wall -Werror -Wextra
 all: 		${NAME}
 
 ${NAME}:	${OBJS}
-		ar rc ${NAME} ${OBJS}
-		ranlib ${NAME}
+		@ar rc ${NAME} ${OBJS}
+		@ranlib ${NAME}
 
 bonus:		${OBJS} ${OBJSBONUS}
-		ar rc ${NAME} ${OBJS} ${OBJSBONUS}
-		ranlib ${NAME}
+		@ar rc ${NAME} ${OBJS} ${OBJSBONUS}
+		@ranlib ${NAME}
 
 test:		
-		gcc ${CFLAGS} main.c -L. -lft -o exe
+		@gcc ${CFLAGS} main.c -L. -lft -o exe
 
 %.o:		%.c
-		gcc ${CFLAGS} -c $< -o ${<:.c=.o}
+		@gcc ${CFLAGS} -c $< -o ${<:.c=.o}
 
 clean:
-		rm -rf ${OBJS} ${OBJSBONUS}
+		@rm -rf ${OBJS} ${OBJSBONUS}
 
 fclean:		clean
-		rm -rf ${NAME}
+		@rm -rf ${NAME}
 
 re:		fclean all
 
