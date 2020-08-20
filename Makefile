@@ -6,7 +6,7 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
-#    Updated: 2020/08/21 01:25:46 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/08/21 01:53:31 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -100,7 +100,7 @@ LIBS = 	$(LIBFTDIR)libft.a\
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBS) $(HEADER)
-	@$(CC) $(FLAGS) -L. -o $(NAME) $(OBJS) $(LIBS) $(MLXFLAG)
+	@$(CC) -O3 $(FLAGS) -L. -o $(NAME) $(OBJS) $(LIBS) $(MLXFLAG)
 
 bonus: $(OBJS_BONUS) $(LIBS) $(HEADER_BONUS)
 	@$(CC) -O3 $(FLAGS) -L. -o $(NAME) $(OBJS_BONUS) $(LIBS) $(MLXFLAG)
