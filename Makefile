@@ -6,7 +6,7 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
-#    Updated: 2020/08/20 03:25:39 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/08/20 07:17:00 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -111,7 +111,7 @@ $(LIBS):
 	cp $(MLXDIR)libmlx.a .
 
 %.o:	%.c
-	$(CC) $(FLAGS) -c $< -o $(<:.c=.o)
+	$(CC) -O3 $(FLAGS) -c $< -o $(<:.c=.o)
 
 clean:
 	rm -rf $(OBJS)
