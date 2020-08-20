@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:20:56 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/20 01:42:37 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/20 01:55:15 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,11 @@ int	mouse_motion_hook(int x, int y, t_game *g)
 	mlx_mouse_hide(g->mlx_ptr, g->win_temp);
 	if (x > g->p->res_w / 2)
 		turn_right(g);
-	else if (x < g->p->res_w / 2)
+	if (x < g->p->res_w / 2)
 		turn_left(g);
 	if (y > g->p->res_h / 2)
 		turn_down(g);
-	else if (y < g->p->res_h / 2)
+	if (y < g->p->res_h / 2)
 		turn_up(g);
 	mlx_mouse_move(g->win_temp, g->p->res_w / 2, g->p->res_h / 2);
 	return (0);

@@ -6,7 +6,7 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
-#    Updated: 2020/08/20 01:12:55 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/08/20 02:00:09 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -131,4 +131,8 @@ re: fclean all
 	make re -C $(LIBFTDIR)
 	make re -C $(GNLDIR)
 
-.PHONY : all clean fclean re bonus
+norm:
+	norminette include*/*.h
+	norminette srcs*/*.c
+
+.PHONY : all clean fclean re bonus norm
