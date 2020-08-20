@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:33:07 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/20 03:32:07 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/20 07:29:02 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	calc_texture(t_game *g, int start, int end)
 	g->y = start;
 	while (g->y < end)
 	{
-		g->tex_y = (int)g->tex_pos & (g->texture_side.height - 1);
+		g->tex_y = (int)g->tex_pos;
 		g->tex_pos += step;
 		color = (int)g->texture_side.data
 			[g->texture_side.height * g->tex_y + g->tex_x];
