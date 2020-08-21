@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 02:46:12 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/22 00:06:17 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/22 00:08:58 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@
 #  define KEY_Z 122
 #  define KEY_W 119
 #  define KEY_S 115
-#  define KEY_A 113
+#  define KEY_A 97
 #  define KEY_D 100
 #  define KEY_X 120
 #  define KEY_R 114
@@ -70,7 +70,7 @@
 **	DEFINE KEYCODE TURN
 */
 
-#  define KEY_Q 97
+#  define KEY_Q 113
 #  define KEY_E 101
 #  define ARR_R 65363
 #  define ARR_L 65361
