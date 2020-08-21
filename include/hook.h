@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 02:46:12 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/07 12:35:07 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/22 00:05:39 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@
 **	DEFINE KEYCODE MOVE
 */
 
-#  define KEY_W 122
+#  define KEY_Z 122
+#  define KEY_W 119
 #  define KEY_S 115
 #  define KEY_A 113
 #  define KEY_D 100
