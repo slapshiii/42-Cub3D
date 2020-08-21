@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:37:59 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/21 05:35:10 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/21 05:36:56 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,5 @@ int	main(int ac, char **av)
 		ft_game(g, screen, av[1]);
 	else
 		error_exit("Error: Too much/Too few argument.\n", g);
-	exit(0);
 	return (0);
 }

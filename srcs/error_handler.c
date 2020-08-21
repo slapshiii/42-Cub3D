@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 15:26:04 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/21 00:56:34 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/21 05:37:28 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,15 @@ void	clear_tab(char **tab, int max)
 	}
 }
 
+/*
+** system("leaks Cub3D");
+*/
+
 void	error_exit(char *msg, t_game *g)
 {
 	ft_putstr_fd(msg, 2);
 	if (g->win_temp)
 		mlx_destroy_window(g->mlx_ptr, g->win_temp);
 	clear_game(g);
-	//system("leaks Cub3D");
 	exit(1);
 }
