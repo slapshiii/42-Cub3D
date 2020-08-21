@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 04:04:55 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/21 07:42:03 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/21 23:54:41 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	draw_attack(t_game *g, t_image image)
 			tex_hp = (t_coord){x * image.width / (g->p->res_w / 2),
 				y * image.height / (g->p->res_h / 2)};
 			color = (int)image.data[(int)(image.width * tex_hp.y + tex_hp.x)];
-			if (color >= 0)
+			if ((color & 0x00FFFFFF) != 0)
 				g->win_img.data[(int)((g->p->res_w) * (y + g->p->res_h / 2)
 					+ (x + g->p->res_w / 2))] = color;
 			x++;

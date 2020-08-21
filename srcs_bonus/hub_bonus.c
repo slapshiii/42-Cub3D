@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 04:35:33 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/21 07:32:47 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/21 23:54:32 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	draw_hp(t_game *g, t_coord coord, int size)
 				y * g->bonus->hp.height / (size)};
 			color = (int)g->bonus->hp.data[(int)(g->bonus->hp.width
 				* tex_hp.y + tex_hp.x)];
-			if (color >= 0)
+			if ((color & 0x00FFFFFF) != 0)
 				g->win_img.data[(int)((g->p->res_w)
 					* (y + coord.y) + (x + coord.x))] = color;
 			x++;
@@ -71,6 +71,7 @@ void	draw_map(t_game *g)
 		g->y = -1;
 		while (++g->y < g->p->res_h / 6)
 		{
+			g->bonus->map.data[(int)(to_win.x * g->y + g->x)] = BLU;
 			if (g->x * g->p->max_x / to_win.x <= ft_strlen(g->p->map[
 (int)(g->y * g->p->max_y / to_win.y)]) && (c = g->p->map[(int)(g->y
 	* g->p->max_y / to_win.y)][(int)(g->x * g->p->max_x / to_win.x)]))
@@ -81,8 +82,6 @@ void	draw_map(t_game *g)
 					g->bonus->map.data[(int)(to_win.x * g->y + g->x)] = WHT;
 				else if (c == '2')
 					g->bonus->map.data[(int)(to_win.x * g->y + g->x)] = RED;
-				else
-					g->bonus->map.data[(int)(to_win.x * g->y + g->x)] = BLU;
 			}
 		}
 	}
