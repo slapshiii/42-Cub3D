@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 03:05:16 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/07 09:06:39 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/21 07:06:47 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,6 @@ int	init_raycast(t_game *g)
 	g->x = 0;
 	if (!(g->zbuffer = (double*)malloc(sizeof(double) * g->p->res_w)))
 		error_exit("pas de malloc\n", g);
-	g->win_img.img = mlx_new_image(g->mlx_ptr, g->p->res_w, g->p->res_h);
-	g->win_img.data = (int*)mlx_get_data_addr(g->win_img.img,
-		&g->win_img.bpp, &g->win_img.sizeline, &g->win_img.endian);
 	while (g->x < (g->p->res_w))
 	{
 		init_raycasting(g);

@@ -6,7 +6,7 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
-#    Updated: 2020/08/21 01:53:31 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/08/21 07:24:44 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,6 +56,7 @@ SRCS_BONUS =	srcs_bonus/main_bonus.c\
 				srcs_bonus/cast_sprite_bonus.c\
 				srcs_bonus/bitmap_bonus.c\
 				srcs_bonus/hub_bonus.c\
+				srcs_bonus/init_bonus.c\
 				srcs_bonus/floorcast_bonus.c\
 				srcs_bonus/animate_attack_bonus.c\
 				srcs_bonus/move_sprite_bonus.c\

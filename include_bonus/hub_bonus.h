@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 04:37:03 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/20 03:38:03 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/21 07:35:24 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@
 # define PLAY_MUSIC "afplay music/cat.mp3 &"
 
 # include "cub3d_bonus.h"
+
+int		init_bonus(t_game *g);
 
 void	init_hud(t_game *g);
 void	draw_hp(t_game *g, t_coord coord, int size);

@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:59:10 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/20 00:25:53 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/21 07:07:32 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,8 @@ int	init_mlx(t_game *g)
 		if (MIN_SIZE_H > g->p->res_h)
 			g->p->res_h = MIN_SIZE_H;
 	}
+	g->win_img.img = mlx_new_image(g->mlx_ptr, g->p->res_w, g->p->res_h);
+	g->win_img.data = (int*)mlx_get_data_addr(g->win_img.img,
+		&g->win_img.bpp, &g->win_img.sizeline, &g->win_img.endian);
 	return (0);
 }

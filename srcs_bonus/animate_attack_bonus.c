@@ -6,31 +6,12 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 04:04:55 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/20 03:29:30 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/21 07:42:03 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include_bonus/cub3d_bonus.h"
 #include "../include_bonus/hub_bonus.h"
-
-void	get_data_image(void *mlx_ptr, t_image *image, char *path)
-{
-	image->img = mlx_xpm_file_to_image(mlx_ptr, path,
-		&image->width, &image->height);
-	image->data = (int*)mlx_get_data_addr(image->img,
-		&image->bpp, &image->sizeline, &image->endian);
-}
-
-void	load_images(t_game *g)
-{
-	get_data_image(g->mlx_ptr, &g->bonus->attack[0], ATTACK_F1_PATH);
-	get_data_image(g->mlx_ptr, &g->bonus->attack[1], ATTACK_F2_PATH);
-	get_data_image(g->mlx_ptr, &g->bonus->attack[2], ATTACK_F3_PATH);
-	get_data_image(g->mlx_ptr, &g->bonus->attack[3], ATTACK_F4_PATH);
-	get_data_image(g->mlx_ptr, &g->bonus->attack[4], ATTACK_F5_PATH);
-	get_data_image(g->mlx_ptr, &g->bonus->end_game, ENDSCREEN_PATH);
-	get_data_image(g->mlx_ptr, &g->bonus->start_game, STARTSCREEN_PATH);
-}
 
 void	draw_attack(t_game *g, t_image image)
 {
