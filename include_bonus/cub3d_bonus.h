@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:39:15 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/20 03:37:48 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/22 01:00:57 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@
 #  include "../minilibx_b/mlx.h"
 # endif
 # include <stdio.h>
+
+# define MASK_KPRESSED 1
+# define MASK_KRELEASE 2
+# define MASK_MSMOTION 64
 
 # define SPEED_WALK 0.063
 # define SPEED_TURN 0.063

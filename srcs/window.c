@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:37:55 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/07 12:42:26 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/22 01:01:54 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int		make_window(t_game *g)
 	init_raycast(g);
 	if (g->save)
 		save_bitmap(g);
-	mlx_hook(g->win_temp, 2, 1, key_press_hook, g);
-	mlx_hook(g->win_temp, 3, 2, key_release_hook, g);
+	mlx_hook(g->win_temp, 2, MASK_KPRESSED, key_press_hook, g);
+	mlx_hook(g->win_temp, 3, MASK_KRELEASE, key_release_hook, g);
 	mlx_hook(g->win_temp, 17, 0, exit_hook, g);
 	mlx_loop_hook(g->mlx_ptr, init_raycast, g);
 	mlx_loop(g->mlx_ptr);

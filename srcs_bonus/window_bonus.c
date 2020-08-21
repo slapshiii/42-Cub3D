@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:37:55 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/20 03:32:22 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/22 00:53:50 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ int	make_window(t_game *g)
 	draw_map(g);
 	if (g->save)
 		save_bitmap(g);
-	mlx_hook(g->win_temp, 2, 1, key_press_hook, g);
-	mlx_hook(g->win_temp, 3, 2, key_release_hook, g);
-	mlx_hook(g->win_temp, 6, 7, mouse_motion_hook, g);
+	mlx_hook(g->win_temp, 2, MASK_KPRESSED, key_press_hook, g);
+	mlx_hook(g->win_temp, 3, MASK_KRELEASE, key_release_hook, g);
+	mlx_hook(g->win_temp, 6, MASK_MSMOTION, mouse_motion_hook, g);
 	mlx_hook(g->win_temp, 17, 0, exit_hook, g);
 	mlx_loop_hook(g->mlx_ptr, check_status_game, g);
 	mlx_loop(g->mlx_ptr);
