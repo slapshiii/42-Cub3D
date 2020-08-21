@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:37:57 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/21 01:46:45 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/21 04:06:35 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int	check_file(char **tab, int index, t_game *g)
 	char	**split;
 	int		res;
 
-	i = 0;
+	i = -1;
 	res = 1;
-	while (i <= index)
+	while (++i <= index)
 	{
 		split = ft_split(tab[i], ' ');
 		if (split && split[0] != NULL)
@@ -39,7 +39,6 @@ int	check_file(char **tab, int index, t_game *g)
 			}
 		}
 		clear_tab(split, 0);
-		i++;
 	}
 	return (0);
 }
