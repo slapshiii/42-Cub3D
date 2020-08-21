@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:37:59 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/21 07:09:59 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/21 07:54:42 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int ac, char **av)
 
 	screen = 0;
 	if (!(g = (t_game*)malloc(sizeof(t_game))))
-			error_exit("Error: Could'n malloc.\n", g);
+		error_exit("Error: Could'n malloc.\n", g);
 	bzero(g, sizeof(t_game));
 	if (ac == 3 && (ft_strncmp(av[2], "--save", 7) == 0))
 		screen = 1;
