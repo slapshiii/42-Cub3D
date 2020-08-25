@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:37:57 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/21 04:06:35 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/25 23:08:46 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int	check_close_map(char **map, int x, int y)
 	if (ft_strchr("02NSWE", map[y][x])
 					&& (y == 0 || x == 0
 						|| x == (int)(ft_strlen(map[y]) - 1) || map[y + 1] == 0
+						|| x > (int)(ft_strlen(map[y + 1]))
 						|| ft_strchr(" \0", map[y + 1][x])
 						|| ft_strchr(" \0", map[y - 1][x])
 						|| ft_strchr(" \0", map[y][x - 1])
