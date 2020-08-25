@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:37:55 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/22 00:53:50 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/26 01:45:23 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int	make_window(t_game *g)
 	g->win_img.data = (int*)mlx_get_data_addr(g->win_img.img,
 		&g->win_img.bpp, &g->win_img.sizeline, &g->win_img.endian);
 	mlx_do_key_autorepeatoff(g->mlx_ptr);
-	init_hud(g);
 	init_raycast(g);
 	draw_map(g);
 	if (g->save)

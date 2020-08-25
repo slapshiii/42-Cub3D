@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:37:59 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/21 07:54:42 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/26 01:07:26 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ int	main(int ac, char **av)
 		ft_game(g, screen, av[1]);
 	else
 		error_exit("Error: Too much/Too few argument.\n", g);
+	// system("leaks Cub3D");
 	exit(0);
 }

@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:37:57 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/20 22:37:57 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/26 01:20:19 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,25 @@ int	check_file(char **tab, int index, t_game *g)
 	char	**split;
 	int		res;
 
-	i = 0;
-	while (i <= index)
+	i = -1;
+	res = 1;
+	while (++i <= index)
 	{
 		split = ft_split(tab[i], ' ');
-		if (split)
+		if (split && split[0] != NULL)
 		{
-			res = 1;
-			if (split[0])
-				res = check_param(split, g->p);
-			if (res == 0 && (res = check_map(tab, g->p, i, index)))
+			res = check_param(split, g->p);
+			if (res == 0)
+			{
+				if (check_map(tab, g->p, i, index) == 0)
+				{
+					clear_tab(split, 0);
+					return (1);
+				}
 				index = -1;
+			}
 		}
 		clear_tab(split, 0);
-		i++;
 	}
 	return (0);
 }
@@ -52,19 +57,16 @@ int	parser_param(t_game *g, char *path)
 			ft_bzero(g->p, sizeof(t_param));
 			while (get_next_line(fd, &temp[i]) > 0)
 				i++;
-			if (check_file(temp, i, g) == 0)
+			close(fd);
+			if (!check_file(temp, i, g) && !check_config(g->p))
 			{
-				if (check_config(g->p))
-				{
-					clear_tab(temp, i);
-					return (1);
-				}
+				clear_tab(temp, i);
+				return (0);
 			}
 			clear_tab(temp, i);
 		}
-		close(fd);
 	}
-	return (0);
+	return (1);
 }
 
 int	check_close_map(char **map, int x, int y)
