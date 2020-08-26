@@ -6,7 +6,7 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
-#    Updated: 2020/08/26 23:16:37 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/08/26 23:19:11 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -132,6 +132,8 @@ clean:
 	@make clean -C $(MLXDIR)
 	@rm -rf libmlx.a
 
+clean_bmp:
+	@rm -rf *.bmp
 
 fclean: clean
 	@rm -f $(NAME)
@@ -144,4 +146,4 @@ norm:
 	norminette include*/*.h
 	norminette srcs*/*.c
 
-.PHONY : all clean clean_mandatory clean_bonus fclean re bonus norm
+.PHONY : all clean clean_mandatory clean_bonus clean_bmp fclean re bonus norm

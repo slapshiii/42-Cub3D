@@ -1,7 +1,7 @@
            
 
 
-R 800			 600 
+R 800         600 
 
 
 
@@ -11,7 +11,7 @@ SO   texture/south.xpm
 WE   texture/west.xpm 
 EA   texture/east.xpm 
 S    texture/sprite.xpm     
-F 87,58,24
+F           87,58,24
 C   111,174,29
 
                                            1

@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/18 14:34:56 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/26 22:49:05 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/26 23:27:34 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,13 @@ int		parser_file(t_game *g)
 	if (load_image(g, &g->texture[0], g->p->path_sprite) == -1)
 		error_exit("Couldn load sprite\n", g);
 	if (load_image(g, &g->texture[1], g->p->path_no) == -1)
-		error_exit("Couldn load sprite\n", g);
+		error_exit("Couldn load north texture\n", g);
 	if (load_image(g, &g->texture[2], g->p->path_so) == -1)
-		error_exit("Couldn load sprite\n", g);
+		error_exit("Couldn load south texture\n", g);
 	if (load_image(g, &g->texture[3], g->p->path_ea) == -1)
-		error_exit("Couldn load sprite\n", g);
+		error_exit("Couldn load east texture\n", g);
 	if (load_image(g, &g->texture[4], g->p->path_we) == -1)
-		error_exit("Couldn load sprite\n", g);
+		error_exit("Couldn load west texture\n", g);
 	init_data(g);
 	return (0);
 }
