@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:50:41 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/26 09:00:25 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/26 22:36:07 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,6 @@
 # include <fcntl.h>
 # include "cub3d.h"
 # include "struct.h"
-
-# ifdef __APPLE__
-
-int	mlx_get_screen_size(void *mlx_ptr, int *width, int *height);
-
-# endif
 
 int		check_file(char **tab, int index, t_game *g);
 int		parser_param(t_game *g, char *path);

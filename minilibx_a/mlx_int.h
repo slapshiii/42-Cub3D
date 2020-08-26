@@ -101,4 +101,5 @@ void	*mlx_new_image();
 void    *mlx_xpm_to_image(mlx_ptr_t *xvar,char **xpm_data,int *width,int *height);
 int	mlx_do_sync(mlx_ptr_t *mlx_ptr);
 int	mlx_screen_size(void *mlx_ptr, int *width, int *height);
+void	free_mlx_ptr(void *mlx_ptr);
 

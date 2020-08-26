@@ -37,7 +37,12 @@ void do_loop_flush(CFRunLoopObserverRef observer, CFRunLoopActivity activity, vo
     }
 }
 
-
+void	free_mlx_ptr(void *mlx_ptr)
+{
+	free(((mlx_ptr_t *)(mlx_ptr))->font->buffer);
+	free(((mlx_ptr_t *)(mlx_ptr))->font);
+	free(mlx_ptr);
+}
 
 
 void *mlx_init()

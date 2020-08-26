@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/18 14:34:56 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/26 08:57:47 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/26 22:17:30 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,22 +65,4 @@ int		parser_file(t_game *g)
 		error_exit("Couldn load sprite\n", g);
 	init_data(g);
 	return (0);
-}
-
-void	destroy_image(t_game *g, t_image *image)
-{
-	if (image->img != NULL)
-	{
-		mlx_destroy_image(g->mlx_ptr, image->img);
-	}
-}
-
-void	clear_image(t_game *g)
-{
-	destroy_image(g, &g->texture[0]);
-	destroy_image(g, &g->texture[1]);
-	destroy_image(g, &g->texture[2]);
-	destroy_image(g, &g->texture[3]);
-	destroy_image(g, &g->texture[4]);
-	destroy_image(g, &g->win_img);
 }

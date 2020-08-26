@@ -53,6 +53,7 @@ void	*mlx_init();
 **  return (void *)0 if failed
 */
 
+void	free_mlx_ptr(void *mlx_ptr);
 
 /*
 ** Basic actions

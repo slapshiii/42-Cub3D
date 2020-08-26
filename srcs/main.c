@@ -6,13 +6,16 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:37:59 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/21 05:36:56 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/26 22:33:55 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 #include "../libft/libft.h"
 
+/*
+**void	end(void) __attribute__((destructor));
+*/
 int	main(int ac, char **av)
 {
 	t_game	*g;
@@ -30,3 +33,10 @@ int	main(int ac, char **av)
 		error_exit("Error: Too much/Too few argument.\n", g);
 	return (0);
 }
+
+/*
+**void	end(void)
+**{
+**	system("leaks Cub3D");
+**}
+*/
