@@ -6,7 +6,7 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
-#    Updated: 2020/08/26 23:19:11 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/08/26 23:41:01 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -137,6 +137,8 @@ clean_bmp:
 
 fclean: clean
 	@rm -f $(NAME)
+	@make fclean -C $(LIBFTDIR)
+	@make fclean -C $(GNLDIR)
 
 re: fclean all
 	@make re -C $(LIBFTDIR)
