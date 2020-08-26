@@ -41,6 +41,12 @@ void	*mlx_init()
 	return (xvar);
 }
 
+void	free_mlx_ptr(void *mlx_ptr)
+{
+	free(((mlx_ptr_t *)(mlx_ptr))->font->buffer);
+	free(((mlx_ptr_t *)(mlx_ptr))->font);
+	free(mlx_ptr);
+}
 
 /*
 ** pshm_format of -1 :	Not XYBitmap|XYPixmap|ZPixmap

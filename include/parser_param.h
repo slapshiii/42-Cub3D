@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:50:41 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/26 22:36:07 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/26 22:37:22 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		check_config(t_param *p);
 int		init_mlx(t_game *g);
 int		parser_file(t_game *g);
 void	init_data(t_game *g);
-int		load_image(t_game *g, t_image *image, char* path);
+int		load_image(t_game *g, t_image *image, char *path);
 int		parser_file(t_game *g);
 void	destroy_image(t_game *g, t_image *image);
 void	clear_image(t_game *g);

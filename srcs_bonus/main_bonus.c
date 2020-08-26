@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 14:37:59 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/26 22:34:06 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/26 22:39:45 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 /*
 **void	end(void) __attribute__((destructor));
 */
+
 int	main(int ac, char **av)
 {
 	t_game	*g;
@@ -33,7 +34,6 @@ int	main(int ac, char **av)
 		error_exit("Error: Too much/Too few argument.\n", g);
 	exit(0);
 }
-
 /*
 **void	end(void)
 **{

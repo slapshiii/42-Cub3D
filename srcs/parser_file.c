@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/18 14:34:56 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/26 22:17:30 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/26 22:39:32 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	init_data(t_game *g)
 	}
 }
 
-int		load_image(t_game *g, t_image *image, char* path)
+int		load_image(t_game *g, t_image *image, char *path)
 {
 	if (!(image->img = mlx_xpm_file_to_image(g->mlx_ptr, path, &(image->width),
 					&(image->height)))
