@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 02:02:48 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/20 03:29:42 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/26 23:01:58 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,15 +75,15 @@ void	draw_sprite(t_game *g, t_coord draw_y, t_coord draw_x, int x)
 	{
 		g->y = draw_y.x;
 		g->tex_x = (int)(256 * (g->x - (-(g->sprite_w) / 2 + g->sprite_screen))
-			* g->texture[4].width / g->sprite_w) / 256;
+			* g->texture[0].width / g->sprite_w) / 256;
 		if (g->trans.y > 0 && g->x > 0
 			&& g->x < g->p->res_w && g->trans.y < g->zbuffer[g->x])
 			while (g->y < draw_y.y)
 			{
 				d = (g->y - g->movscreen) * 256
 					- g->p->res_h * 128 + g->sprite_h * 128;
-				g->tex_y = ((d * g->texture[4].height) / g->sprite_h) / 256;
-				color = (int)g->texture[4].data[(g->texture[4].width)
+				g->tex_y = ((d * g->texture[0].height) / g->sprite_h) / 256;
+				color = (int)g->texture[0].data[(g->texture[0].width)
 					* g->tex_y + g->tex_x];
 				if ((color & 0x00FFFFFF) != 0)
 					check_hp(g, color, x);

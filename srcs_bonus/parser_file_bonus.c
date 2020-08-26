@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/18 14:34:56 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/26 22:39:58 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/26 23:01:31 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,11 @@ int		load_image(t_game *g, t_image *image, char *path)
 int		parser_file(t_game *g)
 {
 	init_bonus(g);
-	if ((load_image(g, &g->texture[4], g->p->path_sprite)
-	|| load_image(g, &g->texture[3], g->p->path_no)
+	if ((load_image(g, &g->texture[0], g->p->path_sprite)
+	|| load_image(g, &g->texture[1], g->p->path_no)
 	|| load_image(g, &g->texture[2], g->p->path_so)
-	|| load_image(g, &g->texture[1], g->p->path_ea)
-	|| load_image(g, &g->texture[0], g->p->path_we)
+	|| load_image(g, &g->texture[3], g->p->path_ea)
+	|| load_image(g, &g->texture[4], g->p->path_we)
 	|| load_image(g, &g->texture_floor, FLOOR_PATH)
 	|| load_image(g, &g->texture_ceil, CEILING_PATH)
 	|| load_image(g, &g->bonus->hp, HEALTH_PATH)
@@ -79,7 +79,7 @@ int		parser_file(t_game *g)
 
 void	destroy_image(t_game *g, t_image *image)
 {
-	if (image->img != NULL)
+	if (image && image->img != NULL)
 	{
 		mlx_destroy_image(g->mlx_ptr, image->img);
 	}
@@ -94,14 +94,17 @@ void	clear_image(t_game *g)
 	destroy_image(g, &g->texture[4]);
 	destroy_image(g, &g->texture_floor);
 	destroy_image(g, &g->texture_ceil);
-	destroy_image(g, &g->bonus->hp);
-	destroy_image(g, &g->bonus->attack[0]);
-	destroy_image(g, &g->bonus->attack[1]);
-	destroy_image(g, &g->bonus->attack[2]);
-	destroy_image(g, &g->bonus->attack[3]);
-	destroy_image(g, &g->bonus->attack[4]);
-	destroy_image(g, &g->bonus->end_game);
-	destroy_image(g, &g->bonus->start_game);
-	destroy_image(g, &g->bonus->map);
+	if (g->bonus)
+	{
+		destroy_image(g, &g->bonus->hp);
+		destroy_image(g, &g->bonus->attack[0]);
+		destroy_image(g, &g->bonus->attack[1]);
+		destroy_image(g, &g->bonus->attack[2]);
+		destroy_image(g, &g->bonus->attack[3]);
+		destroy_image(g, &g->bonus->attack[4]);
+		destroy_image(g, &g->bonus->end_game);
+		destroy_image(g, &g->bonus->start_game);
+		destroy_image(g, &g->bonus->map);
+	}
 	destroy_image(g, &g->win_img);
 }

@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 15:26:04 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/26 22:04:36 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/26 22:49:49 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ void	clear_game(t_game *g)
 			clear_path(g->p);
 			free(g->p);
 		}
-		free_mlx_ptr(g->mlx_ptr);
+		if (g->mlx_ptr)
+			free_mlx_ptr(g->mlx_ptr);
 		free(g);
 	}
 }

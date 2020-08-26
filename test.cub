@@ -1,4 +1,4 @@
-R 200 300
+R 400 400
 NO texture/brick.xpm  
 SO      texture/wall.xpm  
 WE          texture/west.xpm  
@@ -11,6 +11,6 @@ C  255,74,250
 
 111111
 122221
-122221
-1222N1
+122211
+1221N1
 111111
