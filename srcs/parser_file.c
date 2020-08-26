@@ -6,7 +6,7 @@
 /*   By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/18 14:34:56 by phnguyen          #+#    #+#             */
-/*   Updated: 2020/08/21 01:33:08 by phnguyen         ###   ########.fr       */
+/*   Updated: 2020/08/26 08:57:47 by phnguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,45 +40,47 @@ void	init_data(t_game *g)
 	}
 }
 
-int		parser_file(t_game *g)
+int		load_image(t_game *g, t_image *image, char* path)
 {
-	if (!(g->texture[0].img = mlx_xpm_file_to_image(g->mlx_ptr,
-					g->p->path_sprite, &(g->texture[0].width),
-					&(g->texture[0].height)))
-			|| !(g->texture[1].img = mlx_xpm_file_to_image(g->mlx_ptr,
-					g->p->path_no, &(g->texture[1].width),
-					&(g->texture[1].height)))
-			|| !(g->texture[2].img = mlx_xpm_file_to_image(g->mlx_ptr,
-					g->p->path_so, &(g->texture[2].width),
-					&(g->texture[2].height)))
-			|| !(g->texture[3].img = mlx_xpm_file_to_image(g->mlx_ptr,
-					g->p->path_ea, &(g->texture[3].width),
-					&(g->texture[3].height)))
-			|| !(g->texture[4].img = mlx_xpm_file_to_image(g->mlx_ptr,
-					g->p->path_we, &(g->texture[4].width),
-					&(g->texture[4].height))))
-		return (-1);
-	init_data(g);
-	return (get_data_file(g));
-}
-
-int		get_data_file(t_game *g)
-{
-	if (!(g->texture[0].data = (int*)mlx_get_data_addr(g->texture[0].img,
-					&g->texture[0].bpp, &g->texture[0].sizeline,
-					&g->texture[0].endian))
-			|| !(g->texture[1].data = (int*)mlx_get_data_addr(g->texture[1].img,
-					&g->texture[1].bpp, &g->texture[1].sizeline,
-					&g->texture[1].endian))
-			|| !(g->texture[2].data = (int*)mlx_get_data_addr(g->texture[2].img,
-					&g->texture[2].bpp, &g->texture[2].sizeline,
-					&g->texture[2].endian))
-			|| !(g->texture[3].data = (int*)mlx_get_data_addr(g->texture[3].img,
-					&g->texture[3].bpp, &g->texture[3].sizeline,
-					&g->texture[3].endian))
-			|| !(g->texture[4].data = (int*)mlx_get_data_addr(g->texture[4].img,
-					&g->texture[4].bpp, &g->texture[4].sizeline,
-					&g->texture[4].endian)))
+	if (!(image->img = mlx_xpm_file_to_image(g->mlx_ptr, path, &(image->width),
+					&(image->height)))
+	|| (!(image->data = (int*)mlx_get_data_addr(image->img,
+					&image->bpp, &image->sizeline,
+					&image->endian))))
 		return (-1);
 	return (0);
+}
+
+int		parser_file(t_game *g)
+{
+	if (load_image(g, &g->texture[0], g->p->path_sprite) == -1)
+		error_exit("Couldn load sprite\n", g);
+	if (load_image(g, &g->texture[1], g->p->path_no) == -1)
+		error_exit("Couldn load sprite\n", g);
+	if (load_image(g, &g->texture[2], g->p->path_so) == -1)
+		error_exit("Couldn load sprite\n", g);
+	if (load_image(g, &g->texture[3], g->p->path_ea) == -1)
+		error_exit("Couldn load sprite\n", g);
+	if (load_image(g, &g->texture[4], g->p->path_we) == -1)
+		error_exit("Couldn load sprite\n", g);
+	init_data(g);
+	return (0);
+}
+
+void	destroy_image(t_game *g, t_image *image)
+{
+	if (image->img != NULL)
+	{
+		mlx_destroy_image(g->mlx_ptr, image->img);
+	}
+}
+
+void	clear_image(t_game *g)
+{
+	destroy_image(g, &g->texture[0]);
+	destroy_image(g, &g->texture[1]);
+	destroy_image(g, &g->texture[2]);
+	destroy_image(g, &g->texture[3]);
+	destroy_image(g, &g->texture[4]);
+	destroy_image(g, &g->win_img);
 }
