@@ -6,7 +6,7 @@
 #    By: phnguyen <phnguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/08 13:50:03 by phnguyen          #+#    #+#              #
-#    Updated: 2020/08/26 21:58:51 by phnguyen         ###   ########.fr        #
+#    Updated: 2020/08/26 23:16:37 by phnguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -100,10 +100,10 @@ LIBS = 	$(LIBFTDIR)libft.a\
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(LIBS) $(HEADER)
+$(NAME): clean_bonus $(OBJS) $(LIBS) $(HEADER)
 	@$(CC) -O3 $(FLAGS) -L. -o $(NAME) $(OBJS) $(LIBS) $(MLXFLAG)
 
-bonus: $(OBJS_BONUS) $(LIBS) $(HEADER_BONUS)
+bonus: clean_mandatory $(OBJS_BONUS) $(LIBS) $(HEADER_BONUS)
 	@$(CC) -O3 $(FLAGS) -L. -o $(NAME) $(OBJS_BONUS) $(LIBS) $(MLXFLAG)
 
 
@@ -116,6 +116,14 @@ $(LIBS):
 %.o:	%.c
 	$(CC) -O3 $(FLAGS) -c $< -o $(<:.c=.o)
 
+clean_bonus:
+	@rm -rf $(OBJS_BONUS)
+	@rm -f $(NAME)
+
+clean_mandatory:
+	@rm -rf $(OBJS)
+	@rm -f $(NAME)
+
 clean:
 	@rm -rf $(OBJS)
 	@rm -rf $(OBJS_BONUS)
@@ -127,8 +135,6 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
-	@make fclean -C $(LIBFTDIR)
-	@make fclean -C $(GNLDIR)
 
 re: fclean all
 	@make re -C $(LIBFTDIR)
@@ -138,4 +144,4 @@ norm:
 	norminette include*/*.h
 	norminette srcs*/*.c
 
-.PHONY : all clean fclean re bonus norm
+.PHONY : all clean clean_mandatory clean_bonus fclean re bonus norm
